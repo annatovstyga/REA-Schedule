@@ -272,7 +272,5 @@ public enum AutocompleteType {
     }
     
     // remove observer on deinit
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
+ 
 }

@@ -31,9 +31,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBAction func searchClick(sender: AnyObject) {
 //TODO delete
     }
-    func updateNotificationSentLabel() {
-     
-    }
+    
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
@@ -105,6 +103,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             
         })
         super.viewDidLoad()
+        
         
     }
     
