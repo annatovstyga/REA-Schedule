@@ -15,9 +15,10 @@ class MainTableViewController: UITableViewController {
     var currentWeek: Int = 0
     
     var week: OneWeek = OneWeek()
-    var day:  OneDay  = OneDay()
+    var realmDay:  OneDay  = OneDay()
     var lesson: OneLesson = OneLesson()
-
+    var realmDayToFill:Day = Day()
+    
     // MARK: - View methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,6 @@ class MainTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 120
         self.tableView.rowHeight = self.view.frame.size.height / 5
         rowH = self.tableView.rowHeight
-
     }
     
 
@@ -44,10 +44,10 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if(day.lessons?.count != nil){
+        print("count - \(realmDayToFill.lessons.count)")
+        if(realmDayToFill.lessons.count != 0){
             
-            if(day.lessons?.count>4)
+            if(realmDayToFill.lessons.count>4)
             {
                 tableView.scrollEnabled = true
             }
@@ -55,7 +55,7 @@ class MainTableViewController: UITableViewController {
             {
                 tableView.scrollEnabled = false
             }
-            return (day.lessons?.count)!
+            return (realmDayToFill.lessons.count)
         }
         else{
             return 1
@@ -67,26 +67,26 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if(day.lessons?.count != nil){
+        if(realmDayToFill.lessons.count != 0){
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! CustomTableViewCell
         
-        cell.titleCell.text = day.lessons![indexPath.item].discipline
+        cell.titleCell.text = realmDayToFill.lessons[indexPath.item].discipline
         
-        cell.timeCell.text = "\(day.lessons![indexPath.item].lessonStart!) - \(day.lessons![indexPath.item].lessonEnd!)"
-        
-        cell.descriptionCell.text = "\(parseLessonType(day.lessons![indexPath.item].lessonType!)) | \(day.lessons![indexPath.item].startWeek!)-\(day.lessons![indexPath.item].endWeek!) неделя | "
-        if((day.lessons![indexPath.item].lector != nil)&&(amistudent)){
-            cell.descriptionCell.text?.appendContentsOf(day.lessons![indexPath.item].lector!)
+        cell.timeCell.text = "\(realmDayToFill.lessons[indexPath.item].lessonStart!) - \(realmDayToFill.lessons[indexPath.item].lessonEnd!)"
+            print("lalalal - \(realmDayToFill.lessons[indexPath.item].startWeek)")
+        cell.descriptionCell.text = " | \(realmDayToFill.lessons[indexPath.item].startWeek!)-\(realmDayToFill.lessons[indexPath.item].endWeek!) неделя | "
+        if((realmDayToFill.lessons[indexPath.item].lector != nil)&&(amistudent)){
+            cell.descriptionCell.text?.appendContentsOf(realmDayToFill.lessons[indexPath.item].lector!)
         }
         else
         {
-                for group in day.lessons![indexPath.item].groups!
-                {
-                cell.descriptionCell.text?.appendContentsOf("\(group) ")
-                }
+//                for group in realmDayToFill.lessons[indexPath.item].groups!
+//                {
+//                cell.descriptionCell.text?.appendContentsOf("\(group) ")
+//                }
         }
-        cell.placeCell.text = "Ауд. \(day.lessons![indexPath.item].room!) (\(day.lessons![indexPath.item].building!) к. \(day.lessons![indexPath.item].house!))"
+        cell.placeCell.text = "Ауд. \(realmDayToFill.lessons[indexPath.item].room!) (\(realmDayToFill.lessons[indexPath.item].building!) к. \(realmDayToFill.lessons[indexPath.item].house))"
     
         return cell
         }

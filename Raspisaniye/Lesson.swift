@@ -10,18 +10,18 @@ import Foundation
 import RealmSwift
 
 class Lesson: Object {
-    var lessonNumber: String?
-    var hashID:     String?
-    var lessonType: String?
-    var room:       String?
-    var lessonStart: String?
-    var lessonEnd: String?
-    var discipline: String?
-    var building:   String?
-    var lector:     String?
-    var house:      Int?
-    var startWeek: Int?
-    var endWeek: Int?
+    dynamic var lessonNumber: String?
+    dynamic var hashID:     String?
+    dynamic var lessonType: String?
+    dynamic var room:       String?
+    dynamic var lessonStart: String?
+    dynamic var lessonEnd: String?
+    dynamic var discipline: String?
+    dynamic var building:   String?
+    dynamic var lector:     String?
+    dynamic var house:      String? = nil
+    dynamic var startWeek: String? = nil
+    dynamic var endWeek: String? = nil
     
 //    override static func primaryKey() -> String? {
 //        return "hashID"

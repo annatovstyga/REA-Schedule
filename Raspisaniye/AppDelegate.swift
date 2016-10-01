@@ -10,11 +10,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 var window: UIWindow?
 
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        print("REALMFILE - \(Realm.Configuration.defaultConfiguration.fileURL!)")
         let mainVcIntial = kConstantObj.SetIntialMainViewController("mainTabBar")
         self.window?.rootViewController = mainVcIntial
         self.window?.makeKeyAndVisible()
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+    
         // Override point for customization after application launch.
         return true
 }

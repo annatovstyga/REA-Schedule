@@ -11,9 +11,9 @@ import RealmSwift
 
 class Day: Object {
     var lessons = List<Lesson>()
-    var dayName:  String?
+    dynamic var dayName:  String?
     
-    var date: String?
+    dynamic var date: String?
    
 //    override static func primaryKey() -> String? {
 //        return "date"

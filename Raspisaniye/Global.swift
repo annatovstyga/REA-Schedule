@@ -3,11 +3,13 @@ import Foundation
 import UIKit
 import SwiftyJSON
 import RealmSwift
-
+import SwiftDate
 let defaults = NSUserDefaults.standardUserDefaults()
 var jsonDataList:JSON?
 var selectedDay:Int = 1
 var weekNumber:Int = 1
+
+var selectedDate = DateInRegion()
 
 var firstOfSeptember:NSDate? = NSDate()
 var isGCMReceived:Bool? = defaults.objectForKey("isGCM") as? Bool ?? Bool()
@@ -48,10 +50,13 @@ func parseLessonType(notParsedString:String) -> String
     {
         case "Л":
             return "Лекция"
+        break
         case "С":
             return "Семинар"
+        break
         case "П":
             return "Практ. занятие"
+        break
         default:
             return "Занятие"
     }
@@ -138,13 +143,14 @@ func parse(jsontoparse:JSON,successBlock: [OneWeek] -> ())
     try! realm.write {
         realm.deleteAll()
     }
+    print(jsontoparse)
     SwiftSpinner.show("Немного волшебства")
     var schedule: [OneWeek] = []
     
     
     var rasp = Schedule()
     rasp.year = "2016"
-    print(jsontoparse)
+    print("from parse with love \(jsontoparse)")
     
     for semestr in jsontoparse["success"]["data"] {
 
@@ -185,7 +191,7 @@ func parse(jsontoparse:JSON,successBlock: [OneWeek] -> ())
                         // Main properties
                         let lessonNumber        = Int(lessonData.0)
                         let hashID: String?     = lessonData.1["hash_id"].string
-                        let lessonType: String? = lessonData.1["lesson_type"].string
+                         let lessonType: String? = lessonData.1["lesson_type"].string
                         let room: String?       = lessonData.1["room"].string
                         let lessonStart: String? = lessonData.1["lesson_start"].string
                         let lessonEnd: String?   = lessonData.1["lesson_end"].string
@@ -210,11 +216,13 @@ func parse(jsontoparse:JSON,successBlock: [OneWeek] -> ())
                         
                         
                         var subject = Lesson()
-
                         
+
+                        try! realm.write {
+                    
                         subject.lessonNumber = lessonData.0
                         subject.hashID  = lessonData.1["hash_id"].string
-                        subject.lessonType = lessonData.1["lesson_type"].string
+                        subject.lessonType = lessonData.1["lesson_type"].stringValue
                         subject.room = lessonData.1["room"].string
                         subject.lessonStart = lessonData.1["lesson_start"].string
                         subject.lessonEnd = lessonData.1["lesson_end"].string
@@ -222,9 +230,12 @@ func parse(jsontoparse:JSON,successBlock: [OneWeek] -> ())
                         subject.lessonType = lessonData.1["lessontype"].string
                         subject.building = lessonData.1["building"].string
                         subject.lector = lessonData.1["lector"].string
-                        subject.house  = lessonData.1["housing"].int
-                        subject.startWeek = lessonData.1["week_start"].int
-                        subject.endWeek = lessonData.1["week_end"].int
+                        subject.house  = lessonData.1["housing"].stringValue
+                        subject.startWeek = lessonData.1["week_start"].stringValue
+                        print("start \(subject.startWeek)")
+                        print("end - \(lessonData.1["week_start"].stringValue)")
+                        subject.endWeek = lessonData.1["week_end"].stringValue
+                        }
                        
                         
                         
@@ -311,5 +322,27 @@ func getDayOfWeek()->Int? {
   
     
     return ((dayOfWeek - 1) > 5) ? (5) : (dayOfWeek - 1)
+}
+
+func datesForCurrentWeek() -> [NSDate]
+{
+    let date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
+    
+    let components = calendar.components([.Weekday], fromDate: date)
+    let weekday = components.weekday == 1 ? 8 : components.weekday
+    
+    var weekArray = [NSDate]()
+    
+    for i in 2 ... 8
+    {
+        let components = NSDateComponents()
+        components.day = i - weekday
+        weekArray.append(calendar.dateByAddingComponents(components, toDate: date, options: [])!)
+    }
+    print("week is \(weekArray)")
+    return weekArray
+
+    
 }
 

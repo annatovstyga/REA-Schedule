@@ -29,6 +29,7 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         
     }
     
+    
     @IBAction func enterClick(sender: AnyObject) {
         
     if((self.textField.suggestionNormal.lowercaseString.rangeOfString(self.textField.text!.lowercaseString)) != nil)
@@ -72,7 +73,24 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         view.endEditing(true)
     }
     @IBOutlet weak var textField: AutocompleteField!
+//    
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        
+//        if textField.isFirstResponder() == true {
+//            textField.placeholder = nil
+//        }
+//    }
+//    func textFieldDidBeginEditing(textField: AutocompleteField) {
+//        if textField.isFirstResponder() == true {
+//        textField.placeholder = nil
+//                    }
+//                }
+    
     override func viewDidLoad() {
+        
+      
+        
+        
         textField.autocompleteType = .Sentence
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -149,6 +167,9 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
             
             success in
             jsonDataList = success
+            parse(jsonDataList!, successBlock: { (nil) in
+                //
+            })
             successBlock()
             }, failure: {error in print(error)})
     }
