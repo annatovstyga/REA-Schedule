@@ -194,7 +194,7 @@ public enum AutocompleteType {
         }
         
         label.attributedText = attributedString
-        label.textAlignment = self.textAlignment
+        label.textAlignment = .Right
     }
     
     /**

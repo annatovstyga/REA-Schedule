@@ -21,12 +21,45 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     var currentWeek: Int = 0
     // MARK: - View methods
     
+    
+    override func viewDidLoad() {
+        
+        textField.autocompleteType = .Sentence
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        if(amistudent){
+            textField.placeholder = "Введите вашу группу"
+            textField.suggestions = groupsArray
+        }
+        else{
+            textField.placeholder = "Введите имя преподавателя"
+            textField.suggestions = lectorsArray
+        }
+        
+        textField.autocorrectionType = .No
+        self.textField.delegate = self;
+        for (value, _) in lectorsNamesList {
+            lectorsArray.append(value)
+        }
+        lectorsArray.sortInPlace(before)
+        
+        for (value, _) in groupNamesList {
+            groupsArray.append(value)
+        }
+        groupsArray.sortInPlace(before)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        
+        super.viewDidLoad()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
     }
-    
-    
+
     @IBAction func enterClick(sender: AnyObject) {
         
     if((self.textField.suggestionNormal.lowercaseString.rangeOfString(self.textField.text!.lowercaseString)) != nil)
@@ -66,49 +99,12 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
  
         
     }
+    
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
     @IBOutlet weak var textField: AutocompleteField!
-    
-    override func viewDidLoad() {
-        
-      
-        
-        
-        textField.autocompleteType = .Sentence
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        if(amistudent){
-        textField.suggestions = groupsArray
-        }
-        else{
-            textField.suggestions = lectorsArray
-        }
-        textField.autocorrectionType = .No
-         self.textField.delegate = self;
-            for (value, _) in lectorsNamesList {
-                lectorsArray.append(value)
-            }
-            lectorsArray.sortInPlace(before)
-            
-            for (value, _) in groupNamesList {
-                groupsArray.append(value)
-            }
-            groupsArray.sortInPlace(before)
-            //        groupsArray.sortInPlace(before)
-
-        
-
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
-            
-            
- 
-                super.viewDidLoad()
-        
-    
-    }
     
     func showWarning() {
         let alertController = UIAlertController(title: "Некоректный ввод!", message:
@@ -151,10 +147,6 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     }()
     
     // MARK: - IBActions
-
-    
-    
-    // MARK: - Text field delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.textField.text = self.textField.suggestion
         self.view.endEditing(true)
