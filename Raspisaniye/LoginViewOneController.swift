@@ -61,14 +61,12 @@ class LoginViewOneController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        if(segue.identifier == "studLogin")
-        {
+        if(segue.identifier == "studLogin"){
             slString = "group"
             amistudent = true;
             defaults.setBool(true, forKey: "amistudent")
         }
-        else
-        {
+        else{
             slString = "lector"
             amistudent = false;
             defaults.setBool(false, forKey: "amistudent")

@@ -24,16 +24,26 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
-  - SwiftDate (3.0.8)
+  - SwiftDate (3.0.9)
   - SwiftSpinner (0.8.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.5)
   - Google/CloudMessaging
-  - SwiftDate (~> 3.0.8)
+  - SwiftDate (from `https://github.com/malcommac/SwiftDate.git`, branch `feature/swift_23`)
   - SwiftSpinner
   - SwiftyJSON
+
+EXTERNAL SOURCES:
+  SwiftDate:
+    :branch: feature/swift_23
+    :git: https://github.com/malcommac/SwiftDate.git
+
+CHECKOUT OPTIONS:
+  SwiftDate:
+    :commit: 1608e37a42a4f1fec52b324f4f96726d414bd04b
+    :git: https://github.com/malcommac/SwiftDate.git
 
 SPEC CHECKSUMS:
   Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
@@ -45,10 +55,10 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
-  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
+  SwiftDate: fa487d9b7d8c3070ea2553486902494f4915465d
   SwiftSpinner: 11c2c5ec7443d92f3026d3067ca8a91d4adef13f
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 7928c3dfa3d38473a9d0a0c7b2f1d0cfe30308cd
+PODFILE CHECKSUM: 24af59ff08957ca58d6cb6cec3c524679f18789c
 
 COCOAPODS: 1.0.1

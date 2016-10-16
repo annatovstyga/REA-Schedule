@@ -10,9 +10,6 @@ import UIKit
 import Foundation
 class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     
-
-    
-    
     // MARK: - Properties
 
     @IBOutlet weak var label_IT_lab_: UILabel!
@@ -73,18 +70,6 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         view.endEditing(true)
     }
     @IBOutlet weak var textField: AutocompleteField!
-//    
-//    func textFieldDidBeginEditing(textField: UITextField) {
-//        
-//        if textField.isFirstResponder() == true {
-//            textField.placeholder = nil
-//        }
-//    }
-//    func textFieldDidBeginEditing(textField: AutocompleteField) {
-//        if textField.isFirstResponder() == true {
-//        textField.placeholder = nil
-//                    }
-//                }
     
     override func viewDidLoad() {
         
@@ -140,13 +125,20 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         defaults.setObject(subjectName.0, forKey: "subjectID")
         defaults.setObject(subjectName.1, forKey: "subjectName")
         dispatch_async(dispatch_get_main_queue(), {
-            self.updateSchedule(itemID: subjectName.0, successBlock: {
+            updateSchedule(itemID: subjectName.0, successBlock: {
                 successBlock in
-                defaults.setValue(jsonDataList?.rawString(), forKey: "jsonData")
-                self.performSegueWithIdentifier("fromLogin", sender: self)
+                dispatch_async(dispatch_get_main_queue(), {
+                parse(jsonDataList!, successBlock: { (parsed) in
+                    let aDelegate = UIApplication.sharedApplication().delegate
+                    let mainVcIntial = kConstantObj.SetIntialMainViewController("mainTabBar")
+                    aDelegate!.window?!.rootViewController = mainVcIntial
+                    aDelegate!.window?!.makeKeyAndVisible()
+                })
+                })
             })
         })
     }
+    
     private let data: [String] = {
             var data:[String] = []
             if(amistudent){
@@ -155,24 +147,10 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
             else{
                 data = lectorsArray
             }
-                return data
+        return data
     }()
     
     // MARK: - IBActions
-    
-    
-    func updateSchedule(itemID itemID: Int, successBlock: Void -> ()) {
-        
-        InternetManager.sharedInstance.getLessonsList(["who":slString!,"id":itemID,"timestamp":0], success: {
-            
-            success in
-            jsonDataList = success
-            parse(jsonDataList!, successBlock: { (nil) in
-                //
-            })
-            successBlock()
-            }, failure: {error in print(error)})
-    }
 
     
     
@@ -183,9 +161,6 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         return false
     }
 
-    
-
-    
     func keyboardWillShow(sender: NSNotification) {
         self.view.frame.origin.y = -150
       

@@ -9,7 +9,7 @@ pod 'Alamofire', '~> 3.5'
 pod 'SwiftyJSON'
 pod "SwiftSpinner"
 pod 'Google/CloudMessaging'
-pod ‘SwiftDate’, '~> 3.0.8’
+pod ‘SwiftDate’, :git => 'https://github.com/malcommac/SwiftDate.git', :branch => 'feature/swift_23’
 
 end
 
