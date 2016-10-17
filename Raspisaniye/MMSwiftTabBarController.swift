@@ -6,6 +6,7 @@ import SwiftDate
 
 class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
+    @IBOutlet var weekdaysButtons: Array<UIButton>!
     // MARK: Propiertes
     var selectedDate = DateInRegion()
     @IBOutlet weak var tabBarView: UIView!
@@ -15,7 +16,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet var tabBarButtons: Array<UIButton>!
     var currentViewController: UIViewController?
     @IBOutlet weak var subjectNameLabel: UILabel!
-    
+    let yearNow = NSDate().year
     let realm = try! Realm()
     var weekNumberTab:Int? = 1
     var realmDay:Day = Day()
@@ -27,10 +28,9 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         {
             selectedDate = selectedDate + 1.days
         }
-        
+        self.subjectNameLabel.text = subjectNameMemory
         updateRealmDay()
         
-        print("selectedDate on load - \(selectedDate)")
         
         //Week navigation gestures
         let screenForwardEdgeRecognizer: UISwipeGestureRecognizer! = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekForward(_:)))
@@ -51,7 +51,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         sideMenuVC.toggleMenu()
     }
    
-    @IBAction func monClick(sender: AnyObject) {
+    @IBAction func mondayClick(sender: AnyObject) {
         
         if(selectedDate.weekday > 2)
         {
@@ -61,7 +61,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         }
         updateRealmDay()
     }
-    
+
     @IBAction func TueClick(sender: AnyObject) {
 
         if(selectedDate.weekday > 3){
@@ -203,7 +203,34 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         else{
             performSegueWithIdentifier("voidLessons", sender: self)
         }
-        weekLabel.text = dateInFormat
+        let regionRome = Region(calendarName: .Current, timeZoneName: TimeZoneName.EuropeMoscow, localeName: LocaleName.Russian)
+        //FIXME - REFACTOR NAMES
+        let date = DateInRegion(era: 1, year: selectedDate.year, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, region: regionRome)
+        let date2 = DateInRegion(era: 1, year: selectedDate.year, month: 12, day: 25, hour: 00, minute: 00, second: 0, nanosecond: 0, region: regionRome)
+        
+        let weekNumber:Int?
+        let date3 =  DateInRegion(era: 1, year:  yearNow + 1, month: 1, day: 1, hour: 00, minute: 01, second: 0, nanosecond: 0, region: regionRome)
+        let date4 =  DateInRegion(era: 1, year:  selectedDate.year, month: 1, day: 1, hour: 00, minute: 01, second: 0, nanosecond: 0, region: regionRome)
+        if(selectedDate.isAfter(.Day, ofDate: date2) && selectedDate.isBefore(.Day, ofDate: date3))
+        {
+            weekNumber = (date2.weekOfYear + 1 - date.weekOfYear) + 1
+        }else if(selectedDate.isAfter(.Day, ofDate: date4) && selectedDate.isBefore(.Day, ofDate: date))
+        {
+             weekNumber = (date2.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear
+        }else{
+             weekNumber = selectedDate.weekOfYear - date.weekOfYear + 1
+        }
+
+        weekLabel.text = "Неделя \(weekNumber!),\(dateInFormat)"
+        
     }
     
+    func daysBetweenDates(startDate: NSDate, endDate: NSDate) -> Int
+    {
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([.Day], fromDate: startDate, toDate: endDate, options: [])
+        
+        return components.day
+    }
 }
