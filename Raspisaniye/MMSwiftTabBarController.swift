@@ -203,9 +203,10 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         else{
             performSegueWithIdentifier("voidLessons", sender: self)
         }
-        let regionRome = Region(calendarName: .Current, timeZoneName: TimeZoneName.EuropeMoscow, localeName: LocaleName.Russian)
+        let regionRome = Region(calendarName: .Current , timeZoneName: TimeZoneName.EuropeMoscow, localeName: LocaleName.Russian)
         //FIXME - REFACTOR NAMES
         let date = DateInRegion(era: 1, year: selectedDate.year, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, region: regionRome)
+        //FIXME - change to last day of last week 
         let date2 = DateInRegion(era: 1, year: selectedDate.year, month: 12, day: 25, hour: 00, minute: 00, second: 0, nanosecond: 0, region: regionRome)
         
         let weekNumber:Int?
@@ -216,7 +217,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             weekNumber = (date2.weekOfYear + 1 - date.weekOfYear) + 1
         }else if(selectedDate.isAfter(.Day, ofDate: date4) && selectedDate.isBefore(.Day, ofDate: date))
         {
-             weekNumber = (date2.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear
+             weekNumber = (date2.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear + 1
         }else{
              weekNumber = selectedDate.weekOfYear - date.weekOfYear + 1
         }
