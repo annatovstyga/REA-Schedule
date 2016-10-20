@@ -37,6 +37,7 @@
 		B2639AD01C4123A30028F663 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2639ACF1C4123A30028F663 /* Global.swift */; };
 		B2639AD71C41291F0028F663 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2639AD61C41291F0028F663 /* Images.xcassets */; };
 		B27314051C7919760004B709 /* CabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27314041C7919760004B709 /* CabController.swift */; };
+		B27F54CD1DB95FAC0062630A /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */; };
 		B289090E1C52D14500EB0A08 /* CabNavSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289090D1C52D14500EB0A08 /* CabNavSegue.swift */; };
 		B28909101C52D88800EB0A08 /* LoginViewOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289090F1C52D88800EB0A08 /* LoginViewOneController.swift */; };
 		B28F1FC01C54183400C9136B /* CustomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F1FBF1C54183400C9136B /* CustomBtn.swift */; };
@@ -103,6 +104,7 @@
 		B2639ACF1C4123A30028F663 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		B2639AD61C41291F0028F663 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Raspisaniye/Images.xcassets; sourceTree = "<group>"; };
 		B27314041C7919760004B709 /* CabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabController.swift; sourceTree = "<group>"; };
+		B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B289090D1C52D14500EB0A08 /* CabNavSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabNavSegue.swift; sourceTree = "<group>"; };
 		B289090F1C52D88800EB0A08 /* LoginViewOneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewOneController.swift; sourceTree = "<group>"; };
 		B28F1FBF1C54183400C9136B /* CustomBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBtn.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				A29F12DB1C6A8A6C00D73B5C /* Data Model */,
 				B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */,
 				B22466321C933AB200569745 /* Main.storyboard */,
+				B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */,
 				B2639AD61C41291F0028F663 /* Images.xcassets */,
 				A250EB601C56CF530022A117 /* Supporting files */,
 				D5841BBAFDAE9DA59AF709A1 /* Products */,
@@ -441,7 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8919AD9D5E7EA2D452E3988E /* [CP] Embed Pods Frameworks */ = {
@@ -487,6 +490,7 @@
 				B27314051C7919760004B709 /* CabController.swift in Sources */,
 				65B7D9411D956F830033A808 /* Schedule.swift in Sources */,
 				B24ACABE1C408B86006FB191 /* AppDelegate.swift in Sources */,
+				B27F54CD1DB95FAC0062630A /* FeedbackViewController.swift in Sources */,
 				B289090E1C52D14500EB0A08 /* CabNavSegue.swift in Sources */,
 				B28909101C52D88800EB0A08 /* LoginViewOneController.swift in Sources */,
 				B24ACAC21C408B86006FB191 /* MMSwiftTabBarController.swift in Sources */,

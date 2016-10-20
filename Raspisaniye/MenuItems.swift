@@ -11,6 +11,8 @@ import UIKit
 class MenuItems: UIView {
     @IBOutlet var weekButton: UIButton?
     @IBOutlet var mounthButton: UIButton?
+    @IBOutlet var Feedback: UIButton?
+    
     var label:UIView = UIView()
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,7 +25,7 @@ class MenuItems: UIView {
         print(weekButton)
         label.center.x = (weekButton?.center.x)! - 10
         label.center.y = (weekButton?.center.y)!
-        label.frame = CGRect(x: 0.0, y: 0.0, width: 6, height: (weekButton?.frame.height)!)
+        label.frame = CGRect(x: 0.0, y: 5.0, width: 6, height: 30)
         self.addSubview(label)
     }
     @IBAction func buttonClick(sender: AnyObject) {
