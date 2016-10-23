@@ -27,7 +27,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5b-5g-T73" id="iGi-hX-yIw">
+<<<<<<< HEAD
                                     <frame key="frameInset" width="375" height="130"/>
+=======
+                                    <frame key="frameInset" width="375" height="129.5"/>
+>>>>>>> 55dcb761d15e62a5136d0dfa4b124e283d1a9ca1
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LocationMark" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-ry-ylI">
@@ -208,24 +212,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Gerb.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DC-BM-PjY">
-                                <frame key="frameInset" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1DC-BM-PjY" secondAttribute="height" multiplier="1.1:1" id="MAB-U4-MPi"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="MAB-U4-MPi"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="MAB-U4-MPi"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ЗАНЯТИЙ НЕТ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-w9-5cx">
-                                <frame key="frameInset" minX="-42" minY="-21" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЗАНЯТИЙ НЕТ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-w9-5cx">
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.081153124549999997" green="0.55629049590000001" blue="0.8097956731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -233,41 +220,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xXY-w9-5cx" firstAttribute="centerX" secondItem="1DC-BM-PjY" secondAttribute="centerX" id="CF3-mw-av5"/>
-                            <constraint firstItem="1DC-BM-PjY" firstAttribute="centerX" secondItem="E6x-52-kGX" secondAttribute="centerX" id="cta-25-IU5"/>
-                            <constraint firstItem="1DC-BM-PjY" firstAttribute="width" secondItem="E6x-52-kGX" secondAttribute="width" multiplier="1.25" id="g43-Od-VPb"/>
-                            <constraint firstItem="1DC-BM-PjY" firstAttribute="centerY" secondItem="E6x-52-kGX" secondAttribute="centerY" id="jeZ-ny-p0t">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
                             <constraint firstItem="xXY-w9-5cx" firstAttribute="centerY" secondItem="E6x-52-kGX" secondAttribute="centerY" id="rzQ-tF-Dh6"/>
-                            <constraint firstItem="xXY-w9-5cx" firstAttribute="top" secondItem="1DC-BM-PjY" secondAttribute="bottom" constant="29" id="tlY-P8-ssu"/>
+                            <constraint firstItem="xXY-w9-5cx" firstAttribute="centerX" secondItem="E6x-52-kGX" secondAttribute="centerX" id="vVR-6c-FtW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="1DC-BM-PjY"/>
                                 <exclude reference="xXY-w9-5cx"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="CF3-mw-av5"/>
                                 <exclude reference="rzQ-tF-Dh6"/>
-                                <exclude reference="tlY-P8-ssu"/>
-                                <exclude reference="cta-25-IU5"/>
-                                <exclude reference="g43-Od-VPb"/>
-                                <exclude reference="jeZ-ny-p0t"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="1DC-BM-PjY"/>
                                 <include reference="xXY-w9-5cx"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="CF3-mw-av5"/>
                                 <include reference="rzQ-tF-Dh6"/>
-                                <exclude reference="tlY-P8-ssu"/>
-                                <include reference="cta-25-IU5"/>
-                                <include reference="g43-Od-VPb"/>
-                                <include reference="jeZ-ny-p0t"/>
                             </mask>
                         </variation>
                     </view>
@@ -450,7 +419,7 @@
                                             <color key="titleColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="monClick:" destination="bPA-nv-JkJ" eventType="touchUpInside" id="YlS-VF-Umq"/>
+                                            <action selector="mondayClick:" destination="bPA-nv-JkJ" eventType="touchUpInside" id="tLf-BN-w8Q"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -774,6 +743,12 @@
                         <outletCollection property="tabBarButtons" destination="mhe-sn-TKh" collectionClass="NSMutableArray" id="wiV-LC-p6V"/>
                         <outletCollection property="tabBarButtons" destination="7Z9-QE-YBw" collectionClass="NSMutableArray" id="scj-Ov-2c9"/>
                         <outletCollection property="tabBarButtons" destination="aAz-2s-g5K" collectionClass="NSMutableArray" id="ljb-0E-lsD"/>
+                        <outletCollection property="weekdaysButtons" destination="wjW-Pf-JXm" collectionClass="NSMutableArray" id="Usp-O9-uV8"/>
+                        <outletCollection property="weekdaysButtons" destination="mhe-sn-TKh" collectionClass="NSMutableArray" id="jeu-SZ-vnI"/>
+                        <outletCollection property="weekdaysButtons" destination="IDo-mC-B8j" collectionClass="NSMutableArray" id="QW3-U9-I02"/>
+                        <outletCollection property="weekdaysButtons" destination="7Z9-QE-YBw" collectionClass="NSMutableArray" id="Znw-Hn-2mD"/>
+                        <outletCollection property="weekdaysButtons" destination="aAz-2s-g5K" collectionClass="NSMutableArray" id="AcA-lP-j8u"/>
+                        <outletCollection property="weekdaysButtons" destination="QQs-Se-R3T" collectionClass="NSMutableArray" id="NLM-e8-n4d"/>
                         <segue destination="1iq-y0-Rhh" kind="custom" identifier="mainSegue" customClass="MainNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="wsd-Qu-EgG"/>
                         <segue destination="RYg-Jc-fvV" kind="show" identifier="profileSegue" id="Zf9-H0-CWa"/>
                         <segue destination="1iq-y0-Rhh" kind="custom" identifier="weekSegue" customClass="WeekNavigationSegue" customModule="Raspisaniye" id="ZTr-C1-zsR"/>
@@ -1022,7 +997,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="134"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VO1-t4-95r" id="k2q-yx-jVH">
+<<<<<<< HEAD
                                     <frame key="frameInset" width="375" height="134"/>
+=======
+                                    <frame key="frameInset" width="600" height="133.5"/>
+>>>>>>> 55dcb761d15e62a5136d0dfa4b124e283d1a9ca1
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Отмена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG1-x6-TQ7">
@@ -1185,7 +1164,11 @@
                                 <rect key="frame" x="0.0" y="162" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7j7-mZ-tSL" id="htE-kb-gAe">
+<<<<<<< HEAD
                                     <frame key="frameInset" width="375" height="160"/>
+=======
+                                    <frame key="frameInset" width="600" height="159.5"/>
+>>>>>>> 55dcb761d15e62a5136d0dfa4b124e283d1a9ca1
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Нет изменений в расписании" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Ss-ZMb">
@@ -1226,7 +1209,11 @@
                                 <rect key="frame" x="0.0" y="322" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yVe-51-FKa" id="p6Z-4Y-AlS">
+<<<<<<< HEAD
                                     <frame key="frameInset" width="375" height="160"/>
+=======
+                                    <frame key="frameInset" width="600" height="159.5"/>
+>>>>>>> 55dcb761d15e62a5136d0dfa4b124e283d1a9ca1
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1589,7 +1576,6 @@
     </scenes>
     <resources>
         <image name="Clock" width="42" height="42"/>
-        <image name="Gerb.png" width="728" height="667"/>
         <image name="LocationMark" width="42" height="42"/>
         <image name="Logo_White_90" width="147" height="136"/>
         <image name="Person" width="42" height="42"/>
