@@ -43,7 +43,7 @@ func parse(jsontoparse:JSON,successBlock: Bool -> ())
     
     let rasp = Schedule()
     rasp.year = "2016"
-    
+    print(jsontoparse)
     for semestr in jsontoparse["success"]["data"] {
         
         let week = Week()
