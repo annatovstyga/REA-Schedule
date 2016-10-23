@@ -107,7 +107,7 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var textField: AutocompleteField!
     
     func showWarning() {
-        let alertController = UIAlertController(title: "Некоректный ввод!", message:
+        let alertController = UIAlertController(title: "Некорректный ввод!", message:
             "Попробуйте ввести название группы правильно", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
