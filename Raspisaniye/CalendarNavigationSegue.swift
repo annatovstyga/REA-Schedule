@@ -1,6 +1,14 @@
+//
+//  CalendarNavigationSegue.swift
+//  Raspisaniye
+//
+//  Created by Анна Товстыга on 17/10/16.
+//  Copyright © 2016 rGradeStd. All rights reserved.
+//
+
 import UIKit
 
-class MainNavigationSegue: UIStoryboardSegue {
+class CalendarNavigationSegue: UIStoryboardSegue {
     
     override func perform() {
         
@@ -11,7 +19,7 @@ class MainNavigationSegue: UIStoryboardSegue {
             view.removeFromSuperview()
         }
         
-      
+        
         tabBarController.currentViewController = destinationController
         tabBarController.placeholderView.addSubview(destinationController.view)
         
@@ -26,10 +34,11 @@ class MainNavigationSegue: UIStoryboardSegue {
         let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[v1]-0-|", options: .AlignAllTop, metrics: nil, views: ["v1": destinationController.view])
         
         tabBarController.placeholderView.addConstraints(verticalConstraint)
-
+        
         tabBarController.placeholderView.layoutIfNeeded()
         destinationController.didMoveToParentViewController(tabBarController)
-
+        
     }
+    
 
 }

@@ -9,6 +9,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet var weekdaysButtons: Array<UIButton>!
     // MARK: Propiertes
     var selectedDate = DateInRegion()
+   
     @IBOutlet weak var tabBarView: UIView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var weekLabel: UILabel!
@@ -180,7 +181,19 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         if(segue.identifier! == "mainSegue" || segue.identifier! == "weekSegue" ) {
             let dayVC = segue.destinationViewController as! MainTableViewController
             dayVC.realmDayToFill = self.realmDay
+            for button in tabBarButtons{
+                button.hidden = false
         }
+   
+       
+        }else if (segue.identifier == "segueCalendar"){
+            
+            for button in tabBarButtons{
+                button.hidden = true
+            }
+
+        }
+    
     }
 
     func updateRealmDay()

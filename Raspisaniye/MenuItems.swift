@@ -32,6 +32,18 @@ class MenuItems: UIView {
             }, completion: { finished in
                 print("Label move!")
         })
+        let VC = sideMenuVC.mainViewController?.childViewControllers.first
+        VC!.performSegueWithIdentifier("segueCalendar", sender: self)
+        sideMenuVC.toggleMenu()
+        
+//        let calendarVC = kConstantObj.SetIntialMainViewController("CalendarViewControllerID")
+//    self.window?.rootViewController = calendarVC
+//        if sender as! NSObject == mounthButton {
+//            calendarVC.presentationMode()
+//        } else {
+//            calendarVC.presentationMode(.Week)
+//            
+//        }
     }
 
     // Only override drawRect: if you perform custom drawing.
