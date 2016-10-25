@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -779,23 +779,29 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1G-bR-8ft" customClass="CVCalendarMenuView" customModule="CVCalendar">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="MIT-lK-zHI"/>
+                                    <constraint firstAttribute="height" constant="44" id="tAT-4S-eaA"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDI-jk-Ace" customClass="CVCalendarView" customModule="CVCalendar">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="YFC-A7-poq"/>
+                                    <constraint firstAttribute="height" constant="360" id="wKY-4j-8hk"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="yDI-jk-Ace" secondAttribute="leading" id="5C0-Up-Dqm"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="top" secondItem="UE1-JN-qq4" secondAttribute="top" constant="39" id="5nb-5W-Gan"/>
                             <constraint firstItem="l1G-bR-8ft" firstAttribute="centerX" secondItem="yPp-eq-GqK" secondAttribute="centerX" id="752-pr-a46"/>
-                            <constraint firstItem="dni-zD-Y2d" firstAttribute="top" secondItem="yDI-jk-Ace" secondAttribute="bottom" constant="223" id="EHk-xg-dDO"/>
                             <constraint firstAttribute="trailing" secondItem="l1G-bR-8ft" secondAttribute="trailing" id="Xrr-AK-3nN"/>
                             <constraint firstItem="l1G-bR-8ft" firstAttribute="top" secondItem="yPp-eq-GqK" secondAttribute="bottom" constant="8" symbolic="YES" id="bug-Kr-pm4"/>
                             <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="UE1-JN-qq4" secondAttribute="leading" id="gAF-hh-isc"/>
+                            <constraint firstItem="yPp-eq-GqK" firstAttribute="top" secondItem="FkT-69-TjB" secondAttribute="bottom" constant="-9.5" id="i0u-IS-L2k"/>
                             <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="l1G-bR-8ft" secondAttribute="bottom" constant="1" id="iNf-qN-0gU"/>
                             <constraint firstItem="l1G-bR-8ft" firstAttribute="trailing" secondItem="yDI-jk-Ace" secondAttribute="trailing" id="k5E-ea-8MC"/>
-                            <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="UE1-JN-qq4" secondAttribute="top" constant="84" id="wLI-9l-e7T"/>
                         </constraints>
                     </view>
                     <connections>
@@ -807,7 +813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSw-Il-Alt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1666" y="1367"/>
+            <point key="canvasLocation" x="-388" y="1169"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="R1r-Se-2Ut">
@@ -993,8 +999,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="134"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VO1-t4-95r" id="k2q-yx-jVH">
-                                    <frame key="frameInset" width="375" height="134"/>
-
+                                    <frame key="frameInset" width="375" height="133.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Отмена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG1-x6-TQ7">
@@ -1157,7 +1162,7 @@
                                 <rect key="frame" x="0.0" y="162" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7j7-mZ-tSL" id="htE-kb-gAe">
-                                    <frame key="frameInset" width="600" height="159.5"/>
+                                    <frame key="frameInset" width="375" height="159.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Нет изменений в расписании" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Ss-ZMb">
@@ -1198,7 +1203,7 @@
                                 <rect key="frame" x="0.0" y="322" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yVe-51-FKa" id="p6Z-4Y-AlS">
-                                    <frame key="frameInset" width="600" height="159.5"/>
+                                    <frame key="frameInset" width="375" height="159.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1569,8 +1574,8 @@
         <image name="profileBackground.png" width="319" height="217"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wsd-Qu-EgG"/>
         <segue reference="auB-oj-82V"/>
+        <segue reference="wsd-Qu-EgG"/>
         <segue reference="Sye-4k-cqK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -139,14 +139,8 @@
 		05DB815321DA1B6FF879A527B53FAF46 /* libGGLCloudMessaging.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCloudMessaging.a; path = Libraries/libGGLCloudMessaging.a; sourceTree = "<group>"; };
 		05FBB76A1FC6204B4F41691723D8693A /* CVCalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarView.swift; path = CVCalendar/CVCalendarView.swift; sourceTree = "<group>"; };
 		0AD6DB3C5CAACB9F9B83409148E2C3E2 /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
-		0CF507832783D356F6761099FF333F40 /* libGTM_NSData+zlib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSData+zlib.a"; path = "Libraries/libGTM_NSData+zlib.a"; sourceTree = "<group>"; };
-		0F7F4BC79F77387F481D201C929E193C /* libGTM_iPhone.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_iPhone.a; path = Libraries/libGTM_iPhone.a; sourceTree = "<group>"; };
-		0FD37EB3B4F1FAE5D8A5E4F2CA5F841B /* libGTM_SystemVersion.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_SystemVersion.a; path = Libraries/libGTM_SystemVersion.a; sourceTree = "<group>"; };
-		11174B559635A6EFDCA5FA83727898FA /* libGTMStackTrace.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMStackTrace.a; path = Libraries/libGTMStackTrace.a; sourceTree = "<group>"; };
 		1195FEFD4DAF3619E75DF055F41C19AB /* NSDateComponents+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSDateComponents+SwiftDate.swift"; path = "Sources/SwiftDate/NSDateComponents+SwiftDate.swift"; sourceTree = "<group>"; };
 		11AFD67C8C2F2889F2E6A27C883FE499 /* SwiftSpinner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSpinner-umbrella.h"; sourceTree = "<group>"; };
-		12BFF66022DE3B775C7002FDEF9CB5E7 /* libGTM_DebugUtils.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_DebugUtils.a; path = Libraries/libGTM_DebugUtils.a; sourceTree = "<group>"; };
-		15A73837412C68511B369323BA25F100 /* libGIP_Locale.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGIP_Locale.a; path = Libraries/libGIP_Locale.a; sourceTree = "<group>"; };
 		16962EABFBCAB6C9381C19A6E5AA50B1 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		16EC94EBB6357212816888D82538DA12 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18775547D0CE5DDA9047AB5B3F2B1052 /* SwiftDate.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftDate.xcconfig; sourceTree = "<group>"; };
@@ -175,12 +169,11 @@
 		3682446C319E25E7E0D0897A59696165 /* NSTimeInterval+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTimeInterval+SwiftDate.swift"; path = "Sources/SwiftDate/NSTimeInterval+SwiftDate.swift"; sourceTree = "<group>"; };
 		36C4CFE3FE296ED35FB9747BF16BBDB2 /* NSLocale+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSLocale+SwiftDate.swift"; path = "Sources/SwiftDate/NSLocale+SwiftDate.swift"; sourceTree = "<group>"; };
 		393F6B30DD8690B867A696613F9C7404 /* CVRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVRange.swift; path = CVCalendar/CVRange.swift; sourceTree = "<group>"; };
+		396A5B6B32171EB6123CF5C935204E38 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		39E53F21224AF62A8FC41DD4834EE46B /* Pods-Raspisaniye-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Raspisaniye-acknowledgements.plist"; sourceTree = "<group>"; };
-		3A3B460A7CF7F5B6FC3F7459F2AFF630 /* libGIP_Reachability.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGIP_Reachability.a; path = Libraries/libGIP_Reachability.a; sourceTree = "<group>"; };
 		3AC9D23112817F0F3D6F5BC0A3F0B716 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		3DA00FBE06F9C84238A5BF0B7F58D56D /* Pods_Raspisaniye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Raspisaniye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3C7CF1A8B92A39CF694D7E02F0739A /* SwiftDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ED6A0906CC02C7E6E99358E95C0BFD2 /* libGTM_Regex.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_Regex.a; path = Libraries/libGTM_Regex.a; sourceTree = "<group>"; };
 		3F5F921F4831753FC703900EFFE1A2A0 /* Pods-Raspisaniye-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Raspisaniye-umbrella.h"; sourceTree = "<group>"; };
 		3FBE6F7F79EF4FD76A332CDBA02B7DE4 /* CVCalendarDayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarDayView.swift; path = CVCalendar/CVCalendarDayView.swift; sourceTree = "<group>"; };
 		3FC0AB482749E11CF517420805EDB497 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,43 +182,35 @@
 		47AF5BE60C02DA52490EB1C78527C335 /* GGLInstanceIDConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceIDConfig.h; path = Headers/Public/GGLInstanceIDConfig.h; sourceTree = "<group>"; };
 		481901663416033AA346480B26E825B0 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		48CC660CC6C987D5F35FB30AEA20994D /* libGGLInstanceIDLib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLInstanceIDLib.a; path = Libraries/libGGLInstanceIDLib.a; sourceTree = "<group>"; };
-		495D7965E867035B4009C3ABC9DD8E48 /* libGTM_StringEncoding.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_StringEncoding.a; path = Libraries/libGTM_StringEncoding.a; sourceTree = "<group>"; };
-		4CE720C64F8D84989F79BCA7D156487B /* libGTMSessionFetcher_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_core.a; path = Libraries/libGTMSessionFetcher_core.a; sourceTree = "<group>"; };
 		580A6EE829FB8558BAA6D4F2E33C3421 /* Region.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Region.swift; path = Sources/SwiftDate/Region.swift; sourceTree = "<group>"; };
 		5813CB35D567FB80674D34AABC2D9D0F /* libGGLCore.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCore.a; path = Libraries/libGGLCore.a; sourceTree = "<group>"; };
 		58763D3DCE2FD72ACFA8DFE35313E732 /* Pods-Raspisaniye-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Raspisaniye-resources.sh"; sourceTree = "<group>"; };
-		58E453249CE8D3D84482F642B3429000 /* libGTM_GTMURLBuilder.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_GTMURLBuilder.a; path = Libraries/libGTM_GTMURLBuilder.a; sourceTree = "<group>"; };
 		59B9BDDCA3E0CA084A119EA09751BD79 /* CVScrollDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVScrollDirection.swift; path = CVCalendar/CVScrollDirection.swift; sourceTree = "<group>"; };
 		5A45EAFF3F46ED5E53FB0819F258DA71 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
-		5A5255B939250541C592C5FC009670D0 /* libGTM_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_core.a; path = Libraries/libGTM_core.a; sourceTree = "<group>"; };
 		5A7DABE109F116499D92F8679620CF53 /* DateInRegion+Equations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Equations.swift"; path = "Sources/SwiftDate/DateInRegion+Equations.swift"; sourceTree = "<group>"; };
-		5B930EB0F81FA41099899421CB454178 /* libGTM_NSDictionary+URLArguments.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSDictionary+URLArguments.a"; path = "Libraries/libGTM_NSDictionary+URLArguments.a"; sourceTree = "<group>"; };
 		5D34349FFCD2174723EA44B646F2CB77 /* GMRConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMRConfiguration.h; path = Headers/GGLCore/Public/GMRConfiguration.h; sourceTree = "<group>"; };
 		5D3F233324AE2F8659477701B2F5F1CF /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
 		5FDFA90F3CEE45D45EE26FCBB940F031 /* GGLContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLContext.h; path = Headers/GGLCore/Public/GGLContext.h; sourceTree = "<group>"; };
 		6069C8AF1780569F744A695BB619AB50 /* GCMConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCMConfig.h; path = Headers/Public/GCMConfig.h; sourceTree = "<group>"; };
+		608C4676606D7BBA2E0C3B4DE8F74F9E /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
 		60F1C30EAF5ABA4E510C9F4C2B14A1E3 /* NSDateFormatter+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSDateFormatter+SwiftDate.swift"; path = "Sources/SwiftDate/NSDateFormatter+SwiftDate.swift"; sourceTree = "<group>"; };
 		6406F9AF26581D56792DA1B3B5061F21 /* GGLErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLErrorCode.h; path = Headers/GGLCore/Public/GGLErrorCode.h; sourceTree = "<group>"; };
 		66922EC35D361EC6EFB020668FD827B6 /* SwiftSpinner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSpinner.swift; path = SwiftSpinner/SwiftSpinner.swift; sourceTree = "<group>"; };
 		6B80A532E1DEC7655508FA75E3363197 /* AdMob-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AdMob-Module.h"; path = "Headers/ModuleHeaders/AdMob-Module.h"; sourceTree = "<group>"; };
 		6C9A5C1B0CB9FCC59642169E7E49CD1A /* Stream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Source/Stream.swift; sourceTree = "<group>"; };
 		6EDE98D64A3A77E4C2199A4A850F5B59 /* CVCalendarMenuView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarMenuView.swift; path = CVCalendar/CVCalendarMenuView.swift; sourceTree = "<group>"; };
-		76B83862B2EC393D416794ECA854631B /* libGTM_KVO.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_KVO.a; path = Libraries/libGTM_KVO.a; sourceTree = "<group>"; };
+		739B1536C445A702B8E590F7A8F6672F /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		76B933BD2B404DF7FFB06417EE5A3929 /* CVCalendarWeekView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarWeekView.swift; path = CVCalendar/CVCalendarWeekView.swift; sourceTree = "<group>"; };
 		76CBD35AB24B95F3EABA1EA1C33480CB /* DateInRegion+Comparisons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Comparisons.swift"; path = "Sources/SwiftDate/DateInRegion+Comparisons.swift"; sourceTree = "<group>"; };
 		783B066BA7E55256F000DBD61C4D9E7A /* CVCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CVCalendar-umbrella.h"; sourceTree = "<group>"; };
 		7EB174F1A0E1F20D120E40EBC942DC7E /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		7F17BABBC4AE1505CB26217186DF6487 /* NSTimeZone+SwiftDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTimeZone+SwiftDate.swift"; path = "Sources/SwiftDate/NSTimeZone+SwiftDate.swift"; sourceTree = "<group>"; };
 		8243CC10FF70087E47A5C1918A3F652D /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
-		8601A84F35E27A7C18CFAC47394680F7 /* libGTMSessionFetcher_full.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_full.a; path = Libraries/libGTMSessionFetcher_full.a; sourceTree = "<group>"; };
-		880FB6FB86BCCFCB59C1DA4C070F30D0 /* libGTM_RoundedRectPath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_RoundedRectPath.a; path = Libraries/libGTM_RoundedRectPath.a; sourceTree = "<group>"; };
-		886BA8A3F3B647F3029F790C0236E808 /* libGTM_UIFont+LineHeight.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_UIFont+LineHeight.a"; path = "Libraries/libGTM_UIFont+LineHeight.a"; sourceTree = "<group>"; };
 		88A1B0F8759125CE6C8F0097C3A4AA6A /* CVCalendarTouchController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarTouchController.swift; path = CVCalendar/CVCalendarTouchController.swift; sourceTree = "<group>"; };
 		89143792FCA2967C132F2AB1C5D16E19 /* SwiftSpinner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSpinner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891EECA81C72B1122631DEB2C1488D6D /* Pods-Raspisaniye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Raspisaniye.debug.xcconfig"; sourceTree = "<group>"; };
 		8C0E998CD1E7D38FB0D173792344E9CA /* CloudMessaging-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CloudMessaging-Module.h"; path = "Headers/ModuleHeaders/CloudMessaging-Module.h"; sourceTree = "<group>"; };
 		8D0C88C1C96034C5D743546678356D3B /* CVCalendarMonthView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarMonthView.swift; path = CVCalendar/CVCalendarMonthView.swift; sourceTree = "<group>"; };
-		8E9CD7EA91CFC2F71B83B4719011CBE8 /* libGTM_NSStringHTML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringHTML.a; path = Libraries/libGTM_NSStringHTML.a; sourceTree = "<group>"; };
 		8FAF67C52FAC0094E9660269A512E9F6 /* GoogleCloudMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleCloudMessaging.h; path = Headers/Public/GoogleCloudMessaging.h; sourceTree = "<group>"; };
 		90E223078E74A004512EAB47DA9BD5D8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		91ADC7602A211245740A988EBA5E6D1D /* Pods-Raspisaniye.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Raspisaniye.modulemap"; sourceTree = "<group>"; };
@@ -239,13 +224,14 @@
 		993D8BEB613565B32ADD55B27CB7E4C7 /* CVCalendarMonthContentViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarMonthContentViewController.swift; path = CVCalendar/CVCalendarMonthContentViewController.swift; sourceTree = "<group>"; };
 		9A2CE4F8D62E7391E8D7A04075D323C4 /* CVCalendarViewAnimatorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarViewAnimatorDelegate.swift; path = CVCalendar/CVCalendarViewAnimatorDelegate.swift; sourceTree = "<group>"; };
 		9C281455ADB5073D7E35B4E3A1B1D545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A125511D6A65DA81EC096A15B8746595 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
 		A133558EBE55B2940A55072177409E19 /* Pods-Raspisaniye-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Raspisaniye-dummy.m"; sourceTree = "<group>"; };
 		A21948024C833D9E413D1B852B89F754 /* Pods-Raspisaniye-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Raspisaniye-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A671B7B96E2E28FB390DCF42BB44E7F1 /* libGTM_NSScannerJSON.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSScannerJSON.a; path = Libraries/libGTM_NSScannerJSON.a; sourceTree = "<group>"; };
 		A6A58C52DE831F14FE81FF75CD6D5F4B /* SwiftDate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftDate-dummy.m"; sourceTree = "<group>"; };
 		A795220A6BF32EF536E4142D29B8944B /* DateInRegion+Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Formatter.swift"; path = "Sources/SwiftDate/DateInRegion+Formatter.swift"; sourceTree = "<group>"; };
 		A899FC5A68A6B7D5B1B2E199B852B7C1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8AEF6B9F68D34946E65710156CE7098 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Frameworks/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
 		A9DFC9FCB35D2993195FDA468402CB34 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		AB730687665CFB082F2EF0AE9E8CE0BE /* CVCalendarViewAppearanceDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarViewAppearanceDelegate.swift; path = CVCalendar/CVCalendarViewAppearanceDelegate.swift; sourceTree = "<group>"; };
 		AC79859284AB55F69ADD5D4E02C22666 /* SwiftSpinner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftSpinner-dummy.m"; sourceTree = "<group>"; };
@@ -265,7 +251,6 @@
 		C197E5E9030F7986B22710AD4483D89A /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		C1FB30B7DBB3B859B585C838767603A4 /* CVStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVStatus.swift; path = CVCalendar/CVStatus.swift; sourceTree = "<group>"; };
 		C32DF80F3BC9644A8A3A937CC3822A95 /* CVCalendarViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarViewDelegate.swift; path = CVCalendar/CVCalendarViewDelegate.swift; sourceTree = "<group>"; };
-		C43F7B4561604FE75D249828F3D96157 /* libGTM_NSStringXML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringXML.a; path = Libraries/libGTM_NSStringXML.a; sourceTree = "<group>"; };
 		C67FDE945F30BBAF14683DD50E71B746 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		C8C07DDD04D6F0205B33C80057F34AAD /* CVShape.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVShape.swift; path = CVCalendar/CVShape.swift; sourceTree = "<group>"; };
 		C8DFA89CDD21F7FA1365CDF23F8D9D8D /* GGLInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLInstanceID.h; path = Headers/Public/GGLInstanceID.h; sourceTree = "<group>"; };
@@ -293,13 +278,10 @@
 		EEBBFE1DBFC025F090B1FEDBEEF56728 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		EEDAAE89D0789FD63A660307B221A159 /* DateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = Sources/SwiftDate/DateFormatter.swift; sourceTree = "<group>"; };
 		F2DA6232F375DB01372F0703BE72AFD5 /* DateInRegion+Operations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Operations.swift"; path = "Sources/SwiftDate/DateInRegion+Operations.swift"; sourceTree = "<group>"; };
-		F61E5D4A1F406B773ED75128D04CEA1D /* libProtocolBuffers.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libProtocolBuffers.a; path = Libraries/libProtocolBuffers.a; sourceTree = "<group>"; };
 		F649FA58EB851A8C92B9F62089D40993 /* CVDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVDate.swift; path = CVCalendar/CVDate.swift; sourceTree = "<group>"; };
 		F75C6215AACB8710B3FF1C4D2069B581 /* CVCalendarManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarManager.swift; path = CVCalendar/CVCalendarManager.swift; sourceTree = "<group>"; };
 		F9A0F463D1B163AF8CD3BC9FAD8D3203 /* CVCalendarDayViewControlCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CVCalendarDayViewControlCoordinator.swift; path = CVCalendar/CVCalendarDayViewControlCoordinator.swift; sourceTree = "<group>"; };
 		FA66DE4E80823CDC3E56CB27048AB6DE /* SwiftSpinner-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSpinner-prefix.pch"; sourceTree = "<group>"; };
-		FAFB8C34F476801461E3F1A62B17F058 /* libGSDK_Overload.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGSDK_Overload.a; path = Libraries/libGSDK_Overload.a; sourceTree = "<group>"; };
-		FEA059B003FB8E0C5FC2BC70C62E3711 /* libGTM_AddressBook.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_AddressBook.a; path = Libraries/libGTM_AddressBook.a; sourceTree = "<group>"; };
 		FF738D40CF38F9F3795AE500DE2051AB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -356,43 +338,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0363B988BCD46EA9D54DC59359FC24D3 /* Frameworks */ = {
+		027531FAB70DA248ADA8B56BE957BBBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FEA059B003FB8E0C5FC2BC70C62E3711 /* libGTM_AddressBook.a */,
-				5A5255B939250541C592C5FC009670D0 /* libGTM_core.a */,
-				12BFF66022DE3B775C7002FDEF9CB5E7 /* libGTM_DebugUtils.a */,
-				58E453249CE8D3D84482F642B3429000 /* libGTM_GTMURLBuilder.a */,
-				0F7F4BC79F77387F481D201C929E193C /* libGTM_iPhone.a */,
-				76B83862B2EC393D416794ECA854631B /* libGTM_KVO.a */,
-				0CF507832783D356F6761099FF333F40 /* libGTM_NSData+zlib.a */,
-				5B930EB0F81FA41099899421CB454178 /* libGTM_NSDictionary+URLArguments.a */,
-				A671B7B96E2E28FB390DCF42BB44E7F1 /* libGTM_NSScannerJSON.a */,
-				8E9CD7EA91CFC2F71B83B4719011CBE8 /* libGTM_NSStringHTML.a */,
-				C43F7B4561604FE75D249828F3D96157 /* libGTM_NSStringXML.a */,
-				3ED6A0906CC02C7E6E99358E95C0BFD2 /* libGTM_Regex.a */,
-				880FB6FB86BCCFCB59C1DA4C070F30D0 /* libGTM_RoundedRectPath.a */,
-				495D7965E867035B4009C3ABC9DD8E48 /* libGTM_StringEncoding.a */,
-				0FD37EB3B4F1FAE5D8A5E4F2CA5F841B /* libGTM_SystemVersion.a */,
-				886BA8A3F3B647F3029F790C0236E808 /* libGTM_UIFont+LineHeight.a */,
-				11174B559635A6EFDCA5FA83727898FA /* libGTMStackTrace.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		11DCF1443D6CF1B2C571454EBC30535F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4CE720C64F8D84989F79BCA7D156487B /* libGTMSessionFetcher_core.a */,
-				8601A84F35E27A7C18CFAC47394680F7 /* libGTMSessionFetcher_full.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		17C022FA1D7CF55A3BE065F06CFEA5C0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F61E5D4A1F406B773ED75128D04CEA1D /* libProtocolBuffers.a */,
+				A125511D6A65DA81EC096A15B8746595 /* GoogleInterchangeUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -411,14 +360,6 @@
 			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
-		27B16DD80EC5AE0B6F208F127A258E81 /* GoogleIPhoneUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				2F2E672AB9139234F5DA4182C4AD514E /* Frameworks */,
-			);
-			path = GoogleIPhoneUtilities;
-			sourceTree = "<group>";
-		};
 		2907EFFC28601CCC369AE3A8EBC3995F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,10 +369,10 @@
 				8D09826355662F91B828C8215B917355 /* Google */,
 				9AB77ACC0417B2F0964DA4908D68A3BC /* GoogleCloudMessaging */,
 				7E830B239771614EE5C749909BE37A5B /* GoogleInterchangeUtilities */,
-				27B16DD80EC5AE0B6F208F127A258E81 /* GoogleIPhoneUtilities */,
-				F4FEF7A788B768632C6DEBE467EB194B /* GoogleNetworkingUtilities */,
+				2DCD0F0C0D3C794C54B90BEB204B96B5 /* GoogleIPhoneUtilities */,
+				6132FA7D8F9369A205F9E0FB2EB943CF /* GoogleNetworkingUtilities */,
 				FF9FFCF7742A600958FEB18D0DF41248 /* GoogleSymbolUtilities */,
-				DC8BF13904C5B77F8B68FA33BA02A34C /* GoogleUtilities */,
+				FA42ED9D226C1B487DCB0EFDB72D3543 /* GoogleUtilities */,
 				91A0B792CF08D396682B8794AFBB9581 /* SwiftDate */,
 				FCC38F67643234A359961A364CD5A219 /* SwiftSpinner */,
 				77C451C70CA4CACCC5916ADFFBA0AE7A /* SwiftyJSON */,
@@ -439,13 +380,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		2F2E672AB9139234F5DA4182C4AD514E /* Frameworks */ = {
+		2DCD0F0C0D3C794C54B90BEB204B96B5 /* GoogleIPhoneUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				15A73837412C68511B369323BA25F100 /* libGIP_Locale.a */,
-				3A3B460A7CF7F5B6FC3F7459F2AFF630 /* libGIP_Reachability.a */,
+				DE82A275BC079B1B098D8F6FD191B105 /* Frameworks */,
 			);
-			name = Frameworks;
+			path = GoogleIPhoneUtilities;
 			sourceTree = "<group>";
 		};
 		3FF4B8161041014B3DFF5CCD0881A0DE /* Frameworks */ = {
@@ -464,14 +404,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4AA58C50C0DED1D9EEB7E0ABA03A63F0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FAFB8C34F476801461E3F1A62B17F058 /* libGSDK_Overload.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		50662442A72564A39FA6A2086E76D37A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +416,22 @@
 			isa = PBXGroup;
 			children = (
 				5813CB35D567FB80674D34AABC2D9D0F /* libGGLCore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6132FA7D8F9369A205F9E0FB2EB943CF /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				E4DD4555CA4E941AD6E00BBE42902CA0 /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		6592BD8685C3A78BF494F55D9A8FD69B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				396A5B6B32171EB6123CF5C935204E38 /* GoogleSymbolUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -529,7 +477,7 @@
 		7E830B239771614EE5C749909BE37A5B /* GoogleInterchangeUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				17C022FA1D7CF55A3BE065F06CFEA5C0 /* Frameworks */,
+				027531FAB70DA248ADA8B56BE957BBBD /* Frameworks */,
 			);
 			path = GoogleInterchangeUtilities;
 			sourceTree = "<group>";
@@ -554,6 +502,14 @@
 				C50C51977AD9869114511016C55FCC50 /* Pods-Raspisaniye */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		89678B32EAA6AEC6057A7B7D3FA45025 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				608C4676606D7BBA2E0C3B4DE8F74F9E /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8D09826355662F91B828C8215B917355 /* Google */ = {
@@ -733,12 +689,12 @@
 			path = "../Target Support Files/SwiftSpinner";
 			sourceTree = "<group>";
 		};
-		DC8BF13904C5B77F8B68FA33BA02A34C /* GoogleUtilities */ = {
+		DE82A275BC079B1B098D8F6FD191B105 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0363B988BCD46EA9D54DC59359FC24D3 /* Frameworks */,
+				A8AEF6B9F68D34946E65710156CE7098 /* GoogleIPhoneUtilities.framework */,
 			);
-			path = GoogleUtilities;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E335C2462C74A8BEAD9BB66AE035D789 /* Support Files */ = {
@@ -753,6 +709,14 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		E4DD4555CA4E941AD6E00BBE42902CA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				739B1536C445A702B8E590F7A8F6672F /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EAAB123CFF2419188967B99C7DEAFFE8 /* Alamofire */ = {
@@ -789,12 +753,12 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F4FEF7A788B768632C6DEBE467EB194B /* GoogleNetworkingUtilities */ = {
+		FA42ED9D226C1B487DCB0EFDB72D3543 /* GoogleUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				11DCF1443D6CF1B2C571454EBC30535F /* Frameworks */,
+				89678B32EAA6AEC6057A7B7D3FA45025 /* Frameworks */,
 			);
-			path = GoogleNetworkingUtilities;
+			path = GoogleUtilities;
 			sourceTree = "<group>";
 		};
 		FCC38F67643234A359961A364CD5A219 /* SwiftSpinner */ = {
@@ -809,7 +773,7 @@
 		FF9FFCF7742A600958FEB18D0DF41248 /* GoogleSymbolUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				4AA58C50C0DED1D9EEB7E0ABA03A63F0 /* Frameworks */,
+				6592BD8685C3A78BF494F55D9A8FD69B /* Frameworks */,
 			);
 			path = GoogleSymbolUtilities;
 			sourceTree = "<group>";

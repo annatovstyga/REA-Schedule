@@ -9,7 +9,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet var weekdaysButtons: Array<UIButton>!
     // MARK: Propiertes
     var selectedDate = DateInRegion()
-   
+    var isCalendar = false
     @IBOutlet weak var tabBarView: UIView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var weekLabel: UILabel!
@@ -22,6 +22,10 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     var weekNumberTab:Int? = 1
     var realmDay:Day = Day()
 
+    
+    var screenForwardEdgeRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    var screenBackwardEdgeRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    
     // MARK: ViewDidLoad
     override func viewDidLoad() {
 
@@ -34,14 +38,16 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         
         
         //Week navigation gestures
-        let screenForwardEdgeRecognizer: UISwipeGestureRecognizer! = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekForward(_:)))
-                            screenForwardEdgeRecognizer.direction = .Left
-        let screenBackwardEdgeRecognizer: UISwipeGestureRecognizer! = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekBackward(_:)))
+        self.screenForwardEdgeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekForward(_:)))
+        self.screenForwardEdgeRecognizer.direction = .Left
+        self.screenBackwardEdgeRecognizer =  UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekBackward(_:)))
         screenBackwardEdgeRecognizer.direction = .Right
+       
         self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
         self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
-        self.navigationController?.view.addGestureRecognizer(screenForwardEdgeRecognizer)
-        self.navigationController?.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
+
+//        self.navigationController?.view.addGestureRecognizer(screenForwardEdgeRecognizer)
+//        self.navigationController?.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
         
         super.viewDidLoad()
     }
@@ -156,7 +162,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     // MARK: Rotate weeks
     
     func rotateWeekForward(sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.state == .Ended
+        if sender.state == .Ended && !self.isCalendar
         {
             selectedDate = selectedDate + 1.weeks
             updateRealmDay()
@@ -164,7 +170,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     }
     
     func rotateWeekBackward(sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.state == .Ended {
+        if sender.state == .Ended && !self.isCalendar {
             selectedDate = selectedDate - 1.weeks
             updateRealmDay()
         }
@@ -179,21 +185,36 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     // MARK: Segue methods
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier! == "mainSegue" || segue.identifier! == "weekSegue" ) {
+            print("FUCK")
+            self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
+            self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
             let dayVC = segue.destinationViewController as! MainTableViewController
             dayVC.realmDayToFill = self.realmDay
             for button in tabBarButtons{
                 button.hidden = false
-        }
-   
-       
-        }else if (segue.identifier == "segueCalendar"){
+            }
+            self.isCalendar = false
             
+        }else if (segue.identifier == "segueCalendar"){
+            self.isCalendar = true
+            self.view.gestureRecognizers?.removeAll()
+            print("recogn - ",self.view.gestureRecognizers)
+            
+            for subview in (self.navigationController?.view.subviews)! as [UIView] {
+                    subview.gestureRecognizers?.removeAll(keepCapacity: false)
+            }
+            print("\n\n\n \(screenForwardEdgeRecognizer)\n\n\n")
             for button in tabBarButtons{
                 button.hidden = true
             }
-
+        }else if(segue.identifier == "voidLessons"){
+            self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
+            self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
+            for button in tabBarButtons{
+                button.hidden = false
+            }
+            self.isCalendar = false
         }
-    
     }
 
     func updateRealmDay()
@@ -211,7 +232,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         }
         
         if(self.realmDay.lessons.count != 0){
-            performSegueWithIdentifier("mainSegue", sender: self)
+            performSegueWithIdentifier("mainSegue", sender: true)
         }
         else{
             performSegueWithIdentifier("voidLessons", sender: self)

@@ -50,89 +50,83 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(selectedDate.weekday == 1) //To identify monday correctly
-        {
-            selectedDate = selectedDate + 1.days
-        }
-        if(selectedDate.weekday > 2)
-        {
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 2
-            selectedDate = selectedDate - toMinus.days
-        }
-        if(selectedDate.weekday > 3){
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 3
-            selectedDate = selectedDate - toMinus.days
-        }
-        if (selectedDate.weekday < 3){
-            let weekday = selectedDate.weekday
-            let toPlus = 3 - weekday
-            selectedDate = selectedDate + toPlus.days
-        }
-        if(selectedDate.weekday > 4)
-        {
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 4
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
-        }
-        if (selectedDate.weekday < 4) {
-            let weekday = selectedDate.weekday
-            let toPlus = 4 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print(selectedDate)
-        }
-        if(selectedDate.weekday > 5)
-        {
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 5
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
-        }
-        if (selectedDate.weekday < 5) {
-            let weekday = selectedDate.weekday
-            let toPlus = 5 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print(selectedDate)
-        }
-        if(selectedDate.weekday > 6)
-        {
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 6
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
-        }
-        if (selectedDate.weekday < 6) {
-            let weekday = selectedDate.weekday
-            let toPlus = 6 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print("that's friday biitch\(selectedDate)")
-        }
-        if(selectedDate.weekday > 7)
-        {
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 7
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
-        }
-        if (selectedDate.weekday < 7) {
-            let weekday = selectedDate.weekday
-            let toPlus = 7 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print(selectedDate)
-        }
-//        else {
-//            selectedDate = selectedDate + 1.weeks
-//        print(selectedDate)
+//        if(selectedDate.weekday == 1) //To identify monday correctly
+//        {
+//            selectedDate = selectedDate + 1.days
 //        }
-//    
-    
-//        var date = NSDate()
-//        var components = NSDateComponents()
-//        var month = components.month
-        
-        
+//        if(selectedDate.weekday > 2)
+//        {
+//            let weekday = selectedDate.weekday
+//            let toMinus = weekday - 2
+//            selectedDate = selectedDate - toMinus.days
+//        }
+//        if(selectedDate.weekday > 3){
+//            let weekday = selectedDate.weekday
+//            let toMinus = weekday - 3
+//            selectedDate = selectedDate - toMinus.days
+//        }
+//        if (selectedDate.weekday < 3){
+//            let weekday = selectedDate.weekday
+//            let toPlus = 3 - weekday
+//            selectedDate = selectedDate + toPlus.days
+//        }
+//        if(selectedDate.weekday > 4)
+//        {
+//            let weekday = selectedDate.weekday
+//            let toMinus = weekday - 4
+//            selectedDate = selectedDate - toMinus.days
+//            print(selectedDate)
+//        }
+//        if (selectedDate.weekday < 4) {
+//            let weekday = selectedDate.weekday
+//            let toPlus = 4 - weekday
+//            selectedDate = selectedDate + toPlus.days
+//            print(selectedDate)
+//        }
+//        if(selectedDate.weekday > 5)
+//        {
+//            let weekday = selectedDate.weekday
+//            let toMinus = weekday - 5
+//            selectedDate = selectedDate - toMinus.days
+//            print(selectedDate)
+//        }
+//        if (selectedDate.weekday < 5) {
+//            let weekday = selectedDate.weekday
+//            let toPlus = 5 - weekday
+//            selectedDate = selectedDate + toPlus.days
+//            print(selectedDate)
+//        }
+//        if(selectedDate.weekday > 6)
+//        {
+//            let weekday = selectedDate.weekday
+//            let toMinus = weekday - 6
+//            selectedDate = selectedDate - toMinus.days
+//            print(selectedDate)
+//        }
+//        if (selectedDate.weekday < 6) {
+//            let weekday = selectedDate.weekday
+//            let toPlus = 6 - weekday
+//            selectedDate = selectedDate + toPlus.days
+//            print("that's friday biitch\(selectedDate)")
+//        }
+//        if(selectedDate.weekday > 7)
+//        {
+//            let weekday = selectedDate.weekday
+//            let toMinus = weekday - 7
+//            selectedDate = selectedDate - toMinus.days
+//            print(selectedDate)
+//        }
+//        if (selectedDate.weekday < 7) {
+//            let weekday = selectedDate.weekday
+//            let toPlus = 7 - weekday
+//            selectedDate = selectedDate + toPlus.days
+//            print(selectedDate)
+//        }
+        // CVCalendarMenuView initialization with frame
+//        self.menuView = CVCalendarMenuView(frame: CGRectMake(0, 0, 300, 15))
+//        
+//        // CVCalendarView initialization with frame
+//        self.calendarView = CVCalendarView(frame: CGRectMake(0, 20, 300, 450))
         labelMonth.text = CVDate(date: NSDate()).globalDescription
 //        labelMonth.text = String(month)
         
@@ -166,7 +160,6 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     
 
     func didSelectDayView(dayView: DayView, animationDidFinish: Bool) {
-    
 //    presentedDate = dayView.date
 //    var selectedDate = calendarView.presentedDate.commonDescription
 //    print("aand selected Date is \(calendarView.presentedDate.commonDescription)")
@@ -185,19 +178,23 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
 //        nextController.selectedDate = DateInRegion()
 //        navigationController.pushViewController(nextController, animated: true)
         
-        sideMenuVC.mainViewController?.childViewControllers.first?.performSegueWithIdentifier("trySegue", sender: self)
-        
-  
+//            print(sideMenuVC.mainViewController?.childViewControllers.first)
+        let regionRome = Region(calendarName: .Current , timeZoneName: TimeZoneName.EuropeMoscow, localeName: LocaleName.Russian)
+        let dateInReg = DateInRegion(absoluteTime: dayView.date.convertedDate(), region: regionRome)
+        self.selectedDate = dateInReg
+        let dsVC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
+        dsVC.selectedDate = self.selectedDate
+        dsVC.updateRealmDay()
     }
-      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue == "trySegue " {
-            
-        let vc = segue.destinationViewController as! MMSwiftTabBarController
-        vc.selectedDate = self.selectedDate
-        print("god pleeaaseee\(selectedDate)")
-        }
-         }
-    
+//      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue == "trySegue " {
+//            
+//        let vc = segue.destinationViewController as! MMSwiftTabBarController
+//        vc.selectedDate = self.selectedDate
+//        print("god pleeaaseee\(selectedDate)")
+//        }
+//         }
+//    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "" {
 //            if let VC = segue.destinationViewController as? MMSwiftTabBarController {
