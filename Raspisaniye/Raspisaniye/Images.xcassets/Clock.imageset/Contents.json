@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Clock.png",
+      "filename" : "Clock@1x.png",
       "scale" : "1x"
     },
     {
