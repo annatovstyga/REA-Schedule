@@ -20,6 +20,8 @@ class MenuItems: UIView {
        label.backgroundColor = UIColor.whiteColor()
 
     }
+    
+    
     func addLabel()
     {
         print(weekButton)
@@ -33,13 +35,26 @@ class MenuItems: UIView {
             self.label.center.y = sender.center.y
             }, completion: { finished in
                 print("Label move!")
+                let clickedButton = sender as! UIButton
+                if(clickedButton.tag == 1){
+                print(clickedButton)
+                let VC = sideMenuVC.mainViewController?.childViewControllers.first
+                VC!.performSegueWithIdentifier("FeedSegue", sender: self)
+                    sideMenuVC.toggleMenu()}
+                else if (clickedButton.tag == 0){
+                    let VC = sideMenuVC.mainViewController?.childViewControllers.first
+                    VC!.performSegueWithIdentifier("mainSegue", sender: self)
+                    sideMenuVC.toggleMenu()
+                }
         })
     }
+  
 
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         // Drawing code
     }
+    
 
 }

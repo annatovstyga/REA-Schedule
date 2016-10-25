@@ -36,6 +36,7 @@
 		B25F65B01C7B83830033EB2B /* WeekNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F65AF1C7B83830033EB2B /* WeekNavigationSegue.swift */; };
 		B2639AD01C4123A30028F663 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2639ACF1C4123A30028F663 /* Global.swift */; };
 		B2639AD71C41291F0028F663 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2639AD61C41291F0028F663 /* Images.xcassets */; };
+		B26B9F4C1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26B9F4B1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift */; };
 		B27314051C7919760004B709 /* CabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27314041C7919760004B709 /* CabController.swift */; };
 		B27F54CD1DB95FAC0062630A /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */; };
 		B289090E1C52D14500EB0A08 /* CabNavSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289090D1C52D14500EB0A08 /* CabNavSegue.swift */; };
@@ -103,6 +104,7 @@
 		B25F65AF1C7B83830033EB2B /* WeekNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekNavigationSegue.swift; sourceTree = "<group>"; };
 		B2639ACF1C4123A30028F663 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		B2639AD61C41291F0028F663 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Raspisaniye/Images.xcassets; sourceTree = "<group>"; };
+		B26B9F4B1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackNavigationSegue.swift; sourceTree = "<group>"; };
 		B27314041C7919760004B709 /* CabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabController.swift; sourceTree = "<group>"; };
 		B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B289090D1C52D14500EB0A08 /* CabNavSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabNavSegue.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				B28F1FBF1C54183400C9136B /* CustomBtn.swift */,
 				B24ACABC1C408B86006FB191 /* MainNavigationSegue.swift */,
 				B25F65AF1C7B83830033EB2B /* WeekNavigationSegue.swift */,
+				B26B9F4B1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift */,
 				B29EF4F51CB6C6BB0051C02F /* CustomUpdateCell.swift */,
 			);
 			name = Customs;
@@ -475,6 +478,7 @@
 				B2639AD01C4123A30028F663 /* Global.swift in Sources */,
 				A29DC4071C7115DF000842D3 /* ProfileScreenTableViewCell.swift in Sources */,
 				B28F1FC01C54183400C9136B /* CustomBtn.swift in Sources */,
+				B26B9F4C1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift in Sources */,
 				B2DDE85D1C8DF37E0055CDF4 /* AutoCompilte.swift in Sources */,
 				B217EFBB1D7F797F00BA177E /* MenuViewController.swift in Sources */,
 				B2A799A81D861A60007EE806 /* KSideMenuVC.swift in Sources */,
