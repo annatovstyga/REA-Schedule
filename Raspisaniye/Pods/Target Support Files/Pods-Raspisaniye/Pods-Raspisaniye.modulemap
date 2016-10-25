@@ -1,6 +1,0 @@
-framework module Pods_Raspisaniye {
-  umbrella header "Pods-Raspisaniye-umbrella.h"
-
-  export *
-  module * { export * }
-}

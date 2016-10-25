@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5b-5g-T73" id="iGi-hX-yIw">
-                                    <frame key="frameInset" width="375" height="129"/>
+                                    <frame key="frameInset" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationMark" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-ry-ylI">
@@ -215,6 +215,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИЗМЕНЕНИЙ НЕТ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-w9-5cx">
+
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.21568627450980393" green="0.69411764705882351" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -222,18 +223,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xXY-w9-5cx" firstAttribute="centerX" secondItem="1DC-BM-PjY" secondAttribute="centerX" id="CF3-mw-av5"/>
-                            <constraint firstItem="1DC-BM-PjY" firstAttribute="centerX" secondItem="E6x-52-kGX" secondAttribute="centerX" id="cta-25-IU5"/>
-                            <constraint firstItem="1DC-BM-PjY" firstAttribute="width" secondItem="E6x-52-kGX" secondAttribute="width" multiplier="1.25" id="g43-Od-VPb"/>
-                            <constraint firstItem="1DC-BM-PjY" firstAttribute="centerY" secondItem="E6x-52-kGX" secondAttribute="centerY" id="jeZ-ny-p0t">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
                             <constraint firstItem="xXY-w9-5cx" firstAttribute="centerY" secondItem="E6x-52-kGX" secondAttribute="centerY" id="rzQ-tF-Dh6"/>
-                            <constraint firstItem="xXY-w9-5cx" firstAttribute="top" secondItem="1DC-BM-PjY" secondAttribute="bottom" constant="29" id="tlY-P8-ssu"/>
+                            <constraint firstItem="xXY-w9-5cx" firstAttribute="centerX" secondItem="E6x-52-kGX" secondAttribute="centerX" id="vVR-6c-FtW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="1DC-BM-PjY"/>
                                 <exclude reference="xXY-w9-5cx"/>
                             </mask>
                             <mask key="constraints">
@@ -247,7 +241,6 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="1DC-BM-PjY"/>
                                 <include reference="xXY-w9-5cx"/>
                             </mask>
                             <mask key="constraints">
@@ -348,9 +341,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Oga-Xl-J2m"/>
                                 <exclude reference="aoy-Vf-i9D"/>
                                 <exclude reference="eoG-7H-BhH"/>
+                                <exclude reference="Oga-Xl-J2m"/>
                                 <exclude reference="etU-Jg-dMw"/>
                                 <exclude reference="iEc-lB-Hz0"/>
                             </mask>
@@ -439,7 +432,7 @@
                                             <color key="titleColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="monClick:" destination="bPA-nv-JkJ" eventType="touchUpInside" id="YlS-VF-Umq"/>
+                                            <action selector="mondayClick:" destination="bPA-nv-JkJ" eventType="touchUpInside" id="tLf-BN-w8Q"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -753,12 +746,21 @@
                         <outletCollection property="tabBarButtons" destination="mhe-sn-TKh" collectionClass="NSMutableArray" id="wiV-LC-p6V"/>
                         <outletCollection property="tabBarButtons" destination="7Z9-QE-YBw" collectionClass="NSMutableArray" id="scj-Ov-2c9"/>
                         <outletCollection property="tabBarButtons" destination="aAz-2s-g5K" collectionClass="NSMutableArray" id="ljb-0E-lsD"/>
+                        <outletCollection property="weekdaysButtons" destination="wjW-Pf-JXm" collectionClass="NSMutableArray" id="Usp-O9-uV8"/>
+                        <outletCollection property="weekdaysButtons" destination="mhe-sn-TKh" collectionClass="NSMutableArray" id="jeu-SZ-vnI"/>
+                        <outletCollection property="weekdaysButtons" destination="IDo-mC-B8j" collectionClass="NSMutableArray" id="QW3-U9-I02"/>
+                        <outletCollection property="weekdaysButtons" destination="7Z9-QE-YBw" collectionClass="NSMutableArray" id="Znw-Hn-2mD"/>
+                        <outletCollection property="weekdaysButtons" destination="aAz-2s-g5K" collectionClass="NSMutableArray" id="AcA-lP-j8u"/>
+                        <outletCollection property="weekdaysButtons" destination="QQs-Se-R3T" collectionClass="NSMutableArray" id="NLM-e8-n4d"/>
                         <segue destination="1iq-y0-Rhh" kind="custom" identifier="mainSegue" customClass="MainNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="wsd-Qu-EgG"/>
                         <segue destination="RYg-Jc-fvV" kind="show" identifier="profileSegue" id="Zf9-H0-CWa"/>
                         <segue destination="1iq-y0-Rhh" kind="custom" identifier="weekSegue" customClass="WeekNavigationSegue" customModule="Raspisaniye" id="ZTr-C1-zsR"/>
                         <segue destination="beY-mi-dYY" kind="custom" identifier="voidLessons" customClass="MainNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="XNb-wa-erR"/>
                         <segue destination="JOa-rN-vUu" kind="show" identifier="search" id="TY2-jw-A4N"/>
                         <segue destination="Od2-Ro-WWb" kind="custom" identifier="FeedSegue" customClass="FeedbackNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="AQd-YZ-ilR"/>
+
+                        <segue destination="vR1-mL-ezb" kind="custom" identifier="segueCalendar" customClass="CalendarNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="ic1-13-xIg"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgA-iB-f1M" sceneMemberID="firstResponder"/>
@@ -767,6 +769,61 @@
                 </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1404.8" y="231.18440779610197"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="5BZ-7D-eTx">
+            <objects>
+                <viewController storyboardIdentifier="CalendarViewControllerID" id="vR1-mL-ezb" customClass="CalendarViewController" customModule="Raspisaniye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FkT-69-TjB"/>
+                        <viewControllerLayoutGuide type="bottom" id="dni-zD-Y2d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UE1-JN-qq4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPp-eq-GqK">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1G-bR-8ft" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="MIT-lK-zHI"/>
+                                    <constraint firstAttribute="height" constant="44" id="tAT-4S-eaA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDI-jk-Ace" customClass="CVCalendarView" customModule="CVCalendar">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="YFC-A7-poq"/>
+                                    <constraint firstAttribute="height" constant="360" id="wKY-4j-8hk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="yDI-jk-Ace" secondAttribute="leading" id="5C0-Up-Dqm"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="centerX" secondItem="yPp-eq-GqK" secondAttribute="centerX" id="752-pr-a46"/>
+                            <constraint firstAttribute="trailing" secondItem="l1G-bR-8ft" secondAttribute="trailing" id="Xrr-AK-3nN"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="top" secondItem="yPp-eq-GqK" secondAttribute="bottom" constant="8" symbolic="YES" id="bug-Kr-pm4"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="UE1-JN-qq4" secondAttribute="leading" id="gAF-hh-isc"/>
+                            <constraint firstItem="yPp-eq-GqK" firstAttribute="top" secondItem="FkT-69-TjB" secondAttribute="bottom" constant="-9.5" id="i0u-IS-L2k"/>
+                            <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="l1G-bR-8ft" secondAttribute="bottom" constant="1" id="iNf-qN-0gU"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="trailing" secondItem="yDI-jk-Ace" secondAttribute="trailing" id="k5E-ea-8MC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="yDI-jk-Ace" id="Yhi-Zf-Kxh"/>
+                        <outlet property="labelMonth" destination="yPp-eq-GqK" id="WS4-Gh-Vla"/>
+                        <outlet property="menuView" destination="l1G-bR-8ft" id="NoZ-gj-wu4"/>
+                        <segue destination="bPA-nv-JkJ" kind="show" identifier="trySegue" id="auB-oj-82V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSw-Il-Alt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-388" y="1169"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="R1r-Se-2Ut">
@@ -777,7 +834,7 @@
                         <viewControllerLayoutGuide type="bottom" id="jaw-8a-vai"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dU9-sy-bWF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AjX-4U-caK">
@@ -848,7 +905,7 @@
                         <viewControllerLayoutGuide type="bottom" id="izP-4S-bk6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ig2-hW-LrA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profileBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-b0-r10">
@@ -944,15 +1001,15 @@
             <objects>
                 <tableViewController id="af6-j3-olF" customClass="ProfileTableViewController" customModule="Raspisaniye" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="I6H-kg-NaT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="383"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="changesCell" rowHeight="134" id="VO1-t4-95r" customClass="ProfileScreenTableViewCell" customModule="Raspisaniye" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="134"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="134"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VO1-t4-95r" id="k2q-yx-jVH">
-                                    <frame key="frameInset" width="600" height="134"/>
+                                    <frame key="frameInset" width="375" height="133.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Отмена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG1-x6-TQ7">
@@ -1112,7 +1169,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noChanges" id="7j7-mZ-tSL" customClass="CustomUpdateCell" customModule="Raspisaniye" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="162" width="600" height="160"/>
+                                <rect key="frame" x="0.0" y="162" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7j7-mZ-tSL" id="htE-kb-gAe">
                                     <frame key="frameInset" width="600" height="160"/>
@@ -1153,7 +1210,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yVe-51-FKa">
-                                <rect key="frame" x="0.0" y="322" width="600" height="160"/>
+                                <rect key="frame" x="0.0" y="322" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yVe-51-FKa" id="p6Z-4Y-AlS">
                                     <frame key="frameInset" width="600" height="160"/>
@@ -1676,7 +1733,8 @@ Cg
         <image name="profileBackground.png" width="319" height="217"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sye-4k-cqK"/>
+        <segue reference="auB-oj-82V"/>
         <segue reference="wsd-Qu-EgG"/>
+        <segue reference="Sye-4k-cqK"/>
     </inferredMetricsTieBreakers>
 </document>

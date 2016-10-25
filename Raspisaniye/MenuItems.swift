@@ -47,6 +47,18 @@ class MenuItems: UIView {
                     sideMenuVC.toggleMenu()
                 }
         })
+        let VC = sideMenuVC.mainViewController?.childViewControllers.first
+        VC!.performSegueWithIdentifier("segueCalendar", sender: self)
+        sideMenuVC.toggleMenu()
+        
+//        let calendarVC = kConstantObj.SetIntialMainViewController("CalendarViewControllerID")
+//    self.window?.rootViewController = calendarVC
+//        if sender as! NSObject == mounthButton {
+//            calendarVC.presentationMode()
+//        } else {
+//            calendarVC.presentationMode(.Week)
+//            
+//        }
     }
   
 

@@ -6,8 +6,10 @@ import SwiftDate
 
 class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
+    @IBOutlet var weekdaysButtons: Array<UIButton>!
     // MARK: Propiertes
     var selectedDate = DateInRegion()
+    var isCalendar = false
     @IBOutlet weak var tabBarView: UIView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var weekLabel: UILabel!
@@ -15,11 +17,15 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet var tabBarButtons: Array<UIButton>!
     var currentViewController: UIViewController?
     @IBOutlet weak var subjectNameLabel: UILabel!
-    
+    let yearNow = NSDate().year
     let realm = try! Realm()
     var weekNumberTab:Int? = 1
     var realmDay:Day = Day()
 
+    
+    var screenForwardEdgeRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    var screenBackwardEdgeRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
+    
     // MARK: ViewDidLoad
     override func viewDidLoad() {
 
@@ -27,20 +33,21 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         {
             selectedDate = selectedDate + 1.days
         }
-        
+        self.subjectNameLabel.text = subjectNameMemory
         updateRealmDay()
         
-        print("selectedDate on load - \(selectedDate)")
         
         //Week navigation gestures
-        let screenForwardEdgeRecognizer: UISwipeGestureRecognizer! = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekForward(_:)))
-                            screenForwardEdgeRecognizer.direction = .Left
-        let screenBackwardEdgeRecognizer: UISwipeGestureRecognizer! = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekBackward(_:)))
+        self.screenForwardEdgeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekForward(_:)))
+        self.screenForwardEdgeRecognizer.direction = .Left
+        self.screenBackwardEdgeRecognizer =  UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekBackward(_:)))
         screenBackwardEdgeRecognizer.direction = .Right
+       
         self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
         self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
-        self.navigationController?.view.addGestureRecognizer(screenForwardEdgeRecognizer)
-        self.navigationController?.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
+
+//        self.navigationController?.view.addGestureRecognizer(screenForwardEdgeRecognizer)
+//        self.navigationController?.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
         
         super.viewDidLoad()
     }
@@ -51,7 +58,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         sideMenuVC.toggleMenu()
     }
    
-    @IBAction func monClick(sender: AnyObject) {
+    @IBAction func mondayClick(sender: AnyObject) {
         
         if(selectedDate.weekday > 2)
         {
@@ -61,7 +68,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         }
         updateRealmDay()
     }
-    
+
     @IBAction func TueClick(sender: AnyObject) {
 
         if(selectedDate.weekday > 3){
@@ -155,7 +162,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     // MARK: Rotate weeks
     
     func rotateWeekForward(sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.state == .Ended
+        if sender.state == .Ended && !self.isCalendar
         {
             selectedDate = selectedDate + 1.weeks
             updateRealmDay()
@@ -163,7 +170,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     }
     
     func rotateWeekBackward(sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.state == .Ended {
+        if sender.state == .Ended && !self.isCalendar {
             selectedDate = selectedDate - 1.weeks
             updateRealmDay()
         }
@@ -178,8 +185,35 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     // MARK: Segue methods
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier! == "mainSegue" || segue.identifier! == "weekSegue" ) {
+            print("FUCK")
+            self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
+            self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
             let dayVC = segue.destinationViewController as! MainTableViewController
             dayVC.realmDayToFill = self.realmDay
+            for button in tabBarButtons{
+                button.hidden = false
+            }
+            self.isCalendar = false
+            
+        }else if (segue.identifier == "segueCalendar"){
+            self.isCalendar = true
+            self.view.gestureRecognizers?.removeAll()
+            print("recogn - ",self.view.gestureRecognizers)
+            
+            for subview in (self.navigationController?.view.subviews)! as [UIView] {
+                    subview.gestureRecognizers?.removeAll(keepCapacity: false)
+            }
+            print("\n\n\n \(screenForwardEdgeRecognizer)\n\n\n")
+            for button in tabBarButtons{
+                button.hidden = true
+            }
+        }else if(segue.identifier == "voidLessons"){
+            self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
+            self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
+            for button in tabBarButtons{
+                button.hidden = false
+            }
+            self.isCalendar = false
         }
     }
 
@@ -198,12 +232,40 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         }
         
         if(self.realmDay.lessons.count != 0){
-            performSegueWithIdentifier("mainSegue", sender: self)
+            performSegueWithIdentifier("mainSegue", sender: true)
         }
         else{
             performSegueWithIdentifier("voidLessons", sender: self)
         }
-        weekLabel.text = dateInFormat
+        let regionRome = Region(calendarName: .Current , timeZoneName: TimeZoneName.EuropeMoscow, localeName: LocaleName.Russian)
+        //FIXME - REFACTOR NAMES
+        let date = DateInRegion(era: 1, year: selectedDate.year, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, region: regionRome)
+        //FIXME - change to last day of last week 
+        let date2 = DateInRegion(era: 1, year: selectedDate.year, month: 12, day: 25, hour: 00, minute: 00, second: 0, nanosecond: 0, region: regionRome)
+        
+        let weekNumber:Int?
+        let date3 =  DateInRegion(era: 1, year:  yearNow + 1, month: 1, day: 1, hour: 00, minute: 01, second: 0, nanosecond: 0, region: regionRome)
+        let date4 =  DateInRegion(era: 1, year:  selectedDate.year, month: 1, day: 1, hour: 00, minute: 01, second: 0, nanosecond: 0, region: regionRome)
+        if(selectedDate.isAfter(.Day, ofDate: date2) && selectedDate.isBefore(.Day, ofDate: date3))
+        {
+            weekNumber = (date2.weekOfYear + 1 - date.weekOfYear) + 1
+        }else if(selectedDate.isAfter(.Day, ofDate: date4) && selectedDate.isBefore(.Day, ofDate: date))
+        {
+             weekNumber = (date2.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear + 1
+        }else{
+             weekNumber = selectedDate.weekOfYear - date.weekOfYear + 1
+        }
+
+        weekLabel.text = "Неделя \(weekNumber!),\(dateInFormat)"
+        
     }
     
+    func daysBetweenDates(startDate: NSDate, endDate: NSDate) -> Int
+    {
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([.Day], fromDate: startDate, toDate: endDate, options: [])
+        
+        return components.day
+    }
 }

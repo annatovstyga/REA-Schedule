@@ -33,7 +33,7 @@ class MainTableViewController: UITableViewController {
         self.tableView.reloadData()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.estimatedRowHeight = 120
-        self.tableView.rowHeight = self.view.frame.size.height / 5
+        self.tableView.rowHeight = self.view.bounds.size.height / 4
         rowH = self.tableView.rowHeight
     }
     
@@ -65,12 +65,14 @@ class MainTableViewController: UITableViewController {
             return (realmDayToFill.lessons.count)
         }
         else{
-            return 1
+            return 0
             
         }
         
     }
-    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return (self.view.bounds.size.height / 4)
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if((sortedLessons) != nil){
@@ -95,7 +97,6 @@ class MainTableViewController: UITableViewController {
             }else{
                 cell.placeCell.text = ""
             }
-    
         return cell
         }
         else
