@@ -10,14 +10,14 @@ import UIKit
 
 class MenuViewController: UIViewController {
     @IBOutlet var menuItems:MenuItems?
-    @IBAction func change_group(sender: AnyObject) {
+    @IBAction func change_group(_ sender: AnyObject) {
         
-        defaults.setBool(false, forKey: "isLogined")
-        if let vc = storyboard?.instantiateViewControllerWithIdentifier("LoginViewOneControllerID") as?
+        defaults.set(false, forKey: "isLogined")
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewOneControllerID") as?
             LoginViewOneController
         {
             navigationController?.pushViewController(vc, animated: true)
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
 //            self.present(vc, animated: true, completion: nil)
 
         }
@@ -28,7 +28,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         menuItems?.addLabel()
-        group_name.text = defaults.valueForKey("subjectName") as? String
+        group_name.text = defaults.value(forKey: "subjectName") as? String
         
         // Do any additional setup after loading the view.
     }
@@ -38,7 +38,7 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonClick(sender: AnyObject) {
+    @IBAction func buttonClick(_ sender: AnyObject) {
 
     }
 

@@ -11,9 +11,9 @@ import UIKit
 @IBDesignable
 class CustomTextFld: UITextField {
     @IBInspectable var isFilled : Bool = false
-    @IBInspectable var btnColor: UIColor = UIColor.whiteColor()
+    @IBInspectable var btnColor: UIColor = UIColor.white
     var placegolderText: String = "Введите "
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         let path = UIBezierPath(roundedRect: rect, cornerRadius: 6)
         btnColor.set()
@@ -27,6 +27,6 @@ class CustomTextFld: UITextField {
             path.stroke()
         }
        self.attributedPlaceholder =  NSAttributedString(string:placegolderText,
-            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+            attributes:[NSForegroundColorAttributeName: UIColor.white])
     }
 }

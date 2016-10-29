@@ -5,14 +5,14 @@ import SwiftyJSON
 import RealmSwift
 import SwiftDate
 
-let defaults = NSUserDefaults.standardUserDefaults()
+let defaults = UserDefaults.standard
 var jsonDataList:JSON?
 
-var isLogined = defaults.objectForKey("isLogined") as? Bool ?? Bool()
-var amistudent: Bool = defaults.objectForKey("amistudent") as? Bool ?? Bool()
-var subjectNameMemory = defaults.objectForKey("subjectName") as? String ?? String()
-var subjectIDMemory   = defaults.objectForKey("subjectID") as? Int ?? Int()
-var timestampMemory   = defaults.objectForKey("timestamp") as? Int ?? Int()
+var isLogined = defaults.object(forKey: "isLogined") as? Bool ?? Bool()
+var amistudent: Bool = defaults.object(forKey: "amistudent") as? Bool ?? Bool()
+var subjectNameMemory = defaults.object(forKey: "subjectName") as? String ?? String()
+var subjectIDMemory   = defaults.object(forKey: "subjectID") as? Int ?? Int()
+var timestampMemory   = defaults.object(forKey: "timestamp") as? Int ?? Int()
 
 var lectorsArray: [String] = []
 var groupsArray: [String] = []
@@ -29,11 +29,11 @@ struct GlobalColors{
     static let BlueColor = UIColor(red: 0/255,green: 71/255,blue: 119/255,alpha: 1.0)
 }
 
-func before(value1: String, value2: String) -> Bool {
+func before(_ value1: String, value2: String) -> Bool {
     return value1 < value2;
 }
 
-func parse(jsontoparse:JSON,successBlock: Bool -> ())
+func parse(_ jsontoparse:JSON,successBlock: (Bool) -> ())
 {
     let realm = try! Realm()
     try! realm.write {
@@ -105,7 +105,7 @@ func parse(jsontoparse:JSON,successBlock: Bool -> ())
     SwiftSpinner.hide()
 }
 
-func updateSchedule(itemID itemID: Int, successBlock: Void -> ()) {
+func updateSchedule(itemID: Int, successBlock: @escaping (Void) -> ()) {
     var Who:String
     if(amistudent)
     {
@@ -113,7 +113,7 @@ func updateSchedule(itemID itemID: Int, successBlock: Void -> ()) {
     }else{
         Who = "lector"
     }
-    InternetManager.sharedInstance.getLessonsList(["who":Who,"id":itemID,"timestamp":0], success: {
+    InternetManager.sharedInstance.getLessonsList(["who":Who as AnyObject,"id":itemID as AnyObject,"timestamp":0 as AnyObject], success: {
         success in
         jsonDataList = success
         successBlock()
@@ -126,11 +126,11 @@ func updateSchedule(itemID itemID: Int, successBlock: Void -> ()) {
 func updateSch()
 {
     SwiftSpinner.show("")
-    let id = defaults.objectForKey("subjectID") as! Int
-    dispatch_async(dispatch_get_main_queue(), {
+    let id = defaults.object(forKey: "subjectID") as! Int
+    DispatchQueue.main.async(execute: {
         updateSchedule(itemID: id, successBlock: {
             successBlock in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 parse(jsonDataList!, successBlock: { (true) in
                     print("FIX ME,THAT'S AN ERROR")
                 })
@@ -149,7 +149,7 @@ func getCurrentViewController() -> UIViewController? {
     }
     
     // Otherwise, we must get the root UIViewController and iterate through presented views
-    if let rootController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+    if let rootController = UIApplication.shared.keyWindow?.rootViewController {
         
         var currentController: UIViewController! = rootController
         
@@ -167,7 +167,7 @@ func getCurrentViewController() -> UIViewController? {
 
 
 func getNavigationController()-> UINavigationController? {
-    if let navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController  {
+    if let navigationController = UIApplication.shared.keyWindow?.rootViewController  {
         
         return navigationController as? UINavigationController
     }

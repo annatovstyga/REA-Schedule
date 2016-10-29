@@ -3,12 +3,12 @@ import UIKit
 class CabController: UIViewController {
     
     
-    @IBAction func firstBtnClick(sender: AnyObject) {
-        performSegueWithIdentifier("cabTabSegue", sender: tabBarButtons[0])
+    @IBAction func firstBtnClick(_ sender: AnyObject) {
+        performSegue(withIdentifier: "cabTabSegue", sender: tabBarButtons[0])
         
     }
-    @IBAction func secondBtnClick(sender: AnyObject) {
-        performSegueWithIdentifier("cabTabSegue", sender: tabBarButtons[1])
+    @IBAction func secondBtnClick(_ sender: AnyObject) {
+        performSegue(withIdentifier: "cabTabSegue", sender: tabBarButtons[1])
     }
     
     var currentViewController: UIViewController?
@@ -17,15 +17,15 @@ class CabController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        performSegueWithIdentifier("cabTabSegue", sender: tabBarButtons[0])
+        performSegue(withIdentifier: "cabTabSegue", sender: tabBarButtons[0])
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let availableIdentifiers = ["cabTabSegue"]
         if(availableIdentifiers.contains(segue.identifier!) ) {

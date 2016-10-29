@@ -17,7 +17,7 @@ class MenuItems: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-       label.backgroundColor = UIColor.whiteColor()
+       label.backgroundColor = UIColor.white
 
     }
     
@@ -30,8 +30,8 @@ class MenuItems: UIView {
         label.frame = CGRect(x: 0.0, y: 5.0, width: 6, height: 30)
         self.addSubview(label)
     }
-    @IBAction func buttonClick(sender: AnyObject) {
-        UIView.animateWithDuration(0.7, delay: 0.0, options: .CurveEaseOut, animations: {
+    @IBAction func buttonClick(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
             self.label.center.y = sender.center.y
             }, completion: { finished in
                 print("Label move!")
@@ -39,16 +39,16 @@ class MenuItems: UIView {
                 if(clickedButton.tag == 1){
                 print(clickedButton)
                 let VC = sideMenuVC.mainViewController?.childViewControllers.first
-                VC!.performSegueWithIdentifier("FeedSegue", sender: self)
+                VC!.performSegue(withIdentifier: "FeedSegue", sender: self)
                     sideMenuVC.toggleMenu()}
                 else if (clickedButton.tag == 0){
                     let VC = sideMenuVC.mainViewController?.childViewControllers.first
-                    VC!.performSegueWithIdentifier("mainSegue", sender: self)
+                    VC!.performSegue(withIdentifier: "mainSegue", sender: self)
                     sideMenuVC.toggleMenu()
                 }
         })
         let VC = sideMenuVC.mainViewController?.childViewControllers.first
-        VC!.performSegueWithIdentifier("segueCalendar", sender: self)
+        VC!.performSegue(withIdentifier: "segueCalendar", sender: self)
         sideMenuVC.toggleMenu()
         
 //        let calendarVC = kConstantObj.SetIntialMainViewController("CalendarViewControllerID")
@@ -64,7 +64,7 @@ class MenuItems: UIView {
 
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
     }
     

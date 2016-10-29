@@ -14,8 +14,8 @@ import SwiftDate
 
 
 class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalendarMenuViewDelegate{
-    enum Type: Int {
-        case Month = 1
+    enum `Type`: Int {
+        case month = 1
         case week = 2
     }
     var selectedDate = DateInRegion()
@@ -36,13 +36,13 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     
     func presentationMode() -> CalendarMode {
         
-        return CalendarMode.MonthView
+        return CalendarMode.monthView
     }
     
     
     /// Required method to implement!
     func firstWeekday() -> Weekday {
-        return Weekday.Monday
+        return Weekday.monday
     }
     var presentedDate:Date!
 
@@ -127,7 +127,7 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
 //        
 //        // CVCalendarView initialization with frame
 //        self.calendarView = CVCalendarView(frame: CGRectMake(0, 20, 300, 450))
-        labelMonth.text = CVDate(date: NSDate()).globalDescription
+        labelMonth.text = CVDate(date: Date()).globalDescription
 //        labelMonth.text = String(month)
         
        
@@ -159,7 +159,7 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
 
     
 
-    func didSelectDayView(dayView: DayView, animationDidFinish: Bool) {
+    func didSelectDayView(_ dayView: DayView, animationDidFinish: Bool) {
 //    presentedDate = dayView.date
 //    var selectedDate = calendarView.presentedDate.commonDescription
 //    print("aand selected Date is \(calendarView.presentedDate.commonDescription)")
@@ -179,8 +179,9 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
 //        navigationController.pushViewController(nextController, animated: true)
         
 //            print(sideMenuVC.mainViewController?.childViewControllers.first)
-        let regionRome = Region(calendarName: .Current , timeZoneName: TimeZoneName.EuropeMoscow, localeName: LocaleName.Russian)
-        let dateInReg = DateInRegion(absoluteTime: dayView.date.convertedDate(), region: regionRome)
+        let regionRome = Region.Local()
+//        Region(calendarName: .Current , timeZoneName: TimeZoneName.europeMoscow, localeName: LocaleName.russian)
+        let dateInReg = DateInRegion(absoluteDate: dayView.date.convertedDate()!)
         self.selectedDate = dateInReg
         let dsVC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
         dsVC.selectedDate = self.selectedDate

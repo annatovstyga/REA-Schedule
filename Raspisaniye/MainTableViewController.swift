@@ -23,7 +23,7 @@ class MainTableViewController: UITableViewController {
         
         if(self.realmDayToFill.lessons.count != 0)
         {
-            let result = self.realmDayToFill.lessons.sorted("lessonNumber")
+            let result = self.realmDayToFill.lessons.sorted(byProperty: "lessonNumber")
             for lesson in result{
                 sortedLessons?.append(lesson)
 //                print("lesson - \(lesson.discipline) numb - \(lesson.lessonNumber)")
@@ -41,26 +41,26 @@ class MainTableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.separatorInset = UIEdgeInsetsZero
-        cell.layoutMargins = UIEdgeInsetsZero
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(realmDayToFill.lessons.count != 0){
             
             if(realmDayToFill.lessons.count>4)
             {
-                tableView.scrollEnabled = true
+                tableView.isScrollEnabled = true
             }
             else
             {
-                tableView.scrollEnabled = false
+                tableView.isScrollEnabled = false
             }
             return (realmDayToFill.lessons.count)
         }
@@ -70,21 +70,21 @@ class MainTableViewController: UITableViewController {
         }
         
     }
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (self.view.bounds.size.height / 4)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if((sortedLessons) != nil){
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! CustomTableViewCell
         
         cell.titleCell.text = sortedLessons?[indexPath.item].discipline
         
         cell.timeCell.text = "\((sortedLessons?[indexPath.item].lessonStart)!) - \((sortedLessons?[indexPath.item].lessonEnd)!)"
         cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
         if((sortedLessons?[indexPath.item].lector != nil)&&(amistudent)){
-            cell.descriptionCell.text?.appendContentsOf((sortedLessons?[indexPath.item].lector!)!)
+            cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].lector!)!)
         }
         else if(true/*add check for groups*/){
 //                for group in realmDayToFill.lessons[indexPath.item].groups!
@@ -101,7 +101,7 @@ class MainTableViewController: UITableViewController {
         }
         else
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
             return cell
         }
     

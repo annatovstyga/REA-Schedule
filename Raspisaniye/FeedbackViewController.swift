@@ -10,7 +10,7 @@ import UIKit
 
 class FeedbackViewController: UIViewController {
 
-    @IBAction func ItLab(sender: AnyObject) {
+    @IBAction func ItLab(_ sender: AnyObject) {
 
     }
     override func viewDidLoad() {

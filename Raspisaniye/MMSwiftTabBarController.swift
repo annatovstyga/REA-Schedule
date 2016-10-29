@@ -17,7 +17,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet var tabBarButtons: Array<UIButton>!
     var currentViewController: UIViewController?
     @IBOutlet weak var subjectNameLabel: UILabel!
-    let yearNow = NSDate().year
+    let yearNow = Date().year
     let realm = try! Realm()
     var weekNumberTab:Int? = 1
     var realmDay:Day = Day()
@@ -39,9 +39,9 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         
         //Week navigation gestures
         self.screenForwardEdgeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekForward(_:)))
-        self.screenForwardEdgeRecognizer.direction = .Left
+        self.screenForwardEdgeRecognizer.direction = .left
         self.screenBackwardEdgeRecognizer =  UISwipeGestureRecognizer(target: self, action: #selector(MMSwiftTabBarController.rotateWeekBackward(_:)))
-        screenBackwardEdgeRecognizer.direction = .Right
+        screenBackwardEdgeRecognizer.direction = .right
        
         self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
         self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
@@ -54,11 +54,11 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     // MARK: IBActions - buttons
     //TODO: Merge in collection
-    @IBAction func profileClick(sender: AnyObject) {
+    @IBAction func profileClick(_ sender: AnyObject) {
         sideMenuVC.toggleMenu()
     }
    
-    @IBAction func mondayClick(sender: AnyObject) {
+    @IBAction func mondayClick(_ sender: AnyObject) {
         
         if(selectedDate.weekday > 2)
         {
@@ -69,7 +69,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         updateRealmDay()
     }
 
-    @IBAction func TueClick(sender: AnyObject) {
+    @IBAction func TueClick(_ sender: AnyObject) {
 
         if(selectedDate.weekday > 3){
             let weekday = selectedDate.weekday
@@ -85,7 +85,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         updateRealmDay()
     }
     
-    @IBAction func WedClick(sender: AnyObject) {
+    @IBAction func WedClick(_ sender: AnyObject) {
 
         if(selectedDate.weekday > 4)
         {
@@ -104,7 +104,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         updateRealmDay()
     }
     
-    @IBAction func ThuClick(sender: AnyObject) {
+    @IBAction func ThuClick(_ sender: AnyObject) {
 
         if(selectedDate.weekday > 5)
         {
@@ -122,7 +122,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         updateRealmDay()
     }
     
-    @IBAction func FriClick(sender: AnyObject) {
+    @IBAction func FriClick(_ sender: AnyObject) {
 
         if(selectedDate.weekday > 6)
         {
@@ -140,7 +140,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         updateRealmDay()
     }
     
-    @IBAction func SutClick(sender: AnyObject) {
+    @IBAction func SutClick(_ sender: AnyObject) {
         
         if(selectedDate.weekday > 7)
         {
@@ -161,16 +161,16 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     // MARK: Rotate weeks
     
-    func rotateWeekForward(sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.state == .Ended && !self.isCalendar
+    func rotateWeekForward(_ sender: UIScreenEdgePanGestureRecognizer) {
+        if sender.state == .ended && !self.isCalendar
         {
             selectedDate = selectedDate + 1.weeks
             updateRealmDay()
         }
     }
     
-    func rotateWeekBackward(sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.state == .Ended && !self.isCalendar {
+    func rotateWeekBackward(_ sender: UIScreenEdgePanGestureRecognizer) {
+        if sender.state == .ended && !self.isCalendar {
             selectedDate = selectedDate - 1.weeks
             updateRealmDay()
         }
@@ -178,40 +178,39 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     // MARK: Supporting methods
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
     // MARK: Segue methods
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier! == "mainSegue" || segue.identifier! == "weekSegue" ) {
             print("FUCK")
             self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
             self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
-            let dayVC = segue.destinationViewController as! MainTableViewController
+            let dayVC = segue.destination as! MainTableViewController
             dayVC.realmDayToFill = self.realmDay
             for button in tabBarButtons{
-                button.hidden = false
+                button.isHidden = false
             }
             self.isCalendar = false
             
         }else if (segue.identifier == "segueCalendar"){
             self.isCalendar = true
             self.view.gestureRecognizers?.removeAll()
-            print("recogn - ",self.view.gestureRecognizers)
             
             for subview in (self.navigationController?.view.subviews)! as [UIView] {
-                    subview.gestureRecognizers?.removeAll(keepCapacity: false)
+                    subview.gestureRecognizers?.removeAll(keepingCapacity: false)
             }
             print("\n\n\n \(screenForwardEdgeRecognizer)\n\n\n")
             for button in tabBarButtons{
-                button.hidden = true
+                button.isHidden = true
             }
         }else if(segue.identifier == "voidLessons"){
             self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
             self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
             for button in tabBarButtons{
-                button.hidden = false
+                button.isHidden = false
             }
             self.isCalendar = false
         }
@@ -219,9 +218,9 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
 
     func updateRealmDay()
     {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.YYYY"
-        let dateInFormat = dateFormatter.stringFromDate(selectedDate.absoluteTime)
+        let dateInFormat = dateFormatter.string(from: selectedDate.absoluteDate)
         let predicate = NSPredicate(format: "date = %@", dateInFormat)
         let DaysFromRealmWithFilter = realm.objects(Day.self).filter(predicate)
         if(DaysFromRealmWithFilter.first != nil)
@@ -232,24 +231,30 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         }
         
         if(self.realmDay.lessons.count != 0){
-            performSegueWithIdentifier("mainSegue", sender: true)
+            performSegue(withIdentifier: "mainSegue", sender: true)
         }
         else{
-            performSegueWithIdentifier("voidLessons", sender: self)
+            performSegue(withIdentifier: "voidLessons", sender: self)
         }
-        let regionRome = Region(calendarName: .Current , timeZoneName: TimeZoneName.EuropeMoscow, localeName: LocaleName.Russian)
+        let regionRome = Region.Local()
+// Region(calendarName: .Current , timeZoneName: TimeZoneName.europeMoscow, localeName: LocaleName.russian)
         //FIXME - REFACTOR NAMES
-        let date = DateInRegion(era: 1, year: selectedDate.year, month: 9, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, region: regionRome)
-        //FIXME - change to last day of last week 
-        let date2 = DateInRegion(era: 1, year: selectedDate.year, month: 12, day: 25, hour: 00, minute: 00, second: 0, nanosecond: 0, region: regionRome)
+        let date = try! DateInRegion(string: "\(selectedDate.year)-09-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
+
+//            DateInRegion(string: "01.09.\(selectedDate.year)", format: ) OLD FORMAT
+        //FIXME - change to last day of last week
+        let date2 = try! DateInRegion(string: "\(selectedDate.year)-12-25 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
+
         
         let weekNumber:Int?
-        let date3 =  DateInRegion(era: 1, year:  yearNow + 1, month: 1, day: 1, hour: 00, minute: 01, second: 0, nanosecond: 0, region: regionRome)
-        let date4 =  DateInRegion(era: 1, year:  selectedDate.year, month: 1, day: 1, hour: 00, minute: 01, second: 0, nanosecond: 0, region: regionRome)
-        if(selectedDate.isAfter(.Day, ofDate: date2) && selectedDate.isBefore(.Day, ofDate: date3))
+        let yearPlusOne = yearNow + 1
+        let date3 = try! DateInRegion(string: "\((yearPlusOne))-01-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
+
+        let date4 =  try! DateInRegion(string: "\((selectedDate.year))-01-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
+        if(selectedDate.isAfter(date: date2,granularity:.day) && selectedDate.isBefore(date: date3,granularity:.day))
         {
             weekNumber = (date2.weekOfYear + 1 - date.weekOfYear) + 1
-        }else if(selectedDate.isAfter(.Day, ofDate: date4) && selectedDate.isBefore(.Day, ofDate: date))
+        }else if(selectedDate.isAfter(date: date4,granularity:.day) && selectedDate.isBefore(date: date, granularity:.day))
         {
              weekNumber = (date2.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear + 1
         }else{
@@ -260,12 +265,12 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         
     }
     
-    func daysBetweenDates(startDate: NSDate, endDate: NSDate) -> Int
+    func daysBetweenDates(_ startDate: Date, endDate: Date) -> Int
     {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = Calendar.current
         
-        let components = calendar.components([.Day], fromDate: startDate, toDate: endDate, options: [])
+        let components = (calendar as NSCalendar).components([.day], from: startDate, to: endDate, options: [])
         
-        return components.day
+        return components.day!
     }
 }

@@ -5,6 +5,7 @@
 //  Created by Ilya Mudriy on 14.02.16.
 //  Copyright © 2016 rGradeStd. All rights reserved.
 //
+import UIKit
 
 class ProfileScreenTableViewCell: UITableViewCell {
 
@@ -19,7 +20,7 @@ class ProfileScreenTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     

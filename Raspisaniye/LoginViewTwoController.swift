@@ -24,7 +24,7 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     
     override func viewDidLoad() {
         
-        textField.autocompleteType = .Sentence
+        textField.autocompleteType = .sentence
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -37,20 +37,20 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
             textField.suggestions = lectorsArray
         }
         
-        textField.autocorrectionType = .No
+        textField.autocorrectionType = .no
         self.textField.delegate = self;
         for (value, _) in lectorsNamesList {
             lectorsArray.append(value)
         }
-        lectorsArray.sortInPlace(before)
+        lectorsArray.sort(by: before)
         
         for (value, _) in groupNamesList {
             groupsArray.append(value)
         }
-        groupsArray.sortInPlace(before)
+        groupsArray.sort(by: before)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
         
         super.viewDidLoad()
     }
@@ -60,9 +60,9 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         
     }
 
-    @IBAction func enterClick(sender: AnyObject) {
+    @IBAction func enterClick(_ sender: AnyObject) {
         
-    if((self.textField.suggestionNormal.lowercaseString.rangeOfString(self.textField.text!.lowercaseString)) != nil)
+    if((self.textField.suggestionNormal.lowercased().range(of: self.textField.text!.lowercased())) != nil)
         {
             self.textField.text = self.textField.suggestionNormal
         }
@@ -78,7 +78,7 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
             if(indexTemp != nil){
                 subjectName = (indexTemp!, groupNameTemp!)
                 self.enter()
-                subjectIDMemory   = defaults.objectForKey("subjectID") as? Int ?? Int()
+                subjectIDMemory   = defaults.object(forKey: "subjectID") as? Int ?? Int()
             }
             else{
                 self.showWarning()
@@ -108,24 +108,24 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     
     func showWarning() {
         let alertController = UIAlertController(title: "Некорректный ввод!", message:
-            "Попробуйте ввести название группы правильно", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+            "Попробуйте ввести название группы правильно", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
 
     
     func enter()
     {
-        defaults.setBool(true, forKey: "isLogined")
+        defaults.set(true, forKey: "isLogined")
         //      (subjectIDMemory, subjectNameMemory)  = subjectName
-        defaults.setObject(subjectName.0, forKey: "subjectID")
-        defaults.setObject(subjectName.1, forKey: "subjectName")
-        dispatch_async(dispatch_get_main_queue(), {
+        defaults.set(subjectName.0, forKey: "subjectID")
+        defaults.set(subjectName.1, forKey: "subjectName")
+        DispatchQueue.main.async(execute: {
             updateSchedule(itemID: subjectName.0, successBlock: {
                 successBlock in
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                 parse(jsonDataList!, successBlock: { (parsed) in
-                    let aDelegate = UIApplication.sharedApplication().delegate
+                    let aDelegate = UIApplication.shared.delegate
                     let mainVcIntial = kConstantObj.SetIntialMainViewController("mainTabBar")
                     aDelegate!.window?!.rootViewController = mainVcIntial
                     aDelegate!.window?!.makeKeyAndVisible()
@@ -135,7 +135,7 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         })
     }
     
-    private let data: [String] = {
+    fileprivate let data: [String] = {
             var data:[String] = []
             if(amistudent){
                  data = groupsArray
@@ -147,18 +147,18 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     }()
     
     // MARK: - IBActions
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.textField.text = self.textField.suggestion
         self.view.endEditing(true)
         return false
     }
 
-    func keyboardWillShow(sender: NSNotification) {
+    func keyboardWillShow(_ sender: Notification) {
         self.view.frame.origin.y = -150
       
     }
     
-    func keyboardWillHide(sender: NSNotification) {
+    func keyboardWillHide(_ sender: Notification) {
         self.view.frame.origin.y = 0
     }
 }

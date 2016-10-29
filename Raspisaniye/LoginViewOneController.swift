@@ -1,9 +1,11 @@
 import UIKit
+import Alamofire
 
 class LoginViewOneController: UIViewController {
 
     @IBOutlet weak var label_IT_lab: UILabel!
-    @IBAction func studClick(sender: AnyObject) {
+    @IBAction func studClick(_ sender: AnyObject) {
+        
         InternetManager.sharedInstance.getGroupList({
             success in
             let groups = success["success"]["data"]
@@ -15,8 +17,8 @@ class LoginViewOneController: UIViewController {
             for (value, _) in groupNamesList {
                 groupsArray.append(value)
             }
-            groupsArray.sortInPlace(before)
-            self.performSegueWithIdentifier("studLogin", sender: sender)
+            groupsArray.sort(by: before)
+            self.performSegue(withIdentifier: "studLogin", sender: sender)
             }, failure:{error in print(error)
                 self.showWarning()
         })
@@ -24,7 +26,7 @@ class LoginViewOneController: UIViewController {
         
     }
 
-    @IBAction func lectorClick(sender: AnyObject) {
+    @IBAction func lectorClick(_ sender: AnyObject) {
         InternetManager.sharedInstance.getLectorsList({
             success in
             let groups = success["success"]["data"]
@@ -38,8 +40,8 @@ class LoginViewOneController: UIViewController {
             for (value, _) in lectorsNamesList {
                 lectorsArray.append(value)
             }
-            lectorsArray.sortInPlace(before)
-            self.performSegueWithIdentifier("lectorLogin", sender: sender)
+            lectorsArray.sort(by: before)
+            self.performSegue(withIdentifier: "lectorLogin", sender: sender)
             }, failure:{error in print(error)
                 self.showWarning()
         })
@@ -54,22 +56,22 @@ class LoginViewOneController: UIViewController {
 
     func showWarning() {
         let alertController = UIAlertController(title: "Connection error!", message:
-            "При получении данных произошла проблема", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+            "При получении данных произошла проблема", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         
         if(segue.identifier == "studLogin"){
             slString = "group"
             amistudent = true;
-            defaults.setBool(true, forKey: "amistudent")
+            defaults.set(true, forKey: "amistudent")
         }
         else{
             slString = "lector"
             amistudent = false;
-            defaults.setBool(false, forKey: "amistudent")
+            defaults.set(false, forKey: "amistudent")
         }
 
     }

@@ -9,13 +9,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print("REALMFILE - \(Realm.Configuration.defaultConfiguration.fileURL!)")
-        isLogined = defaults.objectForKey("isLogined") as? Bool ?? Bool()
+        isLogined = defaults.object(forKey: "isLogined") as? Bool ?? Bool()
         
         if(isLogined ==  false) {
-            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewOneControllerID")
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewOneControllerID")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }else{
