@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5b-5g-T73" id="iGi-hX-yIw">
-                                    <frame key="frameInset" width="375" height="129.5"/>
+                                    <frame key="frameInset" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationMark" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-ry-ylI">
@@ -146,17 +146,17 @@
                                             <include reference="fGI-F2-ka0"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <include reference="F3P-mW-qGR"/>
+                                            <include reference="jsA-yH-cWT"/>
                                             <include reference="DyF-6W-CSa"/>
                                             <include reference="Kny-3K-v7e"/>
                                             <include reference="iZc-ZQ-hr2"/>
-                                            <include reference="2xr-vu-0T8"/>
-                                            <include reference="MBw-vi-LS3"/>
                                             <exclude reference="7aU-Ys-hZm"/>
                                             <include reference="BWI-BF-ryJ"/>
                                             <include reference="Jp1-24-Vb7"/>
                                             <include reference="o9z-qQ-czj"/>
-                                            <include reference="F3P-mW-qGR"/>
-                                            <include reference="jsA-yH-cWT"/>
+                                            <include reference="2xr-vu-0T8"/>
+                                            <include reference="MBw-vi-LS3"/>
                                             <include reference="hbm-Rz-OWM"/>
                                             <exclude reference="spg-m0-2C7"/>
                                             <include reference="N0A-md-shW"/>
@@ -198,7 +198,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Gerb.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DC-BM-PjY">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Gerb.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DC-BM-PjY">
                                 <frame key="frameInset" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1DC-BM-PjY" secondAttribute="height" multiplier="1.1:1" id="MAB-U4-MPi"/>
@@ -215,7 +215,6 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИЗМЕНЕНИЙ НЕТ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-w9-5cx">
-
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.21568627450980393" green="0.69411764705882351" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -231,12 +230,7 @@
                                 <exclude reference="xXY-w9-5cx"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="cta-25-IU5"/>
-                                <exclude reference="g43-Od-VPb"/>
-                                <exclude reference="jeZ-ny-p0t"/>
-                                <exclude reference="CF3-mw-av5"/>
                                 <exclude reference="rzQ-tF-Dh6"/>
-                                <exclude reference="tlY-P8-ssu"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -244,12 +238,7 @@
                                 <include reference="xXY-w9-5cx"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="cta-25-IU5"/>
-                                <include reference="g43-Od-VPb"/>
-                                <include reference="jeZ-ny-p0t"/>
-                                <include reference="CF3-mw-av5"/>
                                 <include reference="rzQ-tF-Dh6"/>
-                                <exclude reference="tlY-P8-ssu"/>
                             </mask>
                         </variation>
                     </view>
@@ -758,9 +747,7 @@
                         <segue destination="beY-mi-dYY" kind="custom" identifier="voidLessons" customClass="MainNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="XNb-wa-erR"/>
                         <segue destination="JOa-rN-vUu" kind="show" identifier="search" id="TY2-jw-A4N"/>
                         <segue destination="Od2-Ro-WWb" kind="custom" identifier="FeedSegue" customClass="FeedbackNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="AQd-YZ-ilR"/>
-
                         <segue destination="vR1-mL-ezb" kind="custom" identifier="segueCalendar" customClass="CalendarNavigationSegue" customModule="Raspisaniye" customModuleProvider="target" id="ic1-13-xIg"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgA-iB-f1M" sceneMemberID="firstResponder"/>
@@ -1009,7 +996,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="134"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VO1-t4-95r" id="k2q-yx-jVH">
-                                    <frame key="frameInset" width="375" height="133.5"/>
+                                    <frame key="frameInset" width="375" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Отмена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG1-x6-TQ7">
@@ -1172,7 +1159,7 @@
                                 <rect key="frame" x="0.0" y="162" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7j7-mZ-tSL" id="htE-kb-gAe">
-                                    <frame key="frameInset" width="600" height="160"/>
+                                    <frame key="frameInset" width="375" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Нет изменений в расписании" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Ss-ZMb">
@@ -1213,7 +1200,7 @@
                                 <rect key="frame" x="0.0" y="322" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yVe-51-FKa" id="p6Z-4Y-AlS">
-                                    <frame key="frameInset" width="600" height="160"/>
+                                    <frame key="frameInset" width="375" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

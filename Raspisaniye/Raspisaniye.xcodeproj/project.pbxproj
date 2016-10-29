@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		651D5FD21DB4F2B000C498C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651D5FD11DB4F2B000C498C5 /* Main.storyboard */; };
 		651D5FD41DB4F42600C498C5 /* CalendarNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651D5FD31DB4F42600C498C5 /* CalendarNavigationSegue.swift */; };
+		65413FCA1DC4F6BB008C3DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65413FC91DC4F6BB008C3DAD /* Main.storyboard */; };
 		655BEDB21DBA2B420050C97C /* SegueFromCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BEDB11DBA2B420050C97C /* SegueFromCalendar.swift */; };
 		655FA6B31D95558D00E168EF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655FA6B11D95558D00E168EF /* Realm.framework */; };
 		655FA6B41D95558D00E168EF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 655FA6B11D95558D00E168EF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,6 +80,7 @@
 		3765F1C63A855803E52A6559 /* Pods-Raspisaniye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raspisaniye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raspisaniye/Pods-Raspisaniye.debug.xcconfig"; sourceTree = "<group>"; };
 		651D5FD11DB4F2B000C498C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		651D5FD31DB4F42600C498C5 /* CalendarNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarNavigationSegue.swift; sourceTree = "<group>"; };
+		65413FC91DC4F6BB008C3DAD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		655BEDB11DBA2B420050C97C /* SegueFromCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromCalendar.swift; sourceTree = "<group>"; };
 		655FA6B11D95558D00E168EF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		655FA6B21D95558D00E168EF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 		B2FDE36D1C3DB4C300290A04 = {
 			isa = PBXGroup;
 			children = (
+				65413FC91DC4F6BB008C3DAD /* Main.storyboard */,
 				655BEDB11DBA2B420050C97C /* SegueFromCalendar.swift */,
 				65C0FCF11DB4E203009F960E /* CalendarViewController.swift */,
 				B24ACAB81C408B86006FB191 /* AppDelegate.swift */,
@@ -278,7 +281,6 @@
 				A29F12DB1C6A8A6C00D73B5C /* Data Model */,
 				A29F12CF1C69F3C600D73B5C /* Managers */,
 				B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */,
-				B22466321C933AB200569745 /* Main.storyboard */,
 				B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */,
 				B2639AD61C41291F0028F663 /* Images.xcassets */,
 				A250EB601C56CF530022A117 /* Supporting files */,
@@ -406,6 +408,7 @@
 				B2C4063D1C408CD000FB90BF /* LaunchScreen.xib in Resources */,
 				B2D3B4371C6D1944003C1464 /* clock.png in Resources */,
 				B21DA9211C82FC51008B6B32 /* Cat_laze.png in Resources */,
+				65413FCA1DC4F6BB008C3DAD /* Main.storyboard in Resources */,
 				A2498BB01C6F4FB800AFBF4C /* runnigMan@2x.png in Resources */,
 				B2639AD71C41291F0028F663 /* Images.xcassets in Resources */,
 				B2D3B4391C6D1948003C1464 /* location.png in Resources */,
@@ -456,7 +459,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8919AD9D5E7EA2D452E3988E /* [CP] Embed Pods Frameworks */ = {
