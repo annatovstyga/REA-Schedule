@@ -8,8 +8,6 @@
 
 import UIKit
 import CVCalendar
-import RealmSwift
-
 import SwiftDate
 
 
@@ -21,18 +19,11 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     var selectedDate = DateInRegion()
    
     
-    
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
+    var selectedDate = DateInRegion()
     
-    
-//    
-//    let realm = try! Realm()
-//   
-//    var realmDay:Day = Day()
-    
-//      var selectedDay:DayView!
     
     func presentationMode() -> CalendarMode {
         
@@ -44,93 +35,11 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     func firstWeekday() -> Weekday {
         return Weekday.monday
     }
-    var presentedDate:Date!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if(selectedDate.weekday == 1) //To identify monday correctly
-//        {
-//            selectedDate = selectedDate + 1.days
-//        }
-//        if(selectedDate.weekday > 2)
-//        {
-//            let weekday = selectedDate.weekday
-//            let toMinus = weekday - 2
-//            selectedDate = selectedDate - toMinus.days
-//        }
-//        if(selectedDate.weekday > 3){
-//            let weekday = selectedDate.weekday
-//            let toMinus = weekday - 3
-//            selectedDate = selectedDate - toMinus.days
-//        }
-//        if (selectedDate.weekday < 3){
-//            let weekday = selectedDate.weekday
-//            let toPlus = 3 - weekday
-//            selectedDate = selectedDate + toPlus.days
-//        }
-//        if(selectedDate.weekday > 4)
-//        {
-//            let weekday = selectedDate.weekday
-//            let toMinus = weekday - 4
-//            selectedDate = selectedDate - toMinus.days
-//            print(selectedDate)
-//        }
-//        if (selectedDate.weekday < 4) {
-//            let weekday = selectedDate.weekday
-//            let toPlus = 4 - weekday
-//            selectedDate = selectedDate + toPlus.days
-//            print(selectedDate)
-//        }
-//        if(selectedDate.weekday > 5)
-//        {
-//            let weekday = selectedDate.weekday
-//            let toMinus = weekday - 5
-//            selectedDate = selectedDate - toMinus.days
-//            print(selectedDate)
-//        }
-//        if (selectedDate.weekday < 5) {
-//            let weekday = selectedDate.weekday
-//            let toPlus = 5 - weekday
-//            selectedDate = selectedDate + toPlus.days
-//            print(selectedDate)
-//        }
-//        if(selectedDate.weekday > 6)
-//        {
-//            let weekday = selectedDate.weekday
-//            let toMinus = weekday - 6
-//            selectedDate = selectedDate - toMinus.days
-//            print(selectedDate)
-//        }
-//        if (selectedDate.weekday < 6) {
-//            let weekday = selectedDate.weekday
-//            let toPlus = 6 - weekday
-//            selectedDate = selectedDate + toPlus.days
-//            print("that's friday biitch\(selectedDate)")
-//        }
-//        if(selectedDate.weekday > 7)
-//        {
-//            let weekday = selectedDate.weekday
-//            let toMinus = weekday - 7
-//            selectedDate = selectedDate - toMinus.days
-//            print(selectedDate)
-//        }
-//        if (selectedDate.weekday < 7) {
-//            let weekday = selectedDate.weekday
-//            let toPlus = 7 - weekday
-//            selectedDate = selectedDate + toPlus.days
-//            print(selectedDate)
-//        }
-        // CVCalendarMenuView initialization with frame
-//        self.menuView = CVCalendarMenuView(frame: CGRectMake(0, 0, 300, 15))
-//        
-//        // CVCalendarView initialization with frame
-//        self.calendarView = CVCalendarView(frame: CGRectMake(0, 20, 300, 450))
-        labelMonth.text = CVDate(date: Date()).globalDescription
-//        labelMonth.text = String(month)
-        
-       
+        labelMonth.text = CVDate(date: NSDate()).globalDescription
         calendarView.calendarAppearanceDelegate = self
         calendarView.animatorDelegate = self
         menuView.menuViewDelegate = self
@@ -139,10 +48,53 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
 
     
     }
-   
+    var presentedDate:Date!
+    var animationFinished = true
+    func presentedDateUpdated(_ date: CVDate) {
+        
+        if labelMonth.text != date.globalDescription && self.animationFinished {
+            let updatedMonthLabel = UILabel()
+            
+            updatedMonthLabel.textColor = labelMonth.textColor
+            updatedMonthLabel.font = labelMonth.font
+            updatedMonthLabel.text = date.globalDescription
+            updatedMonthLabel.sizeToFit()
+            updatedMonthLabel.alpha = 0
+            updatedMonthLabel.center = self.labelMonth.center
+            
+            let offset = CGFloat(48)
+            updatedMonthLabel.transform = CGAffineTransformMakeTranslation(0, offset)
+            updatedMonthLabel.transform = CGAffineTransformMakeScale(1, 0.1)
     
-    /// Required method to implement!
+    UIView.animateWithDuration(0.35, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            
+            self.animationFinished = false
+            self.labelMonth.transform = CGAffineTransformMakeTranslation(0, -offset)
+            self.labelMonth.transform = CGAffineTransformMakeScale(1, 0.1)
+            self.labelMonth.transform = CGAffineTransformMakeScale(1, 0.1)
+            self.labelMonth.alpha = 0
+                
+                updatedMonthLabel.alpha = 1
+                updatedMonthLabel.transform = CGAffineTransformIdentity
+                
+            }) { _ in
+                
+            self.animationFinished = true
+            self.labelMonth.frame = updatedMonthLabel.frame
+            self.labelMonth.text = updatedMonthLabel.text
+            self.labelMonth.transform = CGAffineTransformIdentity
+            self.labelMonth.alpha = 1
+                updatedMonthLabel.removeFromSuperview()
+            }
+            
+            self.view.insertSubview(updatedMonthLabel, aboveSubview: self.labelMonth)
+        }
+    }
+   
 
+    func shouldAutoSelectDayOnMonthChange() -> Bool {
+       return false
+    }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -155,19 +107,24 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+   
+    //func togglePresentedDate(date: NSDate) {
+ 
+    //presentedDate = calendarView.coordinator.selectedDayView?.date
     
+    //}
+    var  selectedDate_: CVDate?
+  
+    func togglePresentedDate(date: NSDate) {
+        let presentedDate = Date(date: date)
+        guard
+            selectedDate_ == calendarView.coordinator.selectedDayView?.date else {
+                return
+        }
 
-    func didSelectDayView(_ dayView: DayView, animationDidFinish: Bool) {
-//    presentedDate = dayView.date
-//    var selectedDate = calendarView.presentedDate.commonDescription
-//    print("aand selected Date is \(calendarView.presentedDate.commonDescription)")
-//    
-    
-    
-//        sideMenuVC.mainViewController?.childViewControllers.first?.performSegueWithIdentifier("weekSegue", sender: nil)
 
+    func didSelectDayView(dayView: DayView, animationDidFinish: Bool) {
 
 //guard
 //        var  nextController  = storyboard?.instantiateViewControllerWithIdentifier("mainTabBar") as! MMSwiftTabBarController
@@ -187,21 +144,7 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         dsVC.selectedDate = self.selectedDate
         dsVC.updateRealmDay()
     }
-//      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue == "trySegue " {
-//            
-//        let vc = segue.destinationViewController as! MMSwiftTabBarController
-//        vc.selectedDate = self.selectedDate
-//        print("god pleeaaseee\(selectedDate)")
-//        }
-//         }
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "" {
-//            if let VC = segue.destinationViewController as? MMSwiftTabBarController {
-//                VC.selectedDate
-//            }
-//        }
-//        }
+
+}
 }
 
