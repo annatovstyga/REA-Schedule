@@ -10,28 +10,17 @@ import UIKit
 
 class FeedbackViewController: UIViewController {
 
-    @IBAction func ItLab(_ sender: AnyObject) {
-
+    @IBAction func FeedbackClick(_ sender: Any) {
+        if let url = NSURL(string: "http://www.itlab.styleru.net/"){
+            UIApplication.shared.openURL(url as URL)
+        }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
        override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

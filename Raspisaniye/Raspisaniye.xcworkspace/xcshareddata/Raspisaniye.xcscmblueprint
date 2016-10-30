@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3179023CC7F4B37E478A064ED03F08ED134B9651",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7E34F039658527AD8B75156AA904E24CAE4C3031" : 9223372036854775807,
+    "3179023CC7F4B37E478A064ED03F08ED134B9651" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ED754BA5-0CAD-4A87-A704-3CB4F7B87A93",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7E34F039658527AD8B75156AA904E24CAE4C3031" : "tp\/ZTDropDownTextField\/",
+    "3179023CC7F4B37E478A064ED03F08ED134B9651" : "REA-Schedule\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Raspisaniye",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Raspisaniye\/Raspisaniye.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rGradeStd\/REA-Schedule.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3179023CC7F4B37E478A064ED03F08ED134B9651"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ziyang0621\/ZTDropDownTextField.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7E34F039658527AD8B75156AA904E24CAE4C3031"
+    }
+  ]
+}

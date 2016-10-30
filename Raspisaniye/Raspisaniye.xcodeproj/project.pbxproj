@@ -48,6 +48,7 @@
 		B2A799A71D861A60007EE806 /* kConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A799A51D861A60007EE806 /* kConstant.swift */; };
 		B2A799A81D861A60007EE806 /* KSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A799A61D861A60007EE806 /* KSideMenuVC.swift */; };
 		B2B3E0BB1CA6DD4A0000EBD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */; };
+		B2BBE06D1DC56F0D001DD29B /* ZTDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BBE06C1DC56F0D001DD29B /* ZTDropDownTextField.swift */; };
 		B2C4063D1C408CD000FB90BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */; };
 		B2C4F8731C5629B500B7CAFD /* CustomTextFld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4F8721C5629B500B7CAFD /* CustomTextFld.swift */; };
 		B2D3B4371C6D1944003C1464 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D3B4361C6D1944003C1464 /* clock.png */; };
@@ -111,7 +112,6 @@
 		B2639ACF1C4123A30028F663 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		B2639AD61C41291F0028F663 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Raspisaniye/Images.xcassets; sourceTree = "<group>"; };
 		B26B9F4B1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackNavigationSegue.swift; sourceTree = "<group>"; };
-		B26C70151DC4FBC50068DE77 /* Raspisaniye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Raspisaniye.entitlements; path = Raspisaniye/Raspisaniye.entitlements; sourceTree = "<group>"; };
 		B27314041C7919760004B709 /* CabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabController.swift; sourceTree = "<group>"; };
 		B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B289090D1C52D14500EB0A08 /* CabNavSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabNavSegue.swift; sourceTree = "<group>"; };
@@ -124,6 +124,7 @@
 		B2A799A51D861A60007EE806 /* kConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kConstant.swift; sourceTree = "<group>"; };
 		B2A799A61D861A60007EE806 /* KSideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSideMenuVC.swift; sourceTree = "<group>"; };
 		B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B2BBE06C1DC56F0D001DD29B /* ZTDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZTDropDownTextField.swift; path = ../../tp/ZTDropDownTextField/ZTDropDownTextField/ZTDropDownTextField.swift; sourceTree = "<group>"; };
 		B2C406391C408C4E00FB90BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		B2C4F8721C5629B500B7CAFD /* CustomTextFld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFld.swift; sourceTree = "<group>"; };
@@ -270,7 +271,7 @@
 		B2FDE36D1C3DB4C300290A04 = {
 			isa = PBXGroup;
 			children = (
-
+				B2BBE06C1DC56F0D001DD29B /* ZTDropDownTextField.swift */,
 				65413FC91DC4F6BB008C3DAD /* Main.storyboard */,
 				655BEDB11DBA2B420050C97C /* SegueFromCalendar.swift */,
 				65C0FCF11DB4E203009F960E /* CalendarViewController.swift */,
@@ -462,7 +463,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8919AD9D5E7EA2D452E3988E /* [CP] Embed Pods Frameworks */ = {
@@ -511,6 +512,7 @@
 				B27314051C7919760004B709 /* CabController.swift in Sources */,
 				65B7D9411D956F830033A808 /* Schedule.swift in Sources */,
 				B24ACABE1C408B86006FB191 /* AppDelegate.swift in Sources */,
+				B2BBE06D1DC56F0D001DD29B /* ZTDropDownTextField.swift in Sources */,
 				B27F54CD1DB95FAC0062630A /* FeedbackViewController.swift in Sources */,
 				B289090E1C52D14500EB0A08 /* CabNavSegue.swift in Sources */,
 				B28909101C52D88800EB0A08 /* LoginViewOneController.swift in Sources */,

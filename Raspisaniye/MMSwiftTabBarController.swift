@@ -185,7 +185,6 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     // MARK: Segue methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier! == "mainSegue" || segue.identifier! == "weekSegue" ) {
-            print("FUCK")
             self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
             self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
             let dayVC = segue.destination as! MainTableViewController
@@ -202,7 +201,6 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             for subview in (self.navigationController?.view.subviews)! as [UIView] {
                     subview.gestureRecognizers?.removeAll(keepingCapacity: false)
             }
-            print("\n\n\n \(screenForwardEdgeRecognizer)\n\n\n")
             for button in tabBarButtons{
                 button.isHidden = true
             }
@@ -213,6 +211,10 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
                 button.isHidden = false
             }
             self.isCalendar = false
+        }else if(segue.identifier == "FeedSegue"){
+            for button in tabBarButtons{
+                button.isHidden = true
+            }
         }
     }
 
@@ -237,12 +239,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             performSegue(withIdentifier: "voidLessons", sender: self)
         }
         let regionRome = Region.Local()
-// Region(calendarName: .Current , timeZoneName: TimeZoneName.europeMoscow, localeName: LocaleName.russian)
-        //FIXME - REFACTOR NAMES
         let date = try! DateInRegion(string: "\(selectedDate.year)-09-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
-
-//            DateInRegion(string: "01.09.\(selectedDate.year)", format: ) OLD FORMAT
-        //FIXME - change to last day of last week
         let date2 = try! DateInRegion(string: "\(selectedDate.year)-12-25 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
 
         
@@ -253,7 +250,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         let date4 =  try! DateInRegion(string: "\((selectedDate.year))-01-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
         if(selectedDate.isAfter(date: date2,granularity:.day) && selectedDate.isBefore(date: date3,granularity:.day))
         {
-            weekNumber = (date2.weekOfYear + 1 - date.weekOfYear) + 1
+            weekNumber = (date2.weekOfYear + 1 - date.weekOfYear)
         }else if(selectedDate.isAfter(date: date4,granularity:.day) && selectedDate.isBefore(date: date, granularity:.day))
         {
              weekNumber = (date2.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear + 1
@@ -261,10 +258,20 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
              weekNumber = selectedDate.weekOfYear - date.weekOfYear + 1
         }
 
-        weekLabel.text = "Неделя \(weekNumber!),\(dateInFormat)"
+        weekLabel.text = "Неделя \(weekNumber!),  \(dateInFormat)"
         
+        
+        print(selectedDate.weekday)
+        self.setAllButtonsGray()
+         weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)
     }
     
+    func setAllButtonsGray()
+    {
+        for button in weekdaysButtons{
+            button.setTitleColor(UIColor(red: 232/255, green: 232/255, blue: 232/255, alpha: 1.0), for: .normal)
+        }
+    }
     func daysBetweenDates(_ startDate: Date, endDate: Date) -> Int
     {
         let calendar = Calendar.current

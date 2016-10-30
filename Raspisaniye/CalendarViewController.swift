@@ -17,37 +17,29 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         case week = 2
     }
     var selectedDate = DateInRegion()
-   
     
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
-    var selectedDate = DateInRegion()
-    
-    
+    var  selectedDate_: CVDate?
     func presentationMode() -> CalendarMode {
-        
         return CalendarMode.monthView
     }
     
-    
-    /// Required method to implement!
     func firstWeekday() -> Weekday {
         return Weekday.monday
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelMonth.text = CVDate(date: NSDate()).globalDescription
+        labelMonth.text = CVDate(date: NSDate() as Date).globalDescription
         calendarView.calendarAppearanceDelegate = self
         calendarView.animatorDelegate = self
         menuView.menuViewDelegate = self
         calendarView.calendarDelegate = self
         
-
-    
     }
+    
     var presentedDate:Date!
     var animationFinished = true
     func presentedDateUpdated(_ date: CVDate) {
@@ -63,26 +55,26 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
             updatedMonthLabel.center = self.labelMonth.center
             
             let offset = CGFloat(48)
-            updatedMonthLabel.transform = CGAffineTransformMakeTranslation(0, offset)
-            updatedMonthLabel.transform = CGAffineTransformMakeScale(1, 0.1)
+            updatedMonthLabel.transform = CGAffineTransform(translationX: 0, y: offset)
+            updatedMonthLabel.transform = CGAffineTransform(scaleX: 1, y: 0.1)
     
-    UIView.animateWithDuration(0.35, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+    UIView.animate(withDuration: 0.35, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             
             self.animationFinished = false
-            self.labelMonth.transform = CGAffineTransformMakeTranslation(0, -offset)
-            self.labelMonth.transform = CGAffineTransformMakeScale(1, 0.1)
-            self.labelMonth.transform = CGAffineTransformMakeScale(1, 0.1)
+            self.labelMonth.transform = CGAffineTransform(translationX: 0, y: -offset)
+            self.labelMonth.transform = CGAffineTransform(scaleX: 1, y: 0.1)
+            self.labelMonth.transform = CGAffineTransform(scaleX: 1, y: 0.1)
             self.labelMonth.alpha = 0
                 
                 updatedMonthLabel.alpha = 1
-                updatedMonthLabel.transform = CGAffineTransformIdentity
+                updatedMonthLabel.transform = CGAffineTransform.identity
                 
             }) { _ in
                 
             self.animationFinished = true
             self.labelMonth.frame = updatedMonthLabel.frame
             self.labelMonth.text = updatedMonthLabel.text
-            self.labelMonth.transform = CGAffineTransformIdentity
+            self.labelMonth.transform = CGAffineTransform.identity
             self.labelMonth.alpha = 1
                 updatedMonthLabel.removeFromSuperview()
             }
@@ -96,6 +88,7 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
        return false
     }
 
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -103,48 +96,27 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         calendarView.commitCalendarViewUpdate()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-   
-    //func togglePresentedDate(date: NSDate) {
- 
-    //presentedDate = calendarView.coordinator.selectedDayView?.date
     
-    //}
-    var  selectedDate_: CVDate?
-  
+    
     func togglePresentedDate(date: NSDate) {
-        let presentedDate = Date(date: date)
-        guard
-            selectedDate_ == calendarView.coordinator.selectedDayView?.date else {
+        guard selectedDate_ == calendarView.coordinator.selectedDayView?.date else {
                 return
         }
-
-
-    func didSelectDayView(dayView: DayView, animationDidFinish: Bool) {
-
-//guard
-//        var  nextController  = storyboard?.instantiateViewControllerWithIdentifier("mainTabBar") as! MMSwiftTabBarController
-//        let navigationController = self.navigationController
-//        else {
-//            return
-//        }
-//        nextController.selectedDate = DateInRegion()
-//        navigationController.pushViewController(nextController, animated: true)
         
-//            print(sideMenuVC.mainViewController?.childViewControllers.first)
-        let regionRome = Region.Local()
-//        Region(calendarName: .Current , timeZoneName: TimeZoneName.europeMoscow, localeName: LocaleName.russian)
+    }
+    
+    func didSelectDayView(_ dayView: DayView, animationDidFinish: Bool) {
+        debugPrint()
+        let VC = sideMenuVC.menuViewController as! MenuViewController
+        let menuItems = VC.menuItems
+        menuItems?.updateLabelPosition((menuItems?.weekButton)!)
         let dateInReg = DateInRegion(absoluteDate: dayView.date.convertedDate()!)
         self.selectedDate = dateInReg
         let dsVC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
         dsVC.selectedDate = self.selectedDate
         dsVC.updateRealmDay()
-    }
 
-}
+
+    }
 }
 

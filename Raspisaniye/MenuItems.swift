@@ -24,43 +24,41 @@ class MenuItems: UIView {
     
     func addLabel()
     {
-        print(weekButton)
         label.center.x = (weekButton?.center.x)! - 10
         label.center.y = (weekButton?.center.y)!
         label.frame = CGRect(x: 0.0, y: 5.0, width: 6, height: 30)
         self.addSubview(label)
     }
+    
     @IBAction func buttonClick(_ sender: AnyObject) {
-        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
             self.label.center.y = sender.center.y
             }, completion: { finished in
-                print("Label move!")
                 let clickedButton = sender as! UIButton
+                
                 if(clickedButton.tag == 1){
-                print(clickedButton)
-                let VC = sideMenuVC.mainViewController?.childViewControllers.first
-                VC!.performSegue(withIdentifier: "FeedSegue", sender: self)
-                    sideMenuVC.toggleMenu()}
-                else if (clickedButton.tag == 0){
                     let VC = sideMenuVC.mainViewController?.childViewControllers.first
-                    VC!.performSegue(withIdentifier: "mainSegue", sender: self)
+                    VC!.performSegue(withIdentifier: "FeedSegue", sender: self)
+                    sideMenuVC.toggleMenu()
+                }else if (clickedButton.tag == 0){
+                    let VC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
+//                    VC!.performSegue(withIdentifier: "mainSegue", sender: self)
+                    VC.updateRealmDay()
+                    sideMenuVC.toggleMenu()
+                }else {
+                    let VC = sideMenuVC.mainViewController?.childViewControllers.first
+                    VC!.performSegue(withIdentifier: "segueCalendar", sender: self)
                     sideMenuVC.toggleMenu()
                 }
         })
-        let VC = sideMenuVC.mainViewController?.childViewControllers.first
-        VC!.performSegue(withIdentifier: "segueCalendar", sender: self)
-        sideMenuVC.toggleMenu()
-        
-//        let calendarVC = kConstantObj.SetIntialMainViewController("CalendarViewControllerID")
-//    self.window?.rootViewController = calendarVC
-//        if sender as! NSObject == mounthButton {
-//            calendarVC.presentationMode()
-//        } else {
-//            calendarVC.presentationMode(.Week)
-//            
-//        }
     }
-  
+    func updateLabelPosition(_ sender: AnyObject){
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
+            self.label.center.y = sender.center.y
+        }, completion: { finished in
+          
+        })
+    }
 
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

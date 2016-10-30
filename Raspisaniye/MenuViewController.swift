@@ -16,8 +16,12 @@ class MenuViewController: UIViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewOneControllerID") as?
             LoginViewOneController
         {
-            navigationController?.pushViewController(vc, animated: true)
-            self.present(vc, animated: true, completion: nil)
+            self.view.window?.rootViewController = vc;//making a view to root view
+            self.view.window?.makeKeyAndVisible()
+
+
+//            navigationController?.pushViewController(vc, animated: true)
+//            self.present(vc, animated: true, completion: nil)
 //            self.present(vc, animated: true, completion: nil)
 
         }
