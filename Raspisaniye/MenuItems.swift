@@ -21,7 +21,6 @@ class MenuItems: UIView {
 
     }
     
-    
     func addLabel()
     {
         label.center.x = (weekButton?.center.x)! - 10

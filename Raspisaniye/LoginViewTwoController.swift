@@ -8,104 +8,80 @@
 
 import UIKit
 import Foundation
+import CCAutocomplete
+import RealmSwift
 
 class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     
     // MARK: - Properties
 
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label_IT_lab_: UILabel!
     @IBOutlet weak var REALogo: UIImageView!
     var tempID:Int? = 0
-    
+    var autoCompleteViewController: AutoCompleteViewController!
     @IBOutlet weak var placeholderView: UIView!
     var timestamp: Int = 0
     var currentWeek: Int = 0
     // MARK: - View methods
-    
-    
+    var isStudent = false
+    var isFirstLoad = true
     override func viewDidLoad() {
-        
-        textField.autocompleteType = .sentence
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
-        if(amistudent){
+        let realm = try! Realm()
+        if(isStudent){
             textField.placeholder = "Введите вашу группу"
-            textField.suggestions = groupsArray
         }
         else{
             textField.placeholder = "Введите имя преподавателя"
-            textField.suggestions = lectorsArray
         }
-        
-        textField.autocorrectionType = .no
-        self.textField.delegate = self;
-        for (value, _) in lectorsNamesList {
-            lectorsArray.append(value)
+        lectorsArray = [String]()
+        groupsArray = [String]()
+        let result1 = realm.objects(Unit.self).filter("type = 0")
+        let result2 = realm.objects(Unit.self).filter("type = 1")
+        for item in result1{
+            groupsArray.append(item.name)
         }
+        for item in result2{
+            lectorsArray.append(item.name)
+        }
+
         lectorsArray.sort(by: before)
-        
-        for (value, _) in groupNamesList {
-            groupsArray.append(value)
-        }
+
         groupsArray.sort(by: before)
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewTwoController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
         
         super.viewDidLoad()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+
+
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if self.isFirstLoad {
+            self.isFirstLoad = false
+            Autocomplete.setupAutocompleteForViewcontroller(self)
+        }
+    }
     @IBAction func enterClick(_ sender: AnyObject) {
-        
-    if((self.textField.suggestionNormal.lowercased().range(of: self.textField.text!.lowercased())) != nil)
-        {
-            self.textField.text = self.textField.suggestionNormal
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "name = %@",self.textField.text!)
+        let lectorIDObject = realm.objects(Unit.self).filter(predicate)
+        let lectorID = lectorIDObject.first?.ID
+        defaults.set(lectorID, forKey: "subjectID")
+        defaults.set(lectorIDObject.first?.name, forKey: "subjectName")
+        if(lectorID != nil){
+            self.enter(ID: lectorID!,type:(lectorIDObject.first?.type)!)
+        }else{
+            showWarning()
         }
-        else
-        {
-            self.textField.text = ""
-        }
-       
-        if (amistudent) {
-            let groupNameTemp = textField.text
-            let indexTemp = groupNamesList[groupNameTemp!]
-        
-            if(indexTemp != nil){
-                subjectName = (indexTemp!, groupNameTemp!)
-                self.enter()
-                subjectIDMemory   = defaults.object(forKey: "subjectID") as? Int ?? Int()
-            }
-            else{
-                self.showWarning()
-            }
-        } else {
-            
-            let lectorNameTemp = textField.text
-            
-            let indexTempLector = lectorsNamesList[lectorNameTemp!]
-            if(indexTempLector != nil){
-                subjectName = (indexTempLector!, lectorNameTemp!)
-                self.enter()
-            }
-            else{
-                self.showWarning()
-            }
-        }
- 
-        
     }
     
     func dismissKeyboard() {
         view.endEditing(true)
     }
-    
-    @IBOutlet weak var textField: AutocompleteField!
     
     func showWarning() {
         let alertController = UIAlertController(title: "Некорректный ввод!", message:
@@ -115,17 +91,16 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     }
 
     
-    func enter()
+    func enter(ID:Int,type:Int)
     {
         defaults.set(true, forKey: "isLogined")
         //      (subjectIDMemory, subjectNameMemory)  = subjectName
-        defaults.set(subjectName.0, forKey: "subjectID")
-        defaults.set(subjectName.1, forKey: "subjectName")
+
         DispatchQueue.main.async(execute: {
-            updateSchedule(itemID: subjectName.0, successBlock: {
+            updateSchedule(itemID: ID,type:type, successBlock: {
                 successBlock in
                 DispatchQueue.main.async(execute: {
-                parse(jsonDataList!, successBlock: { (parsed) in
+                    parse(jsonDataList!,realmName:"default", successBlock: { (parsed) in
                     let aDelegate = UIApplication.shared.delegate
                     let mainVcIntial = kConstantObj.SetIntialMainViewController("mainTabBar")
                     aDelegate!.window?!.rootViewController = mainVcIntial
@@ -135,24 +110,6 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
             })
         })
     }
-    
-    fileprivate let data: [String] = {
-            var data:[String] = []
-            if(amistudent){
-                 data = groupsArray
-                            }
-            else{
-                data = lectorsArray
-            }
-        return data
-    }()
-    
-    // MARK: - IBActions
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.textField.text = self.textField.suggestion
-        self.view.endEditing(true)
-        return false
-    }
 
     func keyboardWillShow(_ sender: Notification) {
         self.view.frame.origin.y = -150
@@ -161,5 +118,43 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     
     func keyboardWillHide(_ sender: Notification) {
         self.view.frame.origin.y = 0
+    }
+}
+
+
+extension LoginViewTwoController: AutocompleteDelegate {
+    func autoCompleteTextField() -> UITextField {
+        return self.textField
+    }
+    func autoCompleteThreshold(_ textField: UITextField) -> Int {
+        return 0
+    }
+
+    func autoCompleteItemsForSearchTerm(_ term: String) -> [AutocompletableOption] {
+        var filteredCountries = [String]()
+        if(isStudent){
+            filteredCountries = groupsArray.filter { (country) -> Bool in
+                return country.lowercased().contains(term.lowercased())
+            }
+        }else{
+            filteredCountries = lectorsArray.filter { (country) -> Bool in
+                return country.lowercased().contains(term.lowercased())
+            }
+        }
+        let countriesAndFlags: [AutocompletableOption] = filteredCountries.map { ( country) -> AutocompleteCellData in
+            var country = country
+            country.replaceSubrange(country.startIndex...country.startIndex, with: String(country.characters[country.startIndex]).capitalized)
+            return AutocompleteCellData(text: country, image: UIImage(named: country))
+            }.map( { $0 as AutocompletableOption })
+
+        return countriesAndFlags
+    }
+
+    func autoCompleteHeight() -> CGFloat {
+        return self.view.frame.height / 3.0
+    }
+
+    func didSelectItem(_ item: AutocompletableOption) {
+        self.textField.text = item.text
     }
 }

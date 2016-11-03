@@ -33,14 +33,20 @@ func before(_ value1: String, value2: String) -> Bool {
     return value1 < value2;
 }
 
-func parse(_ jsontoparse:JSON,successBlock: (Bool) -> ())
+func parse(_ jsontoparse:JSON,realmName:String ,successBlock: (Bool) -> ())
 {
-    let realm = try! Realm()
-    try! realm.write {
-        realm.deleteAll()
+    var config = Realm.Configuration()
+
+    config.fileURL = config.fileURL!.deletingLastPathComponent()
+        .appendingPathComponent("\(realmName).realm")
+    let realm = try! Realm(configuration: config)
+    if(realmName == "search"){
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
     SwiftSpinner.show("Немного волшебства")
-    
+
     let rasp = Schedule()
     rasp.year = "2016"
     print(jsontoparse)
@@ -105,9 +111,9 @@ func parse(_ jsontoparse:JSON,successBlock: (Bool) -> ())
     SwiftSpinner.hide()
 }
 
-func updateSchedule(itemID: Int, successBlock: @escaping (Void) -> ()) {
+func updateSchedule(itemID: Int,type:Int, successBlock: @escaping (Void) -> ()) {
     var Who:String
-    if(amistudent)
+    if(type == 0)
     {
         Who = "group"
     }else{
@@ -122,23 +128,6 @@ func updateSchedule(itemID: Int, successBlock: @escaping (Void) -> ()) {
     })
 }
 
-
-func updateSch()
-{
-    SwiftSpinner.show("")
-    let id = defaults.object(forKey: "subjectID") as! Int
-    DispatchQueue.main.async(execute: {
-        updateSchedule(itemID: id, successBlock: {
-            successBlock in
-            DispatchQueue.main.async(execute: {
-                parse(jsonDataList!, successBlock: { (true) in
-                    print("FIX ME,THAT'S AN ERROR")
-                })
-                
-            })
-        })
-    })
-}
 
 func getCurrentViewController() -> UIViewController? {
     

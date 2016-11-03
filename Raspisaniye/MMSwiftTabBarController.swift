@@ -8,6 +8,8 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     @IBOutlet var weekdaysButtons: Array<UIButton>!
     // MARK: Propiertes
+    var searchName = ""
+    var realmName = "default"
     var selectedDate = DateInRegion()
     var isCalendar = false
     @IBOutlet weak var tabBarView: UIView!
@@ -18,7 +20,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     var currentViewController: UIViewController?
     @IBOutlet weak var subjectNameLabel: UILabel!
     let yearNow = Date().year
-    let realm = try! Realm()
+    var realm:Realm?
     var weekNumberTab:Int? = 1
     var realmDay:Day = Day()
 
@@ -28,12 +30,27 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
+        if(realmName == "search"){
+            self.leftButton.setImage(UIImage(named:"back"), for: .normal)
+            self.subjectNameLabel.text = searchName
+        }else{
+            self.leftButton.setImage(UIImage(named:"Burger"), for: .normal)
+            self.subjectNameLabel.text = defaults.value(forKey: "subjectName") as? String
+        }
+
+        var config = Realm.Configuration()
+
+        // Use the default directory, but replace the filename with the username
+        config.fileURL = config.fileURL!.deletingLastPathComponent()
+            .appendingPathComponent("\(realmName).realm")
+
+        realm = try! Realm(configuration: config)
 
         if(selectedDate.weekday == 1) //To identify monday correctly
         {
             selectedDate = selectedDate + 1.days
         }
-        self.subjectNameLabel.text = subjectNameMemory
+
         updateRealmDay()
         
         
@@ -46,15 +63,17 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
         self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
 
-//        self.navigationController?.view.addGestureRecognizer(screenForwardEdgeRecognizer)
-//        self.navigationController?.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
-        
         super.viewDidLoad()
     }
     
     // MARK: IBActions - buttons
     //TODO: Merge in collection
     @IBAction func profileClick(_ sender: AnyObject) {
+        if(realmName == "search"){
+            self.dismiss(animated: true, completion: { 
+                //
+            })
+        }
         sideMenuVC.toggleMenu()
     }
    
@@ -224,10 +243,10 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         dateFormatter.dateFormat = "dd.MM.YYYY"
         let dateInFormat = dateFormatter.string(from: selectedDate.absoluteDate)
         let predicate = NSPredicate(format: "date = %@", dateInFormat)
-        let DaysFromRealmWithFilter = realm.objects(Day.self).filter(predicate)
-        if(DaysFromRealmWithFilter.first != nil)
+        let DaysFromRealmWithFilter = realm?.objects(Day.self).filter(predicate)
+        if(DaysFromRealmWithFilter?.first != nil)
         {
-            realmDay = DaysFromRealmWithFilter.first!
+            realmDay = (DaysFromRealmWithFilter?.first!)!
         }else{
             realmDay = Day()
         }

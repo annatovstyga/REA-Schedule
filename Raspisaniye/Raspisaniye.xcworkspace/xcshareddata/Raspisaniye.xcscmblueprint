@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BA560EF191457109FB5651D827A98EEC6D0F81EE" : 9223372036854775807,
     "7E34F039658527AD8B75156AA904E24CAE4C3031" : 9223372036854775807,
     "3179023CC7F4B37E478A064ED03F08ED134B9651" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ED754BA5-0CAD-4A87-A704-3CB4F7B87A93",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BA560EF191457109FB5651D827A98EEC6D0F81EE" : "Autocomplete\/",
     "7E34F039658527AD8B75156AA904E24CAE4C3031" : "tp\/ZTDropDownTextField\/",
     "3179023CC7F4B37E478A064ED03F08ED134B9651" : "REA-Schedule\/"
   },
@@ -25,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ziyang0621\/ZTDropDownTextField.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7E34F039658527AD8B75156AA904E24CAE4C3031"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cjcoax\/Autocomplete.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BA560EF191457109FB5651D827A98EEC6D0F81EE"
     }
   ]
 }
