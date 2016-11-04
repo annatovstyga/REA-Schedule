@@ -1,40 +1,75 @@
+
 import UIKit
 import SwiftyJSON
 import SwiftSpinner
 import RealmSwift
 import SwiftDate
 
+
+    
+
 class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
+    
+    @IBOutlet weak var saturdayClick: UIButton!
+    @IBOutlet weak var fridayClick: UIButton!
+    @IBOutlet weak var thursdayClick: UIButton!
+    @IBOutlet weak var wednesdayClick: UIButton!
+    @IBOutlet weak var tuesdayClick: UIButton!
+    @IBOutlet weak var mondayClick: UIButton!
+
     @IBOutlet var weekdaysButtons: Array<UIButton>!
+    @IBOutlet var label:UIView!
+    
+    @IBOutlet weak var tabView: UIView!
     // MARK: Propiertes
     var selectedDate = DateInRegion()
     var isCalendar = false
+    
     @IBOutlet weak var tabBarView: UIView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet var placeholderView: UIView!
+    
     @IBOutlet var tabBarButtons: Array<UIButton>!
     var currentViewController: UIViewController?
     @IBOutlet weak var subjectNameLabel: UILabel!
     let yearNow = Date().year
+    
+    
     let realm = try! Realm()
+    
     var weekNumberTab:Int? = 1
     var realmDay:Day = Day()
 
-    
     var screenForwardEdgeRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
     var screenBackwardEdgeRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
     
     // MARK: ViewDidLoad
+    
+    
+    
+    
     override func viewDidLoad() {
+        
+        weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)
 
+        tabView.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
+        self.tabView.addSubview(label)
+        
+            
+        tabView.isHidden = false
+        tabView.backgroundColor = UIColor(red: 232/255, green: 232/255, blue: 232/255, alpha: 1.0)
+        label.isHidden = false
+        label.backgroundColor = UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0)
+    
+      
         if(selectedDate.weekday == 1) //To identify monday correctly
         {
             selectedDate = selectedDate + 1.days
         }
         self.subjectNameLabel.text = subjectNameMemory
-        updateRealmDay()
+        self.updateRealmDay()
         
         
         //Week navigation gestures
@@ -49,115 +84,157 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
 //        self.navigationController?.view.addGestureRecognizer(screenForwardEdgeRecognizer)
 //        self.navigationController?.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
         
-        super.viewDidLoad()
+
+                super.viewDidLoad()
+
     }
     
     // MARK: IBActions - buttons
     //TODO: Merge in collection
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
+        self.label.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
+    }
     @IBAction func profileClick(_ sender: AnyObject) {
         sideMenuVC.toggleMenu()
     }
-   
-    @IBAction func mondayClick(_ sender: AnyObject) {
-        
-        if(selectedDate.weekday > 2)
-        {
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 2
-            selectedDate = selectedDate - toMinus.days
-        }
-        updateRealmDay()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
+        self.label.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
+        print(selectedDate.weekday)
     }
 
-    @IBAction func TueClick(_ sender: AnyObject) {
+    @IBAction func mondayClick(_ sender: AnyObject) {
+        
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
+        
+        self.label.center.x = sender.center.x
+         }, completion: { finished in
 
-        if(selectedDate.weekday > 3){
-            let weekday = selectedDate.weekday
-            let toMinus = weekday - 3
-            selectedDate = selectedDate - toMinus.days
+        
+        if(self.selectedDate.weekday > 2)
+        {
+            let weekday = self.selectedDate.weekday
+            let toMinus = weekday - 2
+            self.selectedDate = self.selectedDate - toMinus.days
         }
-        if (selectedDate.weekday < 3){
-            let weekday = selectedDate.weekday
+     self.updateRealmDay()
+        })
+    
+    }
+   
+    @IBAction func TueClick(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
+            self.label.center.x = sender.center.x
+            }, completion: { finished in
+        
+        if(self.selectedDate.weekday > 3){
+            let weekday = self.selectedDate.weekday
+            let toMinus = weekday - 3
+            self.selectedDate = self.selectedDate - toMinus.days
+        }
+        if (self.selectedDate.weekday < 3){
+            let weekday = self.selectedDate.weekday
             let toPlus = 3 - weekday
-            selectedDate = selectedDate + toPlus.days
+            self.selectedDate = self.selectedDate + toPlus.days
         }
         
-        updateRealmDay()
+        self.updateRealmDay()
+        })
     }
     
     @IBAction func WedClick(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
+            self.label.center.x = sender.center.x
+            }, completion: { finished in
 
-        if(selectedDate.weekday > 4)
+        if(self.selectedDate.weekday > 4)
         {
-            let weekday = selectedDate.weekday
+            let weekday = self.selectedDate.weekday
             let toMinus = weekday - 4
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate - toMinus.days
+            print(self.selectedDate)
         }
-        if (selectedDate.weekday < 4) {
-            let weekday = selectedDate.weekday
+        if (self.selectedDate.weekday < 4) {
+            let weekday = self.selectedDate.weekday
             let toPlus = 4 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate + toPlus.days
+            print(self.selectedDate)
         }
         
-        updateRealmDay()
+        self.updateRealmDay()
+                 })
     }
     
     @IBAction func ThuClick(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
+            self.label.center.x = sender.center.x
+            }, completion: { finished in
 
-        if(selectedDate.weekday > 5)
+        if(self.selectedDate.weekday > 5)
         {
-            let weekday = selectedDate.weekday
+            let weekday = self.selectedDate.weekday
             let toMinus = weekday - 5
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate - toMinus.days
+            print(self.selectedDate)
         }
-        if (selectedDate.weekday < 5) {
-            let weekday = selectedDate.weekday
+        if (self.selectedDate.weekday < 5) {
+            let weekday = self.selectedDate.weekday
             let toPlus = 5 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate + toPlus.days
+            print(self.selectedDate)
         }
-        updateRealmDay()
+        self.updateRealmDay()
+        })
     }
     
     @IBAction func FriClick(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
+            self.label.center.x = sender.center.x
+            }, completion: { finished in
 
-        if(selectedDate.weekday > 6)
+        if(self.selectedDate.weekday > 6)
         {
-            let weekday = selectedDate.weekday
+            let weekday = self.selectedDate.weekday
             let toMinus = weekday - 6
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate - toMinus.days
+            print(self.selectedDate)
         }
-        if (selectedDate.weekday < 6) {
-            let weekday = selectedDate.weekday
+        if (self.selectedDate.weekday < 6) {
+            let weekday = self.selectedDate.weekday
             let toPlus = 6 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate + toPlus.days
+            print(self.selectedDate)
         }
-        updateRealmDay()
+        self.updateRealmDay()
+        })
     }
     
     @IBAction func SutClick(_ sender: AnyObject) {
-        
-        if(selectedDate.weekday > 7)
+        UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
+            self.label.center.x = sender.center.x
+            }, completion: { finished in
+
+        if(self.selectedDate.weekday > 7)
         {
-            let weekday = selectedDate.weekday
+            let weekday = self.selectedDate.weekday
             let toMinus = weekday - 7
-            selectedDate = selectedDate - toMinus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate - toMinus.days
+            print(self.selectedDate)
         }
-        if (selectedDate.weekday < 7) {
-            let weekday = selectedDate.weekday
+        if (self.selectedDate.weekday < 7) {
+            let weekday = self.selectedDate.weekday
             let toPlus = 7 - weekday
-            selectedDate = selectedDate + toPlus.days
-            print(selectedDate)
+            self.selectedDate = self.selectedDate + toPlus.days
+            print(self.selectedDate)
         }
         
-        updateRealmDay()
+        self.updateRealmDay()
+    })
     }
+    
     
     // MARK: Rotate weeks
     
@@ -189,18 +266,25 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
             let dayVC = segue.destination as! MainTableViewController
             dayVC.realmDayToFill = self.realmDay
+            
             for button in tabBarButtons{
                 button.isHidden = false
             }
+            self.label.isHidden = false
+            self.tabView.isHidden = false
             self.isCalendar = false
             
         }else if (segue.identifier == "segueCalendar"){
-            self.isCalendar = true
-            self.view.gestureRecognizers?.removeAll()
             
+            self.isCalendar = true
+            self.label.isHidden = true
+            self.tabView.isHidden = true
+            self.view.gestureRecognizers?.removeAll()
+           
             for subview in (self.navigationController?.view.subviews)! as [UIView] {
                     subview.gestureRecognizers?.removeAll(keepingCapacity: false)
             }
+         
             for button in tabBarButtons{
                 button.isHidden = true
             }
@@ -210,8 +294,12 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             for button in tabBarButtons{
                 button.isHidden = false
             }
+            self.label.isHidden = false
+            self.tabView.isHidden = false
             self.isCalendar = false
         }else if(segue.identifier == "FeedSegue"){
+            self.label.isHidden = true
+            self.tabView.isHidden = true
             for button in tabBarButtons{
                 button.isHidden = true
             }
@@ -264,6 +352,10 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         print(selectedDate.weekday)
         self.setAllButtonsGray()
          weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)
+        self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
+        self.label.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
+//        self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
+//        self.label.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
     }
     
     func setAllButtonsGray()

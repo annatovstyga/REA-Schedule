@@ -10,6 +10,10 @@
 		651D5FD21DB4F2B000C498C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651D5FD11DB4F2B000C498C5 /* Main.storyboard */; };
 		651D5FD41DB4F42600C498C5 /* CalendarNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651D5FD31DB4F42600C498C5 /* CalendarNavigationSegue.swift */; };
 		65413FCA1DC4F6BB008C3DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65413FC91DC4F6BB008C3DAD /* Main.storyboard */; };
+		65470BBA1DC75C800052C178 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65470BB61DC75C740052C178 /* Realm.framework */; };
+		65470BBB1DC75C800052C178 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65470BB61DC75C740052C178 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65470BBC1DC75C800052C178 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65470BB71DC75C740052C178 /* RealmSwift.framework */; };
+		65470BBD1DC75C800052C178 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65470BB71DC75C740052C178 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		655BEDB21DBA2B420050C97C /* SegueFromCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BEDB11DBA2B420050C97C /* SegueFromCalendar.swift */; };
 		65B7D93B1D9556D70033A808 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7D93A1D9556D70033A808 /* Lesson.swift */; };
 		65B7D93D1D955E530033A808 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7D93C1D955E530033A808 /* Day.swift */; };
@@ -48,29 +52,24 @@
 		B2A799A71D861A60007EE806 /* kConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A799A51D861A60007EE806 /* kConstant.swift */; };
 		B2A799A81D861A60007EE806 /* KSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A799A61D861A60007EE806 /* KSideMenuVC.swift */; };
 		B2B3E0BB1CA6DD4A0000EBD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */; };
-		B2BBE06D1DC56F0D001DD29B /* ZTDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BBE06C1DC56F0D001DD29B /* ZTDropDownTextField.swift */; };
 		B2C4063D1C408CD000FB90BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */; };
 		B2C4F8731C5629B500B7CAFD /* CustomTextFld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4F8721C5629B500B7CAFD /* CustomTextFld.swift */; };
 		B2D3B4371C6D1944003C1464 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D3B4361C6D1944003C1464 /* clock.png */; };
 		B2D3B4391C6D1948003C1464 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D3B4381C6D1948003C1464 /* location.png */; };
 		B2DDE85D1C8DF37E0055CDF4 /* AutoCompilte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DDE85C1C8DF37E0055CDF4 /* AutoCompilte.swift */; };
-		B2E6DD161DC5342B000D73DE /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E6DD121DC5341D000D73DE /* Realm.framework */; };
-		B2E6DD171DC5342B000D73DE /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2E6DD121DC5341D000D73DE /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B2E6DD181DC5342B000D73DE /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E6DD131DC5341D000D73DE /* RealmSwift.framework */; };
-		B2E6DD191DC5342B000D73DE /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2E6DD131DC5341D000D73DE /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2E7A2801C994D55007F2F8A /* Gerb.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7A27F1C994D55007F2F8A /* Gerb.png */; };
 		E1D4450541B7F672ACCDBD36 /* Pods_Raspisaniye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C7F6342999DFC487BB839F /* Pods_Raspisaniye.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B2945F641DC520E60071C272 /* Embed Frameworks */ = {
+		65470BA61DC757A20052C178 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B2E6DD191DC5342B000D73DE /* RealmSwift.framework in Embed Frameworks */,
-				B2E6DD171DC5342B000D73DE /* Realm.framework in Embed Frameworks */,
+				65470BBD1DC75C800052C178 /* RealmSwift.framework in Embed Frameworks */,
+				65470BBB1DC75C800052C178 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +81,9 @@
 		651D5FD11DB4F2B000C498C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		651D5FD31DB4F42600C498C5 /* CalendarNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarNavigationSegue.swift; sourceTree = "<group>"; };
 		65413FC91DC4F6BB008C3DAD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		65470BB61DC75C740052C178 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		65470BB71DC75C740052C178 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		65470BBE1DC75D1C0052C178 /* Raspisaniye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Raspisaniye.entitlements; path = Raspisaniye/Raspisaniye.entitlements; sourceTree = "<group>"; };
 		655BEDB11DBA2B420050C97C /* SegueFromCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromCalendar.swift; sourceTree = "<group>"; };
 		65B7D93A1D9556D70033A808 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		65B7D93C1D955E530033A808 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -124,15 +126,12 @@
 		B2A799A51D861A60007EE806 /* kConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kConstant.swift; sourceTree = "<group>"; };
 		B2A799A61D861A60007EE806 /* KSideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSideMenuVC.swift; sourceTree = "<group>"; };
 		B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B2BBE06C1DC56F0D001DD29B /* ZTDropDownTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZTDropDownTextField.swift; path = ../../tp/ZTDropDownTextField/ZTDropDownTextField/ZTDropDownTextField.swift; sourceTree = "<group>"; };
 		B2C406391C408C4E00FB90BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		B2C4F8721C5629B500B7CAFD /* CustomTextFld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFld.swift; sourceTree = "<group>"; };
 		B2D3B4361C6D1944003C1464 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		B2D3B4381C6D1948003C1464 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		B2DDE85C1C8DF37E0055CDF4 /* AutoCompilte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompilte.swift; sourceTree = "<group>"; };
-		B2E6DD121DC5341D000D73DE /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		B2E6DD131DC5341D000D73DE /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		B2E7A27F1C994D55007F2F8A /* Gerb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gerb.png; sourceTree = "<group>"; };
 		B2FDE3761C3DB4C300290A04 /* Raspisaniye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raspisaniye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C7F6342999DFC487BB839F /* Pods_Raspisaniye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Raspisaniye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,9 +142,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E6DD161DC5342B000D73DE /* Realm.framework in Frameworks */,
+				65470BBA1DC75C800052C178 /* Realm.framework in Frameworks */,
 				E1D4450541B7F672ACCDBD36 /* Pods_Raspisaniye.framework in Frameworks */,
-				B2E6DD181DC5342B000D73DE /* RealmSwift.framework in Frameworks */,
+				65470BBC1DC75C800052C178 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +270,7 @@
 		B2FDE36D1C3DB4C300290A04 = {
 			isa = PBXGroup;
 			children = (
-				B2BBE06C1DC56F0D001DD29B /* ZTDropDownTextField.swift */,
+				65470BBE1DC75D1C0052C178 /* Raspisaniye.entitlements */,
 				65413FC91DC4F6BB008C3DAD /* Main.storyboard */,
 				655BEDB11DBA2B420050C97C /* SegueFromCalendar.swift */,
 				65C0FCF11DB4E203009F960E /* CalendarViewController.swift */,
@@ -304,9 +303,9 @@
 		BC8FAB6BB9ACB5F8664471FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2E6DD121DC5341D000D73DE /* Realm.framework */,
-				B2E6DD131DC5341D000D73DE /* RealmSwift.framework */,
 				D5C7F6342999DFC487BB839F /* Pods_Raspisaniye.framework */,
+				65470BB61DC75C740052C178 /* Realm.framework */,
+				65470BB71DC75C740052C178 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -340,7 +339,7 @@
 				B2FDE3741C3DB4C300290A04 /* Resources */,
 				8919AD9D5E7EA2D452E3988E /* [CP] Embed Pods Frameworks */,
 				36EA544DBE8107745B59A559 /* [CP] Copy Pods Resources */,
-				B2945F641DC520E60071C272 /* Embed Frameworks */,
+				65470BA61DC757A20052C178 /* Embed Frameworks */,
 				655FA6B81D9555B200E168EF /* ShellScript */,
 			);
 			buildRules = (
@@ -512,7 +511,6 @@
 				B27314051C7919760004B709 /* CabController.swift in Sources */,
 				65B7D9411D956F830033A808 /* Schedule.swift in Sources */,
 				B24ACABE1C408B86006FB191 /* AppDelegate.swift in Sources */,
-				B2BBE06D1DC56F0D001DD29B /* ZTDropDownTextField.swift in Sources */,
 				B27F54CD1DB95FAC0062630A /* FeedbackViewController.swift in Sources */,
 				B289090E1C52D14500EB0A08 /* CabNavSegue.swift in Sources */,
 				B28909101C52D88800EB0A08 /* LoginViewOneController.swift in Sources */,
@@ -643,7 +641,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Raspisaniye-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
@@ -679,7 +677,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Raspisaniye-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Supporting Files/Bridging-Header.h";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};

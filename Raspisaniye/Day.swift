@@ -13,7 +13,8 @@ class Day: Object {
     var lessons = List<Lesson>()
     dynamic var dayName:  String?
     
-    dynamic var date: String?
+    dynamic var date:  String?
+    
    
 //    override static func primaryKey() -> String? {
 //        return "date"

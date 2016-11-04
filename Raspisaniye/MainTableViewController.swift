@@ -11,6 +11,7 @@ import RealmSwift
 
 class MainTableViewController: UITableViewController {
     
+    
     // MARK: - Properties
     
     var currentWeek: Int = 0
@@ -93,7 +94,7 @@ class MainTableViewController: UITableViewController {
 //                }
         }
             if((sortedLessons?[indexPath.item].room) != nil){
-        cell.placeCell.text = "Ауд. \((sortedLessons?[indexPath.item].room)!) (\((sortedLessons?[indexPath.item].building)!) к. \((sortedLessons![indexPath.item].house)!))"
+        cell.placeCell.text = "Ауд. \((sortedLessons?[indexPath.item].room)!) (\((sortedLessons?[indexPath.item].building)!) к. \((sortedLessons![indexPath.item].house)))"
             }else{
                 cell.placeCell.text = ""
             }

@@ -14,14 +14,14 @@ class Lesson: Object {
     dynamic var hashID:     String?
     dynamic var lessonType: String?
     dynamic var room:       String?
-    dynamic var lessonStart: String?
-    dynamic var lessonEnd: String?
+    dynamic var lessonStart:String?
+    dynamic var lessonEnd:  String?
     dynamic var discipline: String?
     dynamic var building:   String?
     dynamic var lector:     String?
-    dynamic var house:      String? = nil
-    dynamic var startWeek: String? = nil
-    dynamic var endWeek: String? = nil
+    dynamic var house:      Int = 0
+    dynamic var startWeek:  Int = 0
+    dynamic var endWeek:    Int = 0
     
 //    override static func primaryKey() -> String? {
 //        return "hashID"
