@@ -71,7 +71,7 @@ func parse(_ jsontoparse:JSON,realmName:String ,successBlock: (Bool) -> ())
 
                         try! realm.write {
                     
-                        subject.lessonNumber = lessonData.0
+                        subject.lessonNumber = lessonData.0 
                         subject.hashID  = lessonData.1["hash_id"].string
                         subject.lessonType = lessonData.1["lesson_type"].stringValue
                         subject.room = lessonData.1["room"].string
@@ -81,9 +81,9 @@ func parse(_ jsontoparse:JSON,realmName:String ,successBlock: (Bool) -> ())
                         subject.lessonType = lessonData.1["lessontype"].string
                         subject.building = lessonData.1["building"].string
                         subject.lector = lessonData.1["lector"].string
-                        subject.house  = lessonData.1["housing"].stringValue
-                        subject.startWeek = lessonData.1["week_start"].stringValue
-                        subject.endWeek = lessonData.1["week_end"].stringValue
+                        subject.house  = lessonData.1["housing"].intValue
+                        subject.startWeek = lessonData.1["week_start"].intValue
+                        subject.endWeek = lessonData.1["week_end"].intValue
                         }
                        
                         try! realm.write {

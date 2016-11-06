@@ -12,16 +12,14 @@ import SwiftDate
 
 
 class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalendarMenuViewDelegate{
-    enum `Type`: Int {
-        case month = 1
-        case week = 2
-    }
+
     var selectedDate = DateInRegion()
     
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
     var  selectedDate_: CVDate?
+    
     func presentationMode() -> CalendarMode {
         return CalendarMode.monthView
     }
@@ -30,16 +28,28 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         return Weekday.monday
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        menuView.commitMenuViewUpdate()
+        calendarView.commitCalendarViewUpdate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layoutIfNeeded()
         labelMonth.text = CVDate(date: NSDate() as Date).globalDescription
+        
         calendarView.calendarAppearanceDelegate = self
         calendarView.animatorDelegate = self
         menuView.menuViewDelegate = self
         calendarView.calendarDelegate = self
+    
         
     }
-    
+
+       
+
     var presentedDate:Date!
     var animationFinished = true
     func presentedDateUpdated(_ date: CVDate) {
@@ -88,15 +98,6 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
        return false
     }
 
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        menuView.commitMenuViewUpdate()
-        calendarView.commitCalendarViewUpdate()
-    }
-
-    
     
     func togglePresentedDate(date: NSDate) {
         guard selectedDate_ == calendarView.coordinator.selectedDayView?.date else {

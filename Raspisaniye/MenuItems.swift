@@ -9,6 +9,9 @@
 import UIKit
 
 class MenuItems: UIView {
+    
+    
+
     @IBOutlet var weekButton: UIButton?
     @IBOutlet var mounthButton: UIButton?
     @IBOutlet var Feedback: UIButton?
@@ -20,7 +23,6 @@ class MenuItems: UIView {
        label.backgroundColor = UIColor.white
 
     }
-    
     func addLabel()
     {
         label.center.x = (weekButton?.center.x)! - 10
