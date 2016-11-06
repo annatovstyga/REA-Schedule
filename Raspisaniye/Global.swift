@@ -84,6 +84,14 @@ func parse(_ jsontoparse:JSON,realmName:String ,successBlock: (Bool) -> ())
                         subject.house  = lessonData.1["housing"].intValue
                         subject.startWeek = lessonData.1["week_start"].intValue
                         subject.endWeek = lessonData.1["week_end"].intValue
+                        var groupsString:String = ""
+                        for item in lessonData.1["groups"]{
+                                if(groupsString.range(of: "\(item.1.stringValue) |") == nil){
+                                    groupsString.append("\(item.1.stringValue) |")
+                                }
+                            }
+                        print(groupsString)
+                        subject.groups = groupsString
                         }
                        
                         try! realm.write {

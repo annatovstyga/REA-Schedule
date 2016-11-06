@@ -10,7 +10,6 @@ import SwiftDate
 
 class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
-    
     @IBOutlet weak var saturdayClick: UIButton!
     @IBOutlet weak var fridayClick: UIButton!
     @IBOutlet weak var thursdayClick: UIButton!
@@ -22,7 +21,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet var label:UIView!
     
     @IBOutlet weak var tabView: UIView!
-    // MARK: Propiertes
+
     var searchName = ""
     var realmName = "default"
     var selectedDate = DateInRegion()
@@ -50,6 +49,10 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     
     override func viewDidLoad() {
+        if(selectedDate.weekday == 1) //To identify monday correctly
+        {
+            selectedDate = selectedDate + 1.days
+        }
 
         weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)
         if(realmName == "search"){
@@ -78,10 +81,6 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         label.backgroundColor = UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0)
     
       
-        if(selectedDate.weekday == 1) //To identify monday correctly
-        {
-            selectedDate = selectedDate + 1.days
-        }
 
         updateRealmDay()
         

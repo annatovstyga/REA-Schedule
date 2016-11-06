@@ -9,12 +9,15 @@ class LoginViewOneController: UIViewController {
     @IBAction func studClick(_ sender: AnyObject) {
         fetchUnitsToRealm()
         self.performSegue(withIdentifier: "studLogin", sender: nil)
+        amistudent = true
+        UserDefaults.standard.set(true, forKey: "amistudent")
     }
 
     @IBAction func lectorClick(_ sender: AnyObject) {
         fetchUnitsToRealm()
         self.performSegue(withIdentifier: "lectorLogin", sender: nil)
-
+        amistudent = false
+        UserDefaults.standard.set(false, forKey: "amistudent")
     }
 
     override func viewDidLoad() {

@@ -114,6 +114,11 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         let dateInReg = DateInRegion(absoluteDate: dayView.date.convertedDate()!)
         self.selectedDate = dateInReg
         let dsVC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
+        if(self.selectedDate.weekday == 1) //To identify monday correctly
+        {
+            self.selectedDate = self.selectedDate + 1.days
+        }
+
         dsVC.selectedDate = self.selectedDate
         dsVC.updateRealmDay()
 

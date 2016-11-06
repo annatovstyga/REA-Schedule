@@ -84,10 +84,15 @@ class MainTableViewController: UITableViewController {
         
         cell.timeCell.text = "\((sortedLessons?[indexPath.item].lessonStart)!) - \((sortedLessons?[indexPath.item].lessonEnd)!)"
         cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
+        print("amis - \(amistudent)")
         if((sortedLessons?[indexPath.item].lector != nil)&&(amistudent)){
+            print("lector")
             cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].lector!)!)
         }
-        else if(true/*add check for groups*/){
+
+        else if((sortedLessons?[indexPath.item].groups != nil) && (!amistudent)){
+            cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].groups)!)
+
 //                for group in realmDayToFill.lessons[indexPath.item].groups!
 //                {
 //                cell.descriptionCell.text?.appendContentsOf("\(group) ")

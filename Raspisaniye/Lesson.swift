@@ -22,7 +22,7 @@ class Lesson: Object {
     dynamic var house:      Int = 0
     dynamic var startWeek:  Int = 0
     dynamic var endWeek:    Int = 0
-    
+    dynamic var groups:String?
 //    override static func primaryKey() -> String? {
 //        return "hashID"
 //    }
