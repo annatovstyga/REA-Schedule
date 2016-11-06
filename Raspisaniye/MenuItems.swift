@@ -23,7 +23,6 @@ class MenuItems: UIView {
        label.backgroundColor = UIColor.white
 
     }
-
     func addLabel()
     {
         label.center.x = (weekButton?.center.x)! - 10

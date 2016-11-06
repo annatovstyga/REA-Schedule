@@ -49,6 +49,7 @@
 		B28F1FC51C542A7D00C9136B /* LoginViewTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F1FC41C542A7D00C9136B /* LoginViewTwoController.swift */; };
 		B29901891C956CDC00EE8D92 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29901881C956CDC00EE8D92 /* SwiftSpinner.swift */; };
 		B29EF4F61CB6C6BB0051C02F /* CustomUpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29EF4F51CB6C6BB0051C02F /* CustomUpdateCell.swift */; };
+		B2A30EB01DCA995400EDD929 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A30EAF1DCA995400EDD929 /* Unit.swift */; };
 		B2A799A71D861A60007EE806 /* kConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A799A51D861A60007EE806 /* kConstant.swift */; };
 		B2A799A81D861A60007EE806 /* KSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A799A61D861A60007EE806 /* KSideMenuVC.swift */; };
 		B2B3E0BB1CA6DD4A0000EBD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */; };
@@ -123,6 +124,7 @@
 		B296042D1C582F0400A14509 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B29901881C956CDC00EE8D92 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftSpinner.swift; path = Pods/SwiftSpinner/SwiftSpinner/SwiftSpinner.swift; sourceTree = "<group>"; };
 		B29EF4F51CB6C6BB0051C02F /* CustomUpdateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUpdateCell.swift; sourceTree = "<group>"; };
+		B2A30EAF1DCA995400EDD929 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		B2A799A51D861A60007EE806 /* kConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kConstant.swift; sourceTree = "<group>"; };
 		B2A799A61D861A60007EE806 /* KSideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSideMenuVC.swift; sourceTree = "<group>"; };
 		B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				65B7D93E1D955EA50033A808 /* Week.swift */,
 				65B7D93C1D955E530033A808 /* Day.swift */,
 				65B7D93A1D9556D70033A808 /* Lesson.swift */,
+				B2A30EAF1DCA995400EDD929 /* Unit.swift */,
 			);
 			name = REALM;
 			sourceTree = "<group>";
@@ -411,7 +414,6 @@
 				B2C4063D1C408CD000FB90BF /* LaunchScreen.xib in Resources */,
 				B2D3B4371C6D1944003C1464 /* clock.png in Resources */,
 				B21DA9211C82FC51008B6B32 /* Cat_laze.png in Resources */,
-				65413FCA1DC4F6BB008C3DAD /* Main.storyboard in Resources */,
 				A2498BB01C6F4FB800AFBF4C /* runnigMan@2x.png in Resources */,
 				B2639AD71C41291F0028F663 /* Images.xcassets in Resources */,
 				B2D3B4391C6D1948003C1464 /* location.png in Resources */,
@@ -492,6 +494,7 @@
 				B28F1FC51C542A7D00C9136B /* LoginViewTwoController.swift in Sources */,
 				651D5FD41DB4F42600C498C5 /* CalendarNavigationSegue.swift in Sources */,
 				B2639AD01C4123A30028F663 /* Global.swift in Sources */,
+				B2A30EB01DCA995400EDD929 /* Unit.swift in Sources */,
 				A29DC4071C7115DF000842D3 /* ProfileScreenTableViewCell.swift in Sources */,
 				B28F1FC01C54183400C9136B /* CustomBtn.swift in Sources */,
 				B26B9F4C1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift in Sources */,
