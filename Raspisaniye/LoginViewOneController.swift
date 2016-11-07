@@ -10,7 +10,7 @@ class LoginViewOneController: UIViewController {
     @IBAction func studClick(_ sender: AnyObject) {
         fetchUnitsToRealm()
         self.performSegue(withIdentifier: "studLogin", sender: nil)
-        amistudent = true
+        amistudent = true //обновляем,т.к. храним в global
         UserDefaults.standard.set(true, forKey: "amistudent")
     }
 

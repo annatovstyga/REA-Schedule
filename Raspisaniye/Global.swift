@@ -10,9 +10,6 @@ var jsonDataList:JSON?
 
 var isLogined = defaults.object(forKey: "isLogined") as? Bool ?? Bool()
 var amistudent: Bool = defaults.object(forKey: "amistudent") as? Bool ?? Bool()
-var subjectNameMemory = defaults.object(forKey: "subjectName") as? String ?? String()
-var subjectIDMemory   = defaults.object(forKey: "subjectID") as? Int ?? Int()
-var timestampMemory   = defaults.object(forKey: "timestamp") as? Int ?? Int()
 
 var lectorsArray: [String] = []
 var groupsArray: [String] = []
@@ -24,12 +21,12 @@ var slString:String?
 var subjectName: (Int, String) = (0,"")
 
 struct GlobalColors{
-    
+    //FIXIT check and change
     static let lightBlueColor = UIColor(red: 0/255, green: 118/255, blue: 225/255, alpha: 1.0)
     static let BlueColor = UIColor(red: 0/255,green: 71/255,blue: 119/255,alpha: 1.0)
 }
 
-func before(_ value1: String, value2: String) -> Bool {
+func before(_ value1: String, value2: String) -> Bool {//личная функция для сортировки
     return value1 < value2;
 }
 
@@ -42,7 +39,7 @@ func parse(_ jsontoparse:JSON,realmName:String ,successBlock: (Bool) -> ())
     let realm = try! Realm(configuration: config)
     if(realmName == "search"){
         try! realm.write {
-            realm.deleteAll()
+            realm.deleteAll()//удаляется только всё в search,default в другом месте
         }
     }
     SwiftSpinner.show("Немного волшебства")
@@ -137,6 +134,8 @@ func updateSchedule(itemID: Int,type:Int, successBlock: @escaping (Void) -> ()) 
 }
 
 
+
+//куча методов для установки различных контроллеров на свои места.Возможно стоит удалить нахуй.
 func getCurrentViewController() -> UIViewController? {
     
     // If the root view is a navigation controller, we can just return the visible ViewController

@@ -25,10 +25,10 @@ class InternetManager {
     // MARK: Get lists of groups and lectors
     func getGroupList(_ success:@escaping (JSON) -> (), failure:@escaping (Error)-> ()){
 
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .background).async {//все загрузки в бэкгранде.При выполнеии в главном треде - крайне долго выполняет все задачи
 
             DispatchQueue.main.async {
-                SwiftSpinner.show("Получаем список групп")
+                SwiftSpinner.show("Получаем список групп")//не уверен,спасает ли это от зависаний,но всё же пусть выполняется в главной очереди
             }
             let getRequest = self.serverURL + self.getGroupList
             Alamofire.request(getRequest, method: .get).validate(statusCode: 200..<300).responseJSON(completionHandler: {
@@ -55,11 +55,11 @@ class InternetManager {
     }
 
     func getLectorsList(_ success:@escaping (JSON) -> (), failure:@escaping (Error)-> ()){
-        SwiftSpinner.show("Получаем список преподавателей")
+
         DispatchQueue.global(qos: .background).async {
 
             DispatchQueue.main.async {
-                SwiftSpinner.show("Получаем список групп")
+                SwiftSpinner.show("Получаем список преподавателей")
             }
 
         let getRequest = self.serverURL + self.getLectorsList
@@ -87,7 +87,6 @@ class InternetManager {
                 SwiftSpinner.show("Загружаем расписание")
 
             }
-
         let getRequest = self.serverURL + self.getLessonsList
         Alamofire.request(getRequest, method: .get,parameters: params).validate(statusCode: 200..<300).responseJSON(completionHandler: {
             response in

@@ -1,5 +1,5 @@
 import UIKit
-
+//segue для смены view на feedback
 class FeedbackNavigationSegue: UIStoryboardSegue {
     
     override func perform() {

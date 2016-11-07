@@ -39,9 +39,7 @@
 		B2680C961DCF8E0A00C8D463 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2680C911DCF8E0100C8D463 /* RealmSwift.framework */; };
 		B2680C971DCF8E0A00C8D463 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2680C911DCF8E0100C8D463 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B26B9F4C1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26B9F4B1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift */; };
-		B27314051C7919760004B709 /* CabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27314041C7919760004B709 /* CabController.swift */; };
 		B27F54CD1DB95FAC0062630A /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */; };
-		B289090E1C52D14500EB0A08 /* CabNavSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289090D1C52D14500EB0A08 /* CabNavSegue.swift */; };
 		B28909101C52D88800EB0A08 /* LoginViewOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289090F1C52D88800EB0A08 /* LoginViewOneController.swift */; };
 		B28F1FC01C54183400C9136B /* CustomBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F1FBF1C54183400C9136B /* CustomBtn.swift */; };
 		B28F1FC51C542A7D00C9136B /* LoginViewTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F1FC41C542A7D00C9136B /* LoginViewTwoController.swift */; };
@@ -52,7 +50,6 @@
 		B2A799A81D861A60007EE806 /* KSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A799A61D861A60007EE806 /* KSideMenuVC.swift */; };
 		B2B3E0BB1CA6DD4A0000EBD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */; };
 		B2C4063D1C408CD000FB90BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */; };
-		B2C4F8731C5629B500B7CAFD /* CustomTextFld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4F8721C5629B500B7CAFD /* CustomTextFld.swift */; };
 		B2D3B4371C6D1944003C1464 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D3B4361C6D1944003C1464 /* clock.png */; };
 		B2D3B4391C6D1948003C1464 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D3B4381C6D1948003C1464 /* location.png */; };
 		B2E7A2801C994D55007F2F8A /* Gerb.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7A27F1C994D55007F2F8A /* Gerb.png */; };
@@ -111,9 +108,7 @@
 		B2680C901DCF8E0100C8D463 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		B2680C911DCF8E0100C8D463 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		B26B9F4B1DBE8F8A00EE1398 /* FeedbackNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackNavigationSegue.swift; sourceTree = "<group>"; };
-		B27314041C7919760004B709 /* CabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabController.swift; sourceTree = "<group>"; };
 		B27F54CC1DB95FAC0062630A /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		B289090D1C52D14500EB0A08 /* CabNavSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabNavSegue.swift; sourceTree = "<group>"; };
 		B289090F1C52D88800EB0A08 /* LoginViewOneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewOneController.swift; sourceTree = "<group>"; };
 		B28F1FBF1C54183400C9136B /* CustomBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBtn.swift; sourceTree = "<group>"; };
 		B28F1FC41C542A7D00C9136B /* LoginViewTwoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewTwoController.swift; sourceTree = "<group>"; };
@@ -126,7 +121,6 @@
 		B2B3E0BA1CA6DD4A0000EBD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2C406391C408C4E00FB90BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C4063B1C408CD000FB90BF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		B2C4F8721C5629B500B7CAFD /* CustomTextFld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFld.swift; sourceTree = "<group>"; };
 		B2D3B4361C6D1944003C1464 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		B2D3B4381C6D1948003C1464 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		B2E7A27F1C994D55007F2F8A /* Gerb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gerb.png; sourceTree = "<group>"; };
@@ -183,7 +177,6 @@
 			children = (
 				65C0FCF11DB4E203009F960E /* CalendarViewController.swift */,
 				B24ACABD1C408B86006FB191 /* MMSwiftTabBarController.swift */,
-				B27314041C7919760004B709 /* CabController.swift */,
 				B25612861C6A828A0083CFCB /* MainTableViewController.swift */,
 			);
 			name = "Main Screen";
@@ -254,8 +247,6 @@
 				B29901881C956CDC00EE8D92 /* SwiftSpinner.swift */,
 				B25612881C6A86AE0083CFCB /* CustomTableViewCell.swift */,
 				A29DC4061C7115DF000842D3 /* ProfileScreenTableViewCell.swift */,
-				B289090D1C52D14500EB0A08 /* CabNavSegue.swift */,
-				B2C4F8721C5629B500B7CAFD /* CustomTextFld.swift */,
 				B28F1FBF1C54183400C9136B /* CustomBtn.swift */,
 				B24ACABC1C408B86006FB191 /* MainNavigationSegue.swift */,
 				B25F65AF1C7B83830033EB2B /* WeekNavigationSegue.swift */,
@@ -501,12 +492,9 @@
 				65B7D93F1D955EA50033A808 /* Week.swift in Sources */,
 				B29901891C956CDC00EE8D92 /* SwiftSpinner.swift in Sources */,
 				B25612871C6A828A0083CFCB /* MainTableViewController.swift in Sources */,
-				B2C4F8731C5629B500B7CAFD /* CustomTextFld.swift in Sources */,
-				B27314051C7919760004B709 /* CabController.swift in Sources */,
 				65B7D9411D956F830033A808 /* Schedule.swift in Sources */,
 				B24ACABE1C408B86006FB191 /* AppDelegate.swift in Sources */,
 				B27F54CD1DB95FAC0062630A /* FeedbackViewController.swift in Sources */,
-				B289090E1C52D14500EB0A08 /* CabNavSegue.swift in Sources */,
 				B28909101C52D88800EB0A08 /* LoginViewOneController.swift in Sources */,
 				B24ACAC21C408B86006FB191 /* MMSwiftTabBarController.swift in Sources */,
 				65C0FCF21DB4E203009F960E /* CalendarViewController.swift in Sources */,

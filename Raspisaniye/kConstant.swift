@@ -2,7 +2,7 @@
 //  kConstant.swift
 //  SideMenuSwiftDemo
 //
-//  Created by Kiran Patel on 1/2/16.
+//  Created by Kiran Patel on 1/2/16.Mod by Ivan Gulakov.
 //  Copyright © 2016  SOTSYS175. All rights reserved.
 //
 
@@ -32,7 +32,5 @@ class kConstant {
         sideMenuVC.RGsetMainViewController(navigationController)
         return sideMenuVC
     }
-   
-    // let sideMenuVC = KSideMenuVC()
     
 }

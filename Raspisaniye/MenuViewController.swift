@@ -47,17 +47,17 @@ class MenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let realm = try! Realm()
         let results = realm.objects(Unit.self)
-        print("rea - %@",results)
         for item in results{
             self.searchArray.append(item.name)
         }
     }
+
     @IBAction func searchClick(_ sender: Any) {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "name = %@",self.textField.text!)
         let lectorIDObject = realm.objects(Unit.self).filter(predicate)
         let lectorID = lectorIDObject.first
-        print("YEAHTYPE - \(lectorID?.name)")
+        //получем расписание по поиску и парсим его в реалм search
         if(lectorID != nil){
             DispatchQueue.main.async(execute: {
                 updateSchedule(itemID: (lectorID?.ID)!,type:(lectorID?.type)!, successBlock: {
@@ -77,8 +77,8 @@ class MenuViewController: UIViewController {
     }
 
     func showWarning() {
-        let alertController = UIAlertController(title: "Некорректный ввод!", message:
-            "Попробуйте ввести название группы правильно", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "Не найдено ничего по запросу!", message:
+            "Попробуйте проверить имя/название", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
@@ -104,7 +104,7 @@ extension MenuViewController: AutocompleteDelegate {
 
     func autoCompleteItemsForSearchTerm(_ term: String) -> [AutocompletableOption] {
         var filteredCountries = [String]()
-
+        //FIXIT переименовать переменные
         filteredCountries = self.searchArray.filter { (country) -> Bool in
             return country.lowercased().contains(term.lowercased())
         }
