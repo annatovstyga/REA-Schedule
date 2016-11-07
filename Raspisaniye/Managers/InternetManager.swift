@@ -81,8 +81,14 @@ class InternetManager {
     }
     
     func getLessonsList(_ params: Dictionary<String, AnyObject>, success:@escaping (JSON) -> (), failure:@escaping (Error) -> ()){
-          SwiftSpinner.show("Загружаем расписание")
-        let getRequest = serverURL + getLessonsList
+                  DispatchQueue.global(qos: .background).async {
+
+            DispatchQueue.main.async {
+                SwiftSpinner.show("Загружаем расписание")
+
+            }
+
+        let getRequest = self.serverURL + self.getLessonsList
         Alamofire.request(getRequest, method: .get,parameters: params).validate(statusCode: 200..<300).responseJSON(completionHandler: {
             response in
             print(response)
@@ -98,6 +104,7 @@ class InternetManager {
                  SwiftSpinner.hide()
             }
         })
+        }
     }
     
 }
