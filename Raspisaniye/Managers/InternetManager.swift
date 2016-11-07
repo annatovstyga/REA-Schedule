@@ -24,51 +24,46 @@ class InternetManager {
 
     // MARK: Get lists of groups and lectors
     func getGroupList(_ success:@escaping (JSON) -> (), failure:@escaping (Error)-> ()){
-        SwiftSpinner.show("Получаем список групп")
-        
-        let getRequest = serverURL + getGroupList
-        Alamofire.request(getRequest, method: .get).validate(statusCode: 200..<300).responseJSON(completionHandler: {
-            
-                        response in
-                        switch response.result {
-                        case .success:
-                            if let value = response.result.value {
-                                let json = JSON(value)
-                                success(json)
-                            }
-            
-                                SwiftSpinner.hide()
-                        case .failure(let error):
-                            failure(error)
-            
-                                SwiftSpinner.hide()
-                            
-                        }
-                    })
 
-//        Alamofire.request(url: getRequest,method: .get).responseJSON(completionHandler: {
-//            response in
-//            switch response.result {
-//            case .Success:
-//                if let value = response.result.value {
-//                    let json = JSON(value)
-//                    success(json)
-//                }
-//
-//                    SwiftSpinner.hide()
-//            case .Failure(let error):
-//                failure(error)
-//
-//                    SwiftSpinner.hide()
-//
-//            }
-//        })
+        DispatchQueue.global(qos: .background).async {
+
+            DispatchQueue.main.async {
+                SwiftSpinner.show("Получаем список групп")
+            }
+            let getRequest = self.serverURL + self.getGroupList
+            Alamofire.request(getRequest, method: .get).validate(statusCode: 200..<300).responseJSON(completionHandler: {
+
+                response in
+                switch response.result {
+                case .success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        success(json)
+                    }
+
+                    SwiftSpinner.hide()
+                case .failure(let error):
+                    failure(error)
+
+                    SwiftSpinner.hide()
+
+                }
+            })
+
+        }
+
     }
 
     func getLectorsList(_ success:@escaping (JSON) -> (), failure:@escaping (Error)-> ()){
-          SwiftSpinner.show("Получаем список преподавателей")
-        let getRequest = serverURL + getLectorsList
- Alamofire.request(getRequest, method: .get).validate(statusCode: 200..<300).responseJSON(completionHandler: {
+        SwiftSpinner.show("Получаем список преподавателей")
+        DispatchQueue.global(qos: .background).async {
+
+            DispatchQueue.main.async {
+                SwiftSpinner.show("Получаем список групп")
+            }
+
+        let getRequest = self.serverURL + self.getLectorsList
+        Alamofire.request(getRequest, method: .get).validate(statusCode: 200..<300).responseJSON(completionHandler: {
             response in
             switch response.result {
             case .success:
@@ -76,15 +71,15 @@ class InternetManager {
                     let json = JSON(value)
                     success(json)
                 }
-                 SwiftSpinner.hide()
+                SwiftSpinner.hide()
             case .failure(let error):
                 failure(error)
-                 SwiftSpinner.hide()
+                SwiftSpinner.hide()
             }
         })
+        }
     }
     
-    // MARK: Get schedule
     func getLessonsList(_ params: Dictionary<String, AnyObject>, success:@escaping (JSON) -> (), failure:@escaping (Error) -> ()){
           SwiftSpinner.show("Загружаем расписание")
         let getRequest = serverURL + getLessonsList
