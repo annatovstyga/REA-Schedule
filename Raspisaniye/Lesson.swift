@@ -19,7 +19,7 @@ class Lesson: Object {
     dynamic var discipline: String?
     dynamic var building:   String?
     dynamic var lector:     String?
-    dynamic var house:      Int = 0
+    dynamic var house:      Int = 0 
     dynamic var startWeek:  Int = 0
     dynamic var endWeek:    Int = 0
     

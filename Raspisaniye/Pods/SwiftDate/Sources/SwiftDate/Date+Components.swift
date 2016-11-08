@@ -25,11 +25,12 @@
 import Foundation
 
 /// This is the default region set. It will be set automatically at each startup as the local device's region
-internal var DateDefaultRegion: Region = Region.Local()
+internal var DateDefaultRegion: Region = Region.GMT()
 
 // MARK: - Date Extension to work with date components
 
 public extension Date {
+	
 	
 	/// Define a default region to use when you work with components and function of SwiftDate
 	/// and `Date` objects. Default region is set automatically at runtime to `Region.Local()` which defines
@@ -37,14 +38,14 @@ public extension Date {
 	/// and `Locale` (not updating).
 	///
 	/// - parameter region: region to set. If nil is passed default region is set to Region.Local()
-	public static func setDefaultRegion(_ region: Region?) {
+	public func setDefaultRegion(_ region: Region?) {
 		DateDefaultRegion = region ?? Region.Local()
 	}
 	
 	/// Return the default region set.
 	///
 	/// - returns: region set; if not changed is set to `Region.Local()`
-	public static var defaultRegion: Region {
+	public var defaultRegion: Region {
 		return DateDefaultRegion
 	}
 	

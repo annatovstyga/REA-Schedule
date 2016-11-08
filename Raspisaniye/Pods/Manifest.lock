@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.0.1)
   - CVCalendar (1.4.0)
-  - SwiftDate (4.0.7)
+  - SwiftDate (4.0.4)
   - SwiftSpinner (1.0.2)
   - SwiftyJSON (3.1.1)
 
@@ -15,10 +15,14 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   CVCalendar: ec1a06a508f99d8e5067258754f811a8a1433a3f
-  SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
+  SwiftDate: 16d9e299eafb8021d921e874f13c0f79e7f1a801
   SwiftSpinner: 1c80ff6ea1c47e2faa1dfce0fcd5e6b39a47fd51
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
+<<<<<<< Updated upstream
 PODFILE CHECKSUM: d97134e2fe088081af05ffa810f87017ce916915
+=======
+PODFILE CHECKSUM: 5488a57fc5345628ba95b5ebe43e6a092dd0b5b4
+>>>>>>> Stashed changes
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.1.1
