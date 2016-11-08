@@ -9,13 +9,9 @@ pod 'Alamofire', '~> 4.0'
 pod 'SwiftyJSON'
 pod 'SwiftSpinner'
 pod 'CVCalendar’, '~> 1.4.0'
-<<<<<<< Updated upstream
 pod 'SwiftDate'
-=======
-pod ‘SwiftDate’
 pod 'CCAutocomplete', :git => 'https://github.com/cjcoax/Autocomplete'
 
->>>>>>> Stashed changes
 end
 
 post_install do |installer|

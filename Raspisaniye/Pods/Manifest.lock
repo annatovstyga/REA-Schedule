@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
+  - CCAutocomplete (0.0.4)
   - CVCalendar (1.4.0)
   - SwiftDate (4.0.4)
   - SwiftSpinner (1.0.2)
@@ -7,22 +8,29 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - CCAutocomplete (from `https://github.com/cjcoax/Autocomplete`)
   - CVCalendar (~> 1.4.0)
   - SwiftDate
   - SwiftSpinner
   - SwiftyJSON
 
+EXTERNAL SOURCES:
+  CCAutocomplete:
+    :git: https://github.com/cjcoax/Autocomplete
+
+CHECKOUT OPTIONS:
+  CCAutocomplete:
+    :commit: a9e735b6705aaac863f7733c70e5a819acdcfc05
+    :git: https://github.com/cjcoax/Autocomplete
+
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  CCAutocomplete: 7e54cab43d10eb9e5385d5b3409e9dee0b7af714
   CVCalendar: ec1a06a508f99d8e5067258754f811a8a1433a3f
   SwiftDate: 16d9e299eafb8021d921e874f13c0f79e7f1a801
   SwiftSpinner: 1c80ff6ea1c47e2faa1dfce0fcd5e6b39a47fd51
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-<<<<<<< Updated upstream
-PODFILE CHECKSUM: d97134e2fe088081af05ffa810f87017ce916915
-=======
-PODFILE CHECKSUM: 5488a57fc5345628ba95b5ebe43e6a092dd0b5b4
->>>>>>> Stashed changes
+PODFILE CHECKSUM: 85a93f086de13a28db35ab231c04570dd6946982
 
 COCOAPODS: 1.1.1

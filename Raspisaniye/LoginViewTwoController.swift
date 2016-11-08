@@ -8,9 +8,9 @@
 
 import UIKit
 import Foundation
-
+import CCAutocomplete
 class LoginViewTwoController: UIViewController,UITextFieldDelegate{
-
+    
     // MARK: - Properties
 
     @IBOutlet weak var label_IT_lab_: UILabel!
@@ -24,18 +24,12 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     
     
     override func viewDidLoad() {
-<<<<<<< Updated upstream
         
         textField.autocompleteType = .sentence
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         if(amistudent){
-=======
-        textField.delegate = self
-        let realm = try! Realm()
-        if(isStudent){
->>>>>>> Stashed changes
             textField.placeholder = "Введите вашу группу"
             textField.suggestions = groupsArray
         }
@@ -68,7 +62,6 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     }
 
     @IBAction func enterClick(_ sender: AnyObject) {
-<<<<<<< Updated upstream
         
     if((self.textField.suggestionNormal.lowercased().range(of: self.textField.text!.lowercased())) != nil)
         {
@@ -77,19 +70,6 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         else
         {
             self.textField.text = ""
-=======
-        view.endEditing(true)
-        let realm = try! Realm()
-        let predicate = NSPredicate(format: "name = %@",self.textField.text!)
-        let lectorIDObject = realm.objects(Unit.self).filter(predicate)
-        let lectorID = lectorIDObject.first?.ID
-        defaults.set(lectorID, forKey: "subjectID")
-        defaults.set(lectorIDObject.first?.name, forKey: "subjectName")
-        if(lectorID != nil){
-            self.enter(ID: lectorID!,type:(lectorIDObject.first?.type)!)
-        }else{
-            showWarning()
->>>>>>> Stashed changes
         }
        
         if (amistudent) {
@@ -120,16 +100,10 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
  
         
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {5
-        self.view.endEditing(true)
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    //func dismissKeyboard() {
-      //  view.endEditing(true)
-    //}
     
     @IBOutlet weak var textField: AutocompleteField!
     

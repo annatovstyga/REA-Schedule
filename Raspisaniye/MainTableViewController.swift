@@ -79,32 +79,22 @@ class MainTableViewController: UITableViewController {
         if((sortedLessons) != nil){
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! CustomTableViewCell
-          
-            cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
-                if sortedLessons?[indexPath.item].discipline != nil {
-                    cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
-                    } else {
-                        cell.titleCell?.text = ""
-            }
-           
-            cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
-                if sortedLessons?[indexPath.item].startWeek != nil && sortedLessons?[indexPath.item].endWeek != nil {
-                  cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
-                    } else {
-                    cell.descriptionCell?.text = ""
-            }
-                if((sortedLessons?[indexPath.item].lector != nil)&&(amistudent)){
-                    cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].lector!)!)
-            
+        
+        cell.titleCell.text = sortedLessons?[indexPath.item].discipline
+        
+        cell.timeCell.text = "\((sortedLessons?[indexPath.item].lessonStart)!) - \((sortedLessons?[indexPath.item].lessonEnd)!)"
+        cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
+        if((sortedLessons?[indexPath.item].lector != nil)&&(amistudent)){
+            cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].lector!)!)
         }
-                else if(true/*add check for groups*/){
+        else if(true/*add check for groups*/){
 //                for group in realmDayToFill.lessons[indexPath.item].groups!
 //                {
 //                cell.descriptionCell.text?.appendContentsOf("\(group) ")
 //                }
         }
-            if((sortedLessons?[indexPath.item].room) != nil)&&( sortedLessons?[indexPath.item].building != nil)&&( sortedLessons?[indexPath.item].house != nil){
-        cell.placeCell?.text = "Ауд. \((sortedLessons?[indexPath.item].room)!) (\((sortedLessons?[indexPath.item].building)!) к. \((sortedLessons![indexPath.item].house)))"
+            if((sortedLessons?[indexPath.item].room) != nil){
+        cell.placeCell.text = "Ауд. \((sortedLessons?[indexPath.item].room)!) (\((sortedLessons?[indexPath.item].building)!) к. \((sortedLessons![indexPath.item].house)))"
             }else{
                 cell.placeCell.text = ""
             }
