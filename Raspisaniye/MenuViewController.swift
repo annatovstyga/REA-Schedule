@@ -10,7 +10,7 @@ import UIKit
 import CCAutocomplete
 import RealmSwift
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController ,UITextFieldDelegate {
     var searchArray = [String]()
     @IBOutlet var menuItems:MenuItems?
     var isFirstLoad = true
@@ -40,6 +40,7 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.delegate = self
         menuItems?.addLabel()
         group_name.text = defaults.value(forKey: "subjectName") as? String
     }
@@ -53,6 +54,7 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func searchClick(_ sender: Any) {
+        view.endEditing(true)
         let realm = try! Realm()
         let predicate = NSPredicate(format: "name = %@",self.textField.text!)
         let lectorIDObject = realm.objects(Unit.self).filter(predicate)
@@ -75,7 +77,13 @@ class MenuViewController: UIViewController {
         }
 
     }
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     func showWarning() {
         let alertController = UIAlertController(title: "Не найдено ничего по запросу!", message:
             "Попробуйте проверить имя/название", preferredStyle: UIAlertControllerStyle.alert)
