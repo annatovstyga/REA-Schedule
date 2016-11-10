@@ -48,6 +48,9 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     
     override func viewDidLoad() {
+        
+        
+        
         if(selectedDate.weekday == 1) //To identify monday correctly
         {
             selectedDate = selectedDate + 1.days

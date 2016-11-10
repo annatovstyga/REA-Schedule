@@ -26,6 +26,8 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     var isStudent = false
     var isFirstLoad = true
     override func viewDidLoad() {
+        
+        textField.delegate = self
         let realm = try! Realm()
         lectorsArray = [String]()
         groupsArray = [String]()
@@ -70,6 +72,8 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     }
 
     @IBAction func enterClick(_ sender: AnyObject) {
+        view.endEditing(true)
+        
         let realm = try! Realm()
 
         let predicate = NSPredicate(format: "name = %@",self.textField.text!)
@@ -84,8 +88,15 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
         }
     }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
+    //func dismissKeyboard() {
+      //  view.endEditing(true)
+    //}
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func showWarning() {

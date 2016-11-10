@@ -73,7 +73,6 @@ public struct JSON {
                 error?.pointee = aError
             }
             self.init(NSNull())
-            
         }
     }
     
