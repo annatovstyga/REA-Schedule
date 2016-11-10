@@ -43,7 +43,7 @@ class MenuItems: UIView {
                     sideMenuVC.toggleMenu()
                 }else if (clickedButton.tag == 0){
                     let VC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
-                    VC.updateRealmDay()
+                    VC.updateRealmDay(segue:"mainSegue")
                     sideMenuVC.toggleMenu()
                 }else {
                     let VC = sideMenuVC.mainViewController?.childViewControllers.first

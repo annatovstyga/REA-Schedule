@@ -1,5 +1,5 @@
 import UIKit
-
+//segue для смены view на другой день
 class MainNavigationSegue: UIStoryboardSegue {
     
     override func perform() {

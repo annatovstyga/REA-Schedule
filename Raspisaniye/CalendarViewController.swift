@@ -118,7 +118,7 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         }
 
         dsVC.selectedDate = self.selectedDate
-        dsVC.updateRealmDay()
+        dsVC.updateRealmDay(segue:"mainSegue")
 
     }
 }
