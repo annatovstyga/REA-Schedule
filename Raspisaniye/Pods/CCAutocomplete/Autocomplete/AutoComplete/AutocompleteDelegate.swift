@@ -26,7 +26,7 @@ public extension AutocompleteDelegate {
     }
 
     func heightForCells() -> CGFloat {
-        return 60
+        return 30
     }
 
     func getCellDataAssigner() -> ((UITableViewCell, AutocompletableOption) -> Void) {

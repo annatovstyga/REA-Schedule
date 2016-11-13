@@ -21,7 +21,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet var label:UIView! //перемещаюяся под кнопками полоска
     
     @IBOutlet weak var tabView: UIView!
-
+    var type: Int?
     var searchName = ""
     var realmName = "default" //default - загруженное юзером расписание,search - загруженное для поиска
     var selectedDate = DateInRegion()
@@ -283,6 +283,11 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
             let dayVC = segue.destination as! MainTableViewController
             dayVC.realmDayToFill = self.realmDay
+            if (self.type == 1){
+                dayVC.type = self.type
+            } else {
+                dayVC.type = 0
+            }
             
             for button in tabBarButtons{
                 button.isHidden = false

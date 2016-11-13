@@ -28,6 +28,7 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     override func viewDidLoad() {
         
         textField.delegate = self
+        textField.autocorrectionType = .no
         let realm = try! Realm()
         lectorsArray = [String]()
         groupsArray = [String]()
@@ -126,12 +127,20 @@ class LoginViewTwoController: UIViewController,UITextFieldDelegate{
     }
 
     func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -150
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
       
     }
     
     func keyboardWillHide(_ sender: Notification) {
-        self.view.frame.origin.y = 0
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
 }
 

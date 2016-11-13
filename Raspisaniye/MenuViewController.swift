@@ -41,6 +41,7 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
+        textField.autocorrectionType = .no
         menuItems?.addLabel()
         group_name.text = defaults.value(forKey: "subjectName") as? String
     }
@@ -54,6 +55,7 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
     }
 
     @IBAction func searchClick(_ sender: Any) {
+        
         view.endEditing(true)
         let realm = try! Realm()
         let predicate = NSPredicate(format: "name = %@",self.textField.text!)
@@ -79,23 +81,33 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        
         }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
     func showWarning() {
         let alertController = UIAlertController(title: "Не найдено ничего по запросу!", message:
             "Попробуйте проверить имя/название", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "searchSegue"){
             let unit:Unit = sender as! Unit
             let dsVC = segue.destination as! MMSwiftTabBarController
             dsVC.realmName = "search"
             dsVC.searchName = unit.name
+            if (unit.type) == 1 {
+                dsVC.type = unit.type
+                
+            }else {
+                dsVC.type = 0
+            }
         }
     }
 }
@@ -131,7 +143,29 @@ extension MenuViewController: AutocompleteDelegate {
     }
 
     func didSelectItem(_ item: AutocompletableOption) {
+        
         self.textField.text = item.text
+        view.endEditing(true)
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "name = %@",self.textField.text!)
+        let lectorIDObject = realm.objects(Unit.self).filter(predicate)
+        let lectorID = lectorIDObject.first
+        //получем расписание по поиску и парсим его в реалм search
+        if(lectorID != nil){
+            DispatchQueue.main.async(execute: {
+                updateSchedule(itemID: (lectorID?.ID)!,type:(lectorID?.type)!, successBlock: {
+                    successBlock in
+                    DispatchQueue.main.async(execute: {
+                        parse(jsonDataList!,realmName:"search", successBlock: { (parsed) in
+                            self.performSegue(withIdentifier: "searchSegue", sender: lectorID)
+                        })
+                    })
+                })
+            })
+            
+        }else{
+            showWarning()
+        }
     }
 }
 

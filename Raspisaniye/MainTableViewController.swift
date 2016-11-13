@@ -15,6 +15,7 @@ class MainTableViewController: UITableViewController {
     // MARK: - Properties
     var sortedLessons:Array<Lesson>? = Array()
     var realmDayToFill:Day = Day()
+    var type :Int?
     
     // MARK: - View methods
     override func viewDidLoad() {
@@ -71,27 +72,44 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if((sortedLessons) != nil){
+            
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! CustomTableViewCell
         
             cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
+            
             if sortedLessons?[indexPath.item].discipline != nil {
                 cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
+                
                 } else {
                 cell.titleCell?.text = ""
             }
-        
-            cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
-            if sortedLessons?[indexPath.item].startWeek != nil && sortedLessons?[indexPath.item].endWeek != nil {
-            cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
-            } else {
+            
+            cell.timeCell.text = "\((sortedLessons?[indexPath.item].lessonStart)!) - \((sortedLessons?[indexPath.item].lessonEnd)!)"
+            if (sortedLessons?[indexPath.item].lessonStart != nil) && (sortedLessons?[indexPath.item].lessonEnd != nil){
+                cell.timeCell.text = "\((sortedLessons?[indexPath.item].lessonStart)!) - \((sortedLessons?[indexPath.item].lessonEnd)!)"
                 
-            cell.descriptionCell?.text = ""
+            } else {
+                cell.timeCell?.text = ""
+                
             }
             
-            if((sortedLessons?[indexPath.item].lector != nil)&&(amistudent)){
+        
+                cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
+            
+            if sortedLessons?[indexPath.item].startWeek != nil && sortedLessons?[indexPath.item].endWeek != nil {
+                cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
+            } else {
                 
-            cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].lector!)!)
+                cell.descriptionCell?.text = ""
+                
+            }
+            
+            if((sortedLessons?[indexPath.item].lector != nil)&&(amistudent)&&(type != 1)){
+                
+                cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].lector!)!)
+                
             }
                 
             else if(true/*add check for groups*/){
@@ -103,7 +121,11 @@ class MainTableViewController: UITableViewController {
     //                }
     
  }
-        if((sortedLessons?[indexPath.item].groups != nil) && (!amistudent)){
+            if (amistudent == true)&&(type == 1) {
+                cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].groups)!)
+            }
+            
+            if((sortedLessons?[indexPath.item].groups != nil) && (!amistudent)){
             cell.descriptionCell.text?.append((sortedLessons?[indexPath.item].groups)!)
 
         }
@@ -112,8 +134,10 @@ class MainTableViewController: UITableViewController {
             }else{
                 cell.placeCell.text = ""
             }
+            
         return cell
         }
+            
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
