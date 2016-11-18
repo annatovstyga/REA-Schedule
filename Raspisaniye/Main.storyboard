@@ -854,7 +854,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Основы объектно-ориентированного программирования" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="none" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-3v-L1v">
-                                            <rect key="frame" x="23" y="54" width="282" height="39"/>
+                                            <rect key="frame" x="23" y="54.5" width="282" height="38.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
