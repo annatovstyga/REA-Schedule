@@ -93,14 +93,17 @@ class MenuViewController: UIViewController {
 }
 
 extension MenuViewController: AutocompleteDelegate {
+    
 
     func autoCompleteTextField() -> UITextField {
         return self.textField
     }
 
     func autoCompleteThreshold(_ textField: UITextField) -> Int {
+        self.textField.adjustsFontSizeToFitWidth = true
         return 2
     }
+   
 
     func autoCompleteItemsForSearchTerm(_ term: String) -> [AutocompletableOption] {
         var filteredCountries = [String]()
@@ -124,6 +127,8 @@ extension MenuViewController: AutocompleteDelegate {
 
     func didSelectItem(_ item: AutocompletableOption) {
         self.textField.text = item.text
+        
+        
     }
 }
 

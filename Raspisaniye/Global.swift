@@ -136,7 +136,6 @@ func updateSchedule(itemID: Int,type:Int, successBlock: @escaping (Void) -> ()) 
     })
 }
 
-
 func getCurrentViewController() -> UIViewController? {
     
     // If the root view is a navigation controller, we can just return the visible ViewController

@@ -97,7 +97,7 @@ public enum AutocompleteType {
     // ovverride to set frame of the suggestion label whenever the textfield frame changes.
     open override func layoutSubviews()
     {
-        self.label.frame = CGRect(x: self.padding, y: self.pixelCorrection, width: self.frame.width - (self.padding * 2), height: self.frame.height)
+        self.label.frame = CGRect(x: self.padding, y: self.pixelCorrection, width: self.frame.width + 20 - (self.padding * 3), height: self.frame.height )
         super.layoutSubviews()
     }
     
@@ -154,7 +154,8 @@ public enum AutocompleteType {
         // label string
         if(text.characters.count < 1) {
             label.attributedText = nil
-            return
+            
+                        return
         }
         
         // only return first word if in word mode
@@ -177,7 +178,7 @@ public enum AutocompleteType {
             attributes: [
                 NSFontAttributeName:UIFont(
                     name: self.font!.fontName,
-                    size: self.font!.pointSize
+                    size: self.font!.pointSize - 40
                     )!,
                 NSForegroundColorAttributeName: self.completionColor
             ]

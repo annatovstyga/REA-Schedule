@@ -83,7 +83,7 @@ class MainTableViewController: UITableViewController {
         cell.titleCell.text = sortedLessons?[indexPath.item].discipline
         
         cell.timeCell.text = "\((sortedLessons?[indexPath.item].lessonStart)!) - \((sortedLessons?[indexPath.item].lessonEnd)!)"
-        cell.descriptionCell.text = " | \((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
+        cell.descriptionCell.text = "\((sortedLessons?[indexPath.item].startWeek)!)-\((sortedLessons?[indexPath.item].endWeek)!) неделя | "
         print("amis - \(amistudent)")
         if((sortedLessons?[indexPath.item].lector != nil)&&(amistudent)){
             print("lector")
