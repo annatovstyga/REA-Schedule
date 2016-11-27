@@ -36,10 +36,44 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         labelMonth.text = CVDate(date: NSDate() as Date).globalDescription
-        
+        let start = CVDate(date: NSDate() as Date).globalDescription.index((CVDate(date: NSDate() as Date).globalDescription.startIndex), offsetBy:10 )
+        let end = CVDate(date: NSDate() as Date).globalDescription.index((CVDate(date: NSDate() as Date).globalDescription.endIndex), offsetBy: -1)
+        let range = start...end
+
+    
+        if(labelMonth.text?.hasPrefix("Nov"))!{
+            labelMonth.text = "Ноябрь," + CVDate(date: NSDate() as Date).globalDescription[range]}
+        if(labelMonth.text?.hasPrefix("Jan"))!{
+                       labelMonth.text = "Январь," + CVDate(date: NSDate() as Date).globalDescription[range]}
+
+        if(labelMonth.text?.hasPrefix("May"))!{
+            labelMonth.text = "Май," + CVDate(date: NSDate() as Date).globalDescription[range]
+        }
+        if(labelMonth.text?.hasPrefix("Feb"))!{
+             labelMonth.text = "Февраль," + CVDate(date: NSDate() as Date).globalDescription[range]
+        }
+        if(labelMonth.text?.hasPrefix("Mar"))!{
+            labelMonth.text = "Март," + CVDate(date: NSDate() as Date).globalDescription[range]
+        }
+        if(labelMonth.text?.hasPrefix("Apr"))!{
+            labelMonth.text = "Апрель," + CVDate(date: NSDate() as Date).globalDescription[range]        }
+        if(labelMonth.text?.hasPrefix("Jun"))!{
+            labelMonth.text = "Июнь," + CVDate(date: NSDate() as Date).globalDescription[range]        }
+        if(labelMonth.text?.hasPrefix("Jul"))!{
+            labelMonth.text = "Июль," + CVDate(date: NSDate() as Date).globalDescription[range]        }
+        if(labelMonth.text?.hasPrefix("Aug"))!{
+ labelMonth.text = "Август," + CVDate(date: NSDate() as Date).globalDescription[range]        }
+        if(labelMonth.text?.hasPrefix("Sep"))!{
+ labelMonth.text = "Сентябрь," + CVDate(date: NSDate() as Date).globalDescription[range]        }
+        if(labelMonth.text?.hasPrefix("Oct"))!{
+ labelMonth.text = "Октябрь," + CVDate(date: NSDate() as Date).globalDescription[range]        }
+        if(labelMonth.text?.hasPrefix("Dec"))!{
+ labelMonth.text = "Декабрь," + CVDate(date: NSDate() as Date).globalDescription[range]        }
+       
         calendarView.calendarAppearanceDelegate = self
         calendarView.animatorDelegate = self
         menuView.menuViewDelegate = self
@@ -58,6 +92,45 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
             updatedMonthLabel.textColor = labelMonth.textColor
             updatedMonthLabel.font = labelMonth.font
             updatedMonthLabel.text = date.globalDescription
+            let rec = date.globalDescription
+            let start = rec.index(rec.endIndex, offsetBy:-4)
+            let end = rec.index(rec.endIndex, offsetBy: -1)
+            let range = start...end
+           
+                       if(updatedMonthLabel.text?.hasPrefix("Oct"))!{
+                updatedMonthLabel.text = "Октябрь," + rec[range]
+            }
+            if(updatedMonthLabel.text?.hasPrefix("Nov"))!{
+                updatedMonthLabel.text = "Ноябрь," + rec[range]            }
+            if(updatedMonthLabel.text?.hasPrefix("Dec"))!{
+                updatedMonthLabel.text = "Декабрь," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("Jan"))!{
+                updatedMonthLabel.text = "Январь," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("Feb"))!{
+                updatedMonthLabel.text = "Февраль," + rec[range]            }
+            if(updatedMonthLabel.text?.hasPrefix("Mar"))!{
+                updatedMonthLabel.text = "Март," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("Apr"))!{
+                updatedMonthLabel.text = "Апрель," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("May"))!{
+                updatedMonthLabel.text = "Май," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("Jun"))!{
+                updatedMonthLabel.text = "Июнь," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("Jul"))!{
+                updatedMonthLabel.text = "Июль," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("Aug"))!{
+                updatedMonthLabel.text = "Август," + rec[range]            }
+
+            if(updatedMonthLabel.text?.hasPrefix("Sep"))!{
+                updatedMonthLabel.text = "Сентябрь," + rec[range]            }
+
             updatedMonthLabel.sizeToFit()
             updatedMonthLabel.alpha = 0
             updatedMonthLabel.center = self.labelMonth.center
@@ -82,6 +155,7 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
             self.animationFinished = true
             self.labelMonth.frame = updatedMonthLabel.frame
             self.labelMonth.text = updatedMonthLabel.text
+                
             self.labelMonth.transform = CGAffineTransform.identity
             self.labelMonth.alpha = 1
                 updatedMonthLabel.removeFromSuperview()

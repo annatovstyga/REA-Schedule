@@ -3,7 +3,7 @@ PODS:
   - CCAutocomplete (0.0.4)
   - CVCalendar (1.4.0)
   - SwiftDate (4.0.7)
-  - SwiftSpinner (1.0.2)
+  - SwiftSpinner (1.1.0)
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
@@ -28,9 +28,13 @@ SPEC CHECKSUMS:
   CCAutocomplete: 7e54cab43d10eb9e5385d5b3409e9dee0b7af714
   CVCalendar: ec1a06a508f99d8e5067258754f811a8a1433a3f
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
-  SwiftSpinner: 1c80ff6ea1c47e2faa1dfce0fcd5e6b39a47fd51
+  SwiftSpinner: c03815614599b91eea46594bd52ba742849d0414
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
 PODFILE CHECKSUM: 85a93f086de13a28db35ab231c04570dd6946982
 
+<<<<<<< HEAD
+COCOAPODS: 1.1.0.rc.2
+=======
 COCOAPODS: 1.1.1
+>>>>>>> master

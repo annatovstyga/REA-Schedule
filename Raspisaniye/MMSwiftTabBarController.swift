@@ -159,6 +159,26 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         })
     }
     
+      @IBAction func RightButtonClick(_ sender: Any) {
+        func updateSchedule(itemID: Int,type:Int, successBlock: @escaping (Void) -> ()) {
+            var Who:String
+            if(type == 0)
+            {
+                Who = "group"
+            }else{
+                Who = "lector"
+            }
+            InternetManager.sharedInstance.getLessonsList(["who":Who as AnyObject,"id":itemID as AnyObject,"timestamp":0 as AnyObject], success: {
+                success in
+                jsonDataList = success
+                successBlock()
+            }, failure: {error in
+                print(error)
+            })
+        }
+
+    }
+    
     @IBAction func WedClick(_ sender: AnyObject) {
         UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
             self.label.center.x = sender.center.x

@@ -55,7 +55,7 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
     }
 
     @IBAction func searchClick(_ sender: Any) {
-        
+
         view.endEditing(true)
         let realm = try! Realm()
         let predicate = NSPredicate(format: "name = %@",self.textField.text!)
@@ -81,21 +81,21 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        
+
         }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
+
     func showWarning() {
         let alertController = UIAlertController(title: "Не найдено ничего по запросу!", message:
             "Попробуйте проверить имя/название", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "searchSegue"){
             let unit:Unit = sender as! Unit
@@ -104,7 +104,7 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
             dsVC.searchName = unit.name
             if (unit.type) == 1 {
                 dsVC.type = unit.type
-                
+
             }else {
                 dsVC.type = 0
             }
@@ -114,13 +114,16 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
 
 extension MenuViewController: AutocompleteDelegate {
 
+
     func autoCompleteTextField() -> UITextField {
         return self.textField
     }
 
     func autoCompleteThreshold(_ textField: UITextField) -> Int {
+        self.textField.adjustsFontSizeToFitWidth = true
         return 2
     }
+
 
     func autoCompleteItemsForSearchTerm(_ term: String) -> [AutocompletableOption] {
         var filteredCountries = [String]()
@@ -143,8 +146,9 @@ extension MenuViewController: AutocompleteDelegate {
     }
 
     func didSelectItem(_ item: AutocompletableOption) {
-        
+
         self.textField.text = item.text
+
         view.endEditing(true)
         let realm = try! Realm()
         let predicate = NSPredicate(format: "name = %@",self.textField.text!)
@@ -162,10 +166,9 @@ extension MenuViewController: AutocompleteDelegate {
                     })
                 })
             })
-            
+
         }else{
             showWarning()
         }
     }
 }
-
