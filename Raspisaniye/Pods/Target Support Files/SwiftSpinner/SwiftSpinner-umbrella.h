@@ -1,4 +1,8 @@
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
+=======
+#endif
+>>>>>>> master
 
 #import "SwiftSpinner.h"
 

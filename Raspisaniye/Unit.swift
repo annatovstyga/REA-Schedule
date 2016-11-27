@@ -13,6 +13,7 @@ class Unit: Object {
 
     dynamic var name:String = ""
     dynamic var ID:Int = 0
+    //FIXIT - change from int to enum
     dynamic var type:Int = 0 // 0 - group 1 - lector
 
     override static func primaryKey() -> String? {

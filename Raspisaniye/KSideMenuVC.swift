@@ -15,14 +15,6 @@ class KSideMenuVC: UIViewController,UIGestureRecognizerDelegate {
     var mainContainer : UIViewController?
     var menuContainer : UIViewController?
     var menuViewController : UIViewController?
-//        {
-//        set {
-//            
-//        }
-//        get{
-//            return menuViewController
-//        }
-//    }
     var mainViewController : UIViewController?
     var bgImageContainer : UIImageView?
     var distanceOpenMenu : CGFloat = 0

@@ -16,13 +16,13 @@ class MenuItems: UIView {
     @IBOutlet var mounthButton: UIButton?
     @IBOutlet var Feedback: UIButton?
     
-    var label:UIView = UIView()
+    var label:UIView = UIView()//полоска сбоку от кнопок
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
        label.backgroundColor = UIColor.white
-
     }
+
     func addLabel()
     {
         label.center.x = (weekButton?.center.x)! - 10
@@ -43,8 +43,7 @@ class MenuItems: UIView {
                     sideMenuVC.toggleMenu()
                 }else if (clickedButton.tag == 0){
                     let VC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
-//                    VC!.performSegue(withIdentifier: "mainSegue", sender: self)
-                    VC.updateRealmDay()
+                    VC.updateRealmDay(segue:"mainSegue")
                     sideMenuVC.toggleMenu()
                 }else {
                     let VC = sideMenuVC.mainViewController?.childViewControllers.first
@@ -53,6 +52,7 @@ class MenuItems: UIView {
                 }
         })
     }
+
     func updateLabelPosition(_ sender: AnyObject){
         UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
             self.label.center.y = sender.center.y
@@ -60,12 +60,5 @@ class MenuItems: UIView {
           
         })
     }
-
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    
 
 }

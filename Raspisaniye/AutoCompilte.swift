@@ -19,13 +19,13 @@ public enum AutocompleteType {
 @IBDesignable open class AutocompleteField: UITextField
 {
     // MARK: - public properties
-    
+
     // left/right padding
     @IBInspectable open var padding : CGFloat = 0
     var tempsuggestion:String?
     // the color of the suggestion. Matches the default placeholder color
     @IBInspectable open var completionColor : UIColor = UIColor(white: 0, alpha: 0.22)
-    
+
     // Array of suggestions
     open var suggestions : [String] = [""]
     open var suggestionNormal:String = ""
@@ -37,10 +37,10 @@ public enum AutocompleteType {
             }
         }
     }
-    
+
     // Move the suggestion label up or down. Sometimes there's a small difference, and this can be used to fix it.
     open var pixelCorrection : CGFloat = 0
-    
+
     // Update the suggestion when the text is changed using 'field.text'
     override open var text : String? {
         didSet {
@@ -49,35 +49,35 @@ public enum AutocompleteType {
             }
         }
     }
-    
+
     // The type of autocomplete that should be used
     open var autocompleteType : AutocompleteType = .word
-    
-    
+
+
     // MARK: - private properties
-    
+
     // the suggestion label
     fileprivate var label = UILabel()
-    
-    
+
+
     // MARK: - init functions
-    
+
     override public init(frame: CGRect)
     {
         super.init(frame: frame)
-        
+
         createNotification()
         setupLabel()
     }
-    
+
     required public init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
-        
+
         createNotification()
         setupLabel()
     }
-    
+
     /**
      Create an instance of a AutocompleteField.
      - parameter
@@ -87,29 +87,29 @@ public enum AutocompleteType {
     public init(frame: CGRect, suggestions: [String])
     {
         super.init(frame: frame)
-        
+
         self.suggestions = suggestions
         createNotification()
         setupLabel()
     }
-    
-    
+
+
     // ovverride to set frame of the suggestion label whenever the textfield frame changes.
     open override func layoutSubviews()
     {
         self.label.frame = CGRect(x: self.padding, y: self.pixelCorrection, width: self.frame.width + 20 - (self.padding * 3), height: self.frame.height )
         super.layoutSubviews()
     }
-    
+
     // MARK: - public methods
     open func currentSuggestion() -> NSString?
     {
         return self.suggestion as NSString?
     }
-    
-    
+
+
     // MARK: - private methods
-    
+
     /**
     Create a notification whenever the text of the field changes.
     */
@@ -119,16 +119,16 @@ public enum AutocompleteType {
             self,
             selector: #selector(AutocompleteField.textChanged(_:)),name: NSNotification.Name.UITextFieldTextDidChange,object: self)
     }
-    
+
     /**
      Sets up the suggestion label with the same font styling and alignment as the textfield.
      */
     fileprivate func setupLabel()
     {
         setLabelContent()
-        
+
         self.label.lineBreakMode = .byClipping
-        
+
         // If the textfield has one of the default styles, we need to create some padding
         // otherwise there will be a offset in x-led.
         switch self.borderStyle
@@ -139,11 +139,11 @@ public enum AutocompleteType {
         default:
             break;
         }
-        
+
         self.addSubview(self.label)
     }
-    
-    
+
+
     /**
      Set content of the suggestion label.
      - parameter text: Suggestion text
@@ -154,10 +154,10 @@ public enum AutocompleteType {
         // label string
         if(text.characters.count < 1) {
             label.attributedText = nil
-            
+
                         return
         }
-        
+
         // only return first word if in word mode
         if(self.autocompleteType == .word)
         {
@@ -170,7 +170,7 @@ public enum AutocompleteType {
             }
             text = string
         }
-        
+
         // create an attributed string instead of the regular one.
         // In this way we can hide the letters in the suggestion that the user has already written.
         let attributedString = NSMutableAttributedString(
@@ -183,7 +183,7 @@ public enum AutocompleteType {
                 NSForegroundColorAttributeName: self.completionColor
             ]
         )
-        
+
         // Hide the letters that are under the fields text.
         // If the suggestion is abcdefgh and the user has written abcd
         // we want to hide those letters from the suggestion.
@@ -194,11 +194,11 @@ public enum AutocompleteType {
                 range: NSRange(location:0, length:inputText.characters.count)
             )
         }
-        
+
         label.attributedText = attributedString
         label.textAlignment = .right
     }
-    
+
     /**
      Scans through the suggestions array and finds a suggestion that
      matches the searchTerm.
@@ -231,10 +231,10 @@ public enum AutocompleteType {
         self.suggestion = returnString
         return returnString
     }
-    
-    
+
+
     // MARK: - Events
-    
+
     /**
     Triggered whenever the field text changes.
     - parameter notification: The NSNotifcation attached to the event
@@ -248,26 +248,26 @@ public enum AutocompleteType {
             setLabelContent(suggestion)
         }
     }
-    
+
     // ovverride to set padding
     open override func textRect(forBounds bounds: CGRect) -> CGRect
     {
         return CGRect(x: bounds.origin.x + self.padding, y: bounds.origin.y,
             width: bounds.size.width - (self.padding * 2), height: bounds.size.height);
     }
-    
+
     // ovverride to set padding
     open override func editingRect(forBounds bounds: CGRect) -> CGRect
     {
         return self.textRect(forBounds: bounds)
     }
-    
+
     open override func draw(_ rect: CGRect) {
-        
+
         let path = UIBezierPath(roundedRect: rect, cornerRadius: 6)
         UIColor.white.set()
             path.stroke()
-        
+
     }
 
     // ovverride to set padding on placeholder
@@ -275,7 +275,7 @@ public enum AutocompleteType {
     {
         return self.textRect(forBounds: bounds)
     }
-    
+
     // remove observer on deinit
- 
+
 }

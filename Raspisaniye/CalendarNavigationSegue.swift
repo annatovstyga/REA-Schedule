@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//segue для смены view на календарь
 class CalendarNavigationSegue: UIStoryboardSegue {
     
     override func perform() {

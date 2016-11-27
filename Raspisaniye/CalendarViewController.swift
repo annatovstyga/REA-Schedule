@@ -78,14 +78,12 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         calendarView.animatorDelegate = self
         menuView.menuViewDelegate = self
         calendarView.calendarDelegate = self
-    
         
     }
 
-       
-
     var presentedDate:Date!
     var animationFinished = true
+
     func presentedDateUpdated(_ date: CVDate) {
         
         if labelMonth.text != date.globalDescription && self.animationFinished {
@@ -194,8 +192,7 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         }
 
         dsVC.selectedDate = self.selectedDate
-        dsVC.updateRealmDay()
-
+        dsVC.updateRealmDay(segue:"mainSegue")
 
     }
 }

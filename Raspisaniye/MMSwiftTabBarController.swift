@@ -18,12 +18,12 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var mondayClick: UIButton!
 
     @IBOutlet var weekdaysButtons: Array<UIButton>!
-    @IBOutlet var label:UIView!
+    @IBOutlet var label:UIView! //перемещаюяся под кнопками полоска
     
     @IBOutlet weak var tabView: UIView!
-
+    var type: Int?
     var searchName = ""
-    var realmName = "default"
+    var realmName = "default" //default - загруженное юзером расписание,search - загруженное для поиска
     var selectedDate = DateInRegion()
     var isCalendar = false
     
@@ -37,7 +37,6 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var subjectNameLabel: UILabel!
     let yearNow = Date().year
     var realm:Realm?
-    var weekNumberTab:Int? = 1
     var realmDay:Day = Day()
 
     var screenForwardEdgeRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer()
@@ -49,13 +48,17 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     
     override func viewDidLoad() {
+        
+        
+        
         if(selectedDate.weekday == 1) //To identify monday correctly
         {
             selectedDate = selectedDate + 1.days
         }
 
         weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)
-        if(realmName == "search"){
+
+        if(realmName == "search"){//установка кнопки в состояние возврата,если мы вызвали контроллер в режими поиска
             self.leftButton.setImage(UIImage(named:"back"), for: .normal)
             self.subjectNameLabel.text = searchName
         }else{
@@ -65,7 +68,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
 
         var config = Realm.Configuration()
 
-        // Use the default directory, but replace the filename with the username
+        //тут устанавливаем реалм для загрузки в зависимости от типа показываемого расписания
         config.fileURL = config.fileURL!.deletingLastPathComponent()
             .appendingPathComponent("\(realmName).realm")
 
@@ -82,7 +85,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
       
 
-        updateRealmDay()
+        updateRealmDay(segue: "mainSegue")
         
         
         //Week navigation gestures
@@ -96,9 +99,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
 
         super.viewDidLoad()
     }
-    
-    // MARK: IBActions - buttons
-    //TODO: Merge in collection
+
     
     override func viewWillAppear(_ animated: Bool) {
         self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
@@ -116,9 +117,9 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     override func viewDidAppear(_ animated: Bool) {
         self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
         self.label.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
-        print(selectedDate.weekday)
     }
 
+    //анимация пока что происходит во всех функциях-кликах.Стоит пофиксить
     @IBAction func mondayClick(_ sender: AnyObject) {
         
         UIView.animate(withDuration: 0.14, delay: 0.0, options: .curveEaseOut, animations: {
@@ -133,7 +134,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             let toMinus = weekday - 2
             self.selectedDate = self.selectedDate - toMinus.days
         }
-     self.updateRealmDay()
+            self.updateRealmDay(segue: "mainSegue")
         })
     
     }
@@ -154,7 +155,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             self.selectedDate = self.selectedDate + toPlus.days
         }
         
-        self.updateRealmDay()
+        self.updateRealmDay(segue: "mainSegue")
         })
     }
     
@@ -197,7 +198,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             print(self.selectedDate)
         }
         
-        self.updateRealmDay()
+        self.updateRealmDay(segue: "mainSegue")
                  })
     }
     
@@ -219,7 +220,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             self.selectedDate = self.selectedDate + toPlus.days
             print(self.selectedDate)
         }
-        self.updateRealmDay()
+        self.updateRealmDay(segue: "mainSegue")
         })
     }
     
@@ -241,7 +242,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             self.selectedDate = self.selectedDate + toPlus.days
             print(self.selectedDate)
         }
-        self.updateRealmDay()
+        self.updateRealmDay(segue: "mainSegue")
         })
     }
     
@@ -264,7 +265,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             print(self.selectedDate)
         }
         
-        self.updateRealmDay()
+        self.updateRealmDay(segue: "mainSegue")
     })
     }
     
@@ -275,14 +276,15 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         if sender.state == .ended && !self.isCalendar
         {
             selectedDate = selectedDate + 1.weeks
-            updateRealmDay()
+
+            updateRealmDay(segue: "weekSegue")
         }
     }
     
     func rotateWeekBackward(_ sender: UIScreenEdgePanGestureRecognizer) {
         if sender.state == .ended && !self.isCalendar {
             selectedDate = selectedDate - 1.weeks
-            updateRealmDay()
+            updateRealmDay(segue: "weekSegue")
         }
     }
     
@@ -294,11 +296,18 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     // MARK: Segue methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //обновляем тут состояние label и tabView,gestureRecognizers и т.д.
+
         if(segue.identifier! == "mainSegue" || segue.identifier! == "weekSegue" ) {
             self.view.addGestureRecognizer(screenForwardEdgeRecognizer)
             self.view.addGestureRecognizer(screenBackwardEdgeRecognizer)
             let dayVC = segue.destination as! MainTableViewController
             dayVC.realmDayToFill = self.realmDay
+            if (self.type == 1){
+                dayVC.type = self.type
+            } else {
+                dayVC.type = 0
+            }
             
             for button in tabBarButtons{
                 button.isHidden = false
@@ -339,8 +348,9 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         }
     }
 
-    func updateRealmDay()
+    func updateRealmDay(segue:String)
     {
+        //получение дня из реалма
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.YYYY"
         let dateInFormat = dateFormatter.string(from: selectedDate.absoluteDate)
@@ -359,36 +369,47 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
         else{
             performSegue(withIdentifier: "voidLessons", sender: self)
         }
-        let regionRome = Region.Local()
-        let date = try! DateInRegion(string: "\(selectedDate.year)-09-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
-        let date2 = try! DateInRegion(string: "\(selectedDate.year)-12-25 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
 
-        
+        //FIXIT тут много кривых вычислений числа недели.Тут такой баг,что 26 число 2016 года - уже первая неделя следующего.
+        let regionMoscow = Region.Local()
+        let date = try! DateInRegion(string: "\(selectedDate.year)-09-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionMoscow)
+
+        let datetest2 = date.endOf(component: .yearForWeekOfYear)
+        let endOfLastWeekOfYear = datetest2.startOf(component: .weekOfYear)
         let weekNumber:Int?
         let yearPlusOne = yearNow + 1
-        let date3 = try! DateInRegion(string: "\((yearPlusOne))-01-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
+        let date3 = try! DateInRegion(string: "\((yearPlusOne))-01-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionMoscow)
 
-        let date4 =  try! DateInRegion(string: "\((selectedDate.year))-01-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionRome)
-        if(selectedDate.isAfter(date: date2,granularity:.day) && selectedDate.isBefore(date: date3,granularity:.day))
+        let date4 =  try! DateInRegion(string: "\((selectedDate.year))-01-01 00:01:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: regionMoscow)
+        if(selectedDate.isAfter(date: endOfLastWeekOfYear,granularity:.day) && selectedDate.isBefore(date: date3,granularity:.day))
         {
-            weekNumber = (date2.weekOfYear + 1 - date.weekOfYear)
+            weekNumber = (endOfLastWeekOfYear.weekOfYear + 1 - date.weekOfYear)
         }else if(selectedDate.isAfter(date: date4,granularity:.day) && selectedDate.isBefore(date: date, granularity:.day))
         {
-             weekNumber = (date2.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear + 1
+             weekNumber = (endOfLastWeekOfYear.weekOfYear - date.weekOfYear ) + selectedDate.weekOfYear + 1
         }else{
              weekNumber = selectedDate.weekOfYear - date.weekOfYear + 1
         }
+        if(segue == "weekSegue")
+        {
 
-        weekLabel.text = "Неделя \(weekNumber!),  \(dateInFormat)"
+            let animation = CABasicAnimation(keyPath: "transform.scale")
+            animation.toValue = NSNumber(value: 0.9)
+            animation.duration = 0.4
+            animation.repeatCount = 1
+            animation.autoreverses = true
+            self.weekLabel.layer.add(animation, forKey: nil)
+        }
+        self.weekLabel.text = "Неделя \(weekNumber!),  \(dateInFormat)"
+
+
         
-        
-        print(selectedDate.weekday)
+
         self.setAllButtonsGray()
          weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)
         self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
         self.label.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
-//        self.label.center.x = (weekdaysButtons?[(selectedDate.weekday - 2)].center.x)!
-//        self.label.center.y = (weekdaysButtons?[(selectedDate.weekday - 2)].frame.maxY)!
+
     }
     
     func setAllButtonsGray()
@@ -397,12 +418,14 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             button.setTitleColor(UIColor(red: 232/255, green: 232/255, blue: 232/255, alpha: 1.0), for: .normal)
         }
     }
+
+    //попробовать сделать всё через эту функцию
     func daysBetweenDates(_ startDate: Date, endDate: Date) -> Int
     {
         let calendar = Calendar.current
         
         let components = (calendar as NSCalendar).components([.day], from: startDate, to: endDate, options: [])
-        
+
         return components.day!
     }
 }

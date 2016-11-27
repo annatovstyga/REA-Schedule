@@ -3,13 +3,14 @@ import Alamofire
 import RealmSwift
 
 class LoginViewOneController: UIViewController {
+
     let realm = try! Realm()
     @IBOutlet weak var label_IT_lab: UILabel!
 
     @IBAction func studClick(_ sender: AnyObject) {
         fetchUnitsToRealm()
         self.performSegue(withIdentifier: "studLogin", sender: nil)
-        amistudent = true
+        amistudent = true //обновляем,т.к. храним в global
         UserDefaults.standard.set(true, forKey: "amistudent")
     }
 
@@ -22,13 +23,15 @@ class LoginViewOneController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    func fetchUnitsToRealm()
+
+    func fetchUnitsToRealm() //Получаем сразу все данные.Лучше всего в одном запросе всегда получать
     {
+
         try! self.realm.write {
             realm.deleteAll()
         }
+
         InternetManager.sharedInstance.getLectorsList({
             success in
             let groups = success["success"]["data"]
@@ -37,6 +40,7 @@ class LoginViewOneController: UIViewController {
                 let idLector   = item.1["ID"].int!
                 let nameLector = item.1["name"].string!
                 lectorsNamesList[nameLector] = idLector
+
                 let unitToAdd = Unit()
                 unitToAdd.name = nameLector
                 unitToAdd.ID = idLector
@@ -83,7 +87,7 @@ class LoginViewOneController: UIViewController {
     func showWarning() {
         let alertController = UIAlertController(title: "Connection error!", message:
             "При получении данных произошла проблема", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
     
