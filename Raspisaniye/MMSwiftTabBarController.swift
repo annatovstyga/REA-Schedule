@@ -160,23 +160,27 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     }
     
       @IBAction func RightButtonClick(_ sender: Any) {
-        func updateSchedule(itemID: Int,type:Int, successBlock: @escaping (Void) -> ()) {
-            var Who:String
-            if(type == 0)
-            {
-                Who = "group"
-            }else{
-                Who = "lector"
-            }
-            InternetManager.sharedInstance.getLessonsList(["who":Who as AnyObject,"id":itemID as AnyObject,"timestamp":0 as AnyObject], success: {
-                success in
-                jsonDataList = success
-                successBlock()
-            }, failure: {error in
-                print(error)
-            })
+        let refreshID = UserDefaults.standard.object(forKey: "subjectID")
+        let isType:Int?
+        let isstud: Bool = defaults.object(forKey: "amistudent") as? Bool ?? Bool()
+        if(isstud){
+            isType = 0
+        }else{
+            isType = 1
         }
-
+        DispatchQueue.main.async(execute: {
+            updateSchedule(itemID: refreshID as! Int,type:isType!, successBlock: {
+                successBlock in
+                DispatchQueue.main.async(execute: {
+                    parse(jsonDataList!,realmName:"default", successBlock: { (parsed) in
+//                        let aDelegate = UIApplication.shared.delegate
+//                        let mainVcIntial = kConstantObj.SetIntialMainViewController("mainTabBar")
+//                        aDelegate!.window?!.rootViewController = mainVcIntial
+//                        aDelegate!.window?!.makeKeyAndVisible()
+                    })
+                })
+            })
+        })
     }
     
     @IBAction func WedClick(_ sender: AnyObject) {

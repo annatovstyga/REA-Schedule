@@ -1,8 +1,14 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
-<<<<<<< HEAD
-=======
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
 #endif
->>>>>>> master
+#endif
+#endif
 
 
 FOUNDATION_EXPORT double Pods_RaspisaniyeVersionNumber;
