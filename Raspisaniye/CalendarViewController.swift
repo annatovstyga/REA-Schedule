@@ -18,8 +18,10 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var menuView: CVCalendarMenuView!
+    @IBOutlet var month_backward: UIButton!
+    @IBOutlet var month_forward: UIButton!
     var  selectedDate_: CVDate?
-    
+    var shouldShowDaysOut = true
     func presentationMode() -> CalendarMode {
         return CalendarMode.monthView
     }
@@ -33,12 +35,16 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         
         menuView.commitMenuViewUpdate()
         calendarView.commitCalendarViewUpdate()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
+    
         labelMonth.text = CVDate(date: NSDate() as Date).globalDescription
+        labelMonth.font = UIFont(name: "Helvetica Neue", size: 18)
+       
         
         calendarView.calendarAppearanceDelegate = self
         calendarView.animatorDelegate = self
@@ -46,9 +52,15 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         calendarView.calendarDelegate = self
         
     }
+    func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
+        return true
+    }
 
     var presentedDate:Date!
     var animationFinished = true
+    func dotMarker(colorOnDayView dayView: DayView) -> [UIColor]{
+        return [UIColor.black]
+    }
 
     func presentedDateUpdated(_ date: CVDate) {
         

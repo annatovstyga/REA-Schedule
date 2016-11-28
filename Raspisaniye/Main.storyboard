@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5b-5g-T73" id="iGi-hX-yIw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationMark" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-ry-ylI">
@@ -381,8 +381,8 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjW-Pf-JXm">
-                                        <rect key="frame" x="0.0" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Пн">
                                             <color key="titleColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -391,8 +391,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhe-sn-TKh">
-                                        <rect key="frame" x="100" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="100" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Вт">
                                             <color key="titleColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -401,8 +401,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDo-mC-B8j">
-                                        <rect key="frame" x="200" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="200" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Ср">
                                             <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -411,8 +411,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAz-2s-g5K">
-                                        <rect key="frame" x="400" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="400" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Пт">
                                             <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -421,8 +421,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z9-QE-YBw">
-                                        <rect key="frame" x="300" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="300" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Чт">
                                             <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -431,8 +431,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQs-Se-R3T">
-                                        <rect key="frame" x="500" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="500" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Сб">
                                             <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -541,8 +541,8 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неделя " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zyN-8s-SD7">
-                                        <rect key="frame" x="58" y="45.5" width="494" height="17"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="58" y="45.5" width="494" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -664,13 +664,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPp-eq-GqK">
-                                <rect key="frame" x="166.5" y="0.0" width="42" height="20.5"/>
+                                <rect key="frame" x="166" y="0.0" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDI-jk-Ace" customClass="CVCalendarView" customModule="CVCalendar">
-                                <rect key="frame" x="0.0" y="84" width="375" height="360"/>
+                                <rect key="frame" x="18" y="84" width="339" height="385"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="calendarAppearanceDelegate" destination="vR1-mL-ezb" id="q8b-DU-vRN"/>
@@ -678,22 +678,22 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1G-bR-8ft" customClass="CVCalendarMenuView" customModule="CVCalendar">
-                                <rect key="frame" x="0.0" y="31.5" width="375" height="44.5"/>
+                                <rect key="frame" x="14" y="29" width="347" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="l1G-bR-8ft" secondAttribute="bottom" constant="8" symbolic="YES" id="2kx-EE-J9h"/>
+                            <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="l1G-bR-8ft" secondAttribute="bottom" constant="7" id="2kx-EE-J9h"/>
                             <constraint firstItem="yPp-eq-GqK" firstAttribute="top" secondItem="UE1-JN-qq4" secondAttribute="top" id="4cf-Vm-nYW"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="UE1-JN-qq4" secondAttribute="leading" id="AnO-tr-zGW"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="UE1-JN-qq4" secondAttribute="leading" constant="14" id="AnO-tr-zGW"/>
                             <constraint firstItem="l1G-bR-8ft" firstAttribute="centerX" secondItem="yPp-eq-GqK" secondAttribute="centerX" id="Gwh-Pb-fcl"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="trailing" secondItem="yDI-jk-Ace" secondAttribute="trailing" id="IBU-Qf-nHt"/>
-                            <constraint firstAttribute="trailing" secondItem="l1G-bR-8ft" secondAttribute="trailing" id="Z5I-zG-Uhz"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="yDI-jk-Ace" secondAttribute="leading" id="bYW-D4-hhO"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="trailing" secondItem="yDI-jk-Ace" secondAttribute="trailing" constant="4" id="IBU-Qf-nHt"/>
+                            <constraint firstAttribute="trailing" secondItem="l1G-bR-8ft" secondAttribute="trailing" constant="14" id="Z5I-zG-Uhz"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="yDI-jk-Ace" secondAttribute="leading" constant="-4" id="bYW-D4-hhO"/>
                             <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="UE1-JN-qq4" secondAttribute="top" constant="84" id="iFl-WR-eJG"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="top" secondItem="yPp-eq-GqK" secondAttribute="bottom" constant="11" id="qPu-Yl-3po"/>
-                            <constraint firstItem="dni-zD-Y2d" firstAttribute="top" secondItem="yDI-jk-Ace" secondAttribute="bottom" constant="223" id="rVb-S9-1l5"/>
+                            <constraint firstItem="l1G-bR-8ft" firstAttribute="top" secondItem="yPp-eq-GqK" secondAttribute="bottom" constant="8.5" id="qPu-Yl-3po"/>
+                            <constraint firstItem="dni-zD-Y2d" firstAttribute="top" secondItem="yDI-jk-Ace" secondAttribute="bottom" constant="198" id="rVb-S9-1l5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -705,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSw-Il-Alt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-350" y="1101"/>
+            <point key="canvasLocation" x="-351.19999999999999" y="1100.5997001499252"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="B19-6U-vOY">
@@ -824,37 +824,37 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отмена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG1-x6-TQ7">
-                                            <rect key="frame" x="59.5" y="11.5" width="60.5" height="19.5"/>
+                                            <rect key="frame" x="60" y="11" width="61" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.30980392159999998" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.02.16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZb-am-wdk">
-                                            <rect key="frame" x="140" y="11.5" width="62.5" height="19.5"/>
+                                            <rect key="frame" x="141" y="11" width="63" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.30980392159999998" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:40 - 13:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAT-bZ-iQt">
-                                            <rect key="frame" x="23" y="34.5" width="95" height="19"/>
+                                            <rect key="frame" x="23" y="35" width="95" height="19"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ауд 315 (Нежинская, к 2)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHU-09-kpY">
-                                            <rect key="frame" x="140" y="37" width="139.5" height="14"/>
+                                            <rect key="frame" x="141" y="37" width="140" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Основы объектно-ориентированного программирования" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="none" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-3v-L1v">
-                                            <rect key="frame" x="23" y="63.5" width="337" height="19.5"/>
+                                            <rect key="frame" x="23" y="54.5" width="337" height="38.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Семинар | 12-16 недели | Ежак С.С." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-ZV-VQW">
-                                            <rect key="frame" x="23" y="101.5" width="352" height="14"/>
+                                            <rect key="frame" x="23" y="102" width="352" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="6vz-Tj-6tv"/>
                                             </constraints>
@@ -868,7 +868,7 @@
                                             </variation>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RunningMan" translatesAutoresizingMaskIntoConstraints="NO" id="o8k-ZJ-GWr">
-                                            <rect key="frame" x="23" y="13" width="16.5" height="16.5"/>
+                                            <rect key="frame" x="23" y="13" width="17" height="17"/>
                                             <color key="tintColor" red="0.0" green="0.30980392159999998" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="5aM-K4-T4z"/>
@@ -987,7 +987,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет изменений в расписании" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Ss-ZMb">
-                                            <rect key="frame" x="105.5" y="72" width="172.5" height="15.5"/>
+                                            <rect key="frame" x="105" y="72" width="173" height="16"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1571,7 +1571,7 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Sye-4k-cqK"/>
-        <segue reference="ro2-3d-P1B"/>
         <segue reference="wsd-Qu-EgG"/>
+        <segue reference="auB-oj-82V"/>
     </inferredMetricsTieBreakers>
 </document>

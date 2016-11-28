@@ -42,6 +42,7 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
         super.viewDidLoad()
         textField.delegate = self
         textField.autocorrectionType = .no
+      
         menuItems?.addLabel()
         group_name.text = defaults.value(forKey: "subjectName") as? String
     }
@@ -145,6 +146,7 @@ extension MenuViewController: AutocompleteDelegate {
     func didSelectItem(_ item: AutocompletableOption) {
         
         self.textField.text = item.text
+        
         view.endEditing(true)
         let realm = try! Realm()
         let predicate = NSPredicate(format: "name = %@",self.textField.text!)
@@ -162,6 +164,7 @@ extension MenuViewController: AutocompleteDelegate {
                     })
                 })
             })
+            self.textField.text = ""
             
         }else{
             showWarning()

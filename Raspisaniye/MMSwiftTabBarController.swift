@@ -380,10 +380,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             animation.autoreverses = true
             self.weekLabel.layer.add(animation, forKey: nil)
         }
-        self.weekLabel.text = "Неделя \(weekNumber!),  \(dateInFormat)"
-
-
-        
+        self.weekLabel.text = " \(dateInFormat) | \(weekNumber!) неделя"
 
         self.setAllButtonsGray()
          weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)
