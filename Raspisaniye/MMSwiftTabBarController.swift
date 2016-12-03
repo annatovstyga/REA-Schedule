@@ -252,22 +252,64 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
     
     // MARK: Rotate weeks
     
-    func rotateWeekForward(_ sender: UIScreenEdgePanGestureRecognizer) {
-        if sender.state == .ended && !self.isCalendar
-        {
-            selectedDate = selectedDate + 1.weeks
-
-            updateRealmDay(segue: "weekSegue")
-        }
-    }
-    
-    func rotateWeekBackward(_ sender: UIScreenEdgePanGestureRecognizer) {
+//    func rotateWeekForward(_ sender: UIScreenEdgePanGestureRecognizer) {
+//        if sender.state == .ended && !self.isCalendar
+//        {
+//            selectedDate = selectedDate + 1.weeks
+//
+//            updateRealmDay(segue: "weekSegue")
+//        }
+//    }
+//    
+//    func rotateWeekBackward(_ sender: UIScreenEdgePanGestureRecognizer) {
+//        if sender.state == .ended && !self.isCalendar {
+//            selectedDate = selectedDate - 1.weeks
+//            updateRealmDay(segue: "weekSegue")
+//        }
+//    }
+    func rotateWeekForward(_ sender: UIScreenEdgePanGestureRecognizer){
+        
         if sender.state == .ended && !self.isCalendar {
-            selectedDate = selectedDate - 1.weeks
-            updateRealmDay(segue: "weekSegue")
+            
+            if self.selectedDate.weekday < 7 {
+                
+                selectedDate = selectedDate + 1.day
+                updateRealmDay(segue: "mainSegue")
+            } else {
+                
+            let weekday = self.selectedDate.weekday
+            let toMinus = weekday - 2
+            let plusWeek = selectedDate + 1.weeks
+                
+                selectedDate = plusWeek - toMinus.days
+                updateRealmDay(segue: "weekSegue")
+            }
         }
     }
     
+    func rotateWeekBackward ( _ sender: UIScreenEdgePanGestureRecognizer){
+        
+        if sender.state == .ended && !self.isCalendar {
+            if self.selectedDate.weekday > 2{
+                selectedDate = selectedDate - 1.day
+                updateRealmDay(segue: "mainSegue")
+            
+             
+               
+
+            }else {
+                let weekday = self.selectedDate.weekday
+                let minusWeek = selectedDate - 1.weeks
+                print("monty\(selectedDate - 1.weeks)")
+                let toPlusDay = weekday + 3
+                
+                selectedDate  = minusWeek + toPlusDay.days
+                print("lala\(minusWeek + toPlusDay.days)")
+                updateRealmDay(segue: "weekSegue")
+
+            }
+        }
+    }
     // MARK: Supporting methods
     
     override var shouldAutorotate : Bool {

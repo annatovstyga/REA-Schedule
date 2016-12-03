@@ -107,6 +107,13 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     func shouldAutoSelectDayOnMonthChange() -> Bool {
        return false
     }
+    func shouldAutoSelectDayOnWeekChange() -> Bool {
+        return true
+    }
+    func shouldShowWeekdaysOut() -> Bool {
+        return shouldShowDaysOut
+    }
+
 
     
     func togglePresentedDate(date: NSDate) {
@@ -118,18 +125,22 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
     
     func didSelectDayView(_ dayView: DayView, animationDidFinish: Bool) {
         debugPrint()
+       
         let VC = sideMenuVC.menuViewController as! MenuViewController
         let menuItems = VC.menuItems
         menuItems?.updateLabelPosition((menuItems?.weekButton)!)
         let dateInReg = DateInRegion(absoluteDate: dayView.date.convertedDate()!)
         self.selectedDate = dateInReg
+        print("select\(self.selectedDate )")
         let dsVC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
+       
         if(self.selectedDate.weekday == 1) //To identify monday correctly
         {
             self.selectedDate = self.selectedDate + 1.days
         }
 
         dsVC.selectedDate = self.selectedDate
+      print("update\(dsVC.updateRealmDay)")
         dsVC.updateRealmDay(segue:"mainSegue")
 
     }
