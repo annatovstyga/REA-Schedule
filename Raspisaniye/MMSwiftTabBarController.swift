@@ -300,11 +300,9 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             }else {
                 let weekday = self.selectedDate.weekday
                 let minusWeek = selectedDate - 1.weeks
-                print("monty\(selectedDate - 1.weeks)")
                 let toPlusDay = weekday + 3
                 
                 selectedDate  = minusWeek + toPlusDay.days
-                print("lala\(minusWeek + toPlusDay.days)")
                 updateRealmDay(segue: "weekSegue")
 
             }
@@ -423,6 +421,7 @@ class MMSwiftTabBarController: UIViewController,UITextFieldDelegate{
             self.weekLabel.layer.add(animation, forKey: nil)
         }
         self.weekLabel.text = " \(dateInFormat) | \(weekNumber!) неделя"
+
 
         self.setAllButtonsGray()
          weekdaysButtons?[(selectedDate.weekday - 2)].setTitleColor(UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0), for: .normal)

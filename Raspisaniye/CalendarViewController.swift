@@ -7,129 +7,42 @@
 //
 
 import UIKit
-import CVCalendar
+import FSCalendar
 import SwiftDate
 
 
-class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalendarMenuViewDelegate{
-
+class CalendarViewController: UIViewController,FSCalendarDataSource,FSCalendarDelegate{
+    
+@IBOutlet weak var calendar: FSCalendar!
     var selectedDate = DateInRegion()
     
-    @IBOutlet weak var labelMonth: UILabel!
-    @IBOutlet weak var calendarView: CVCalendarView!
-    @IBOutlet weak var menuView: CVCalendarMenuView!
-    @IBOutlet var month_backward: UIButton!
-    @IBOutlet var month_forward: UIButton!
-    var  selectedDate_: CVDate?
-    var shouldShowDaysOut = true
-    func presentationMode() -> CalendarMode {
-        return CalendarMode.monthView
-    }
-    
-    func firstWeekday() -> Weekday {
-        return Weekday.monday
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func loadView() {
         
-        menuView.commitMenuViewUpdate()
-        calendarView.commitCalendarViewUpdate()
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = UIColor.groupTableViewBackground
+        self.view = view
         
+        let calendar = FSCalendar(frame: CGRect(x: 0, y: -30, width: self.view.bounds.width, height: 300))
+        calendar.dataSource = self
+        calendar.delegate = self
+        calendar.backgroundColor = UIColor.white
+        calendar.scopeGesture.isEnabled = true
+        self.view.addSubview(calendar)
+        calendar.firstWeekday = 2;
+        
+        calendar.locale = Locale(identifier: "ru")
+        calendar.appearance.headerTitleColor = UIColor.black
+        calendar.appearance.weekdayTextColor = UIColor.black
+        calendar.appearance.weekdayFont = UIFont(name: "Helvetica Neue", size: 10)
+        calendar.appearance.headerMinimumDissolvedAlpha = 0.0
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.layoutIfNeeded()
-    
-        labelMonth.text = CVDate(date: NSDate() as Date).globalDescription
-        labelMonth.font = UIFont(name: "Helvetica Neue", size: 18)
-       
-        
-        calendarView.calendarAppearanceDelegate = self
-        calendarView.animatorDelegate = self
-        menuView.menuViewDelegate = self
-        calendarView.calendarDelegate = self
-        
-    }
-    func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
-        return true
-    }
-
-    var presentedDate:Date!
-    var animationFinished = true
-    func dotMarker(colorOnDayView dayView: DayView) -> [UIColor]{
-        return [UIColor.black]
-    }
-
-    func presentedDateUpdated(_ date: CVDate) {
-        
-        if labelMonth.text != date.globalDescription && self.animationFinished {
-            let updatedMonthLabel = UILabel()
-            
-            updatedMonthLabel.textColor = labelMonth.textColor
-            updatedMonthLabel.font = labelMonth.font
-            updatedMonthLabel.text = date.globalDescription
-            updatedMonthLabel.sizeToFit()
-            updatedMonthLabel.alpha = 0
-            updatedMonthLabel.center = self.labelMonth.center
-            
-            let offset = CGFloat(48)
-            updatedMonthLabel.transform = CGAffineTransform(translationX: 0, y: offset)
-            updatedMonthLabel.transform = CGAffineTransform(scaleX: 1, y: 0.1)
-    
-    UIView.animate(withDuration: 0.35, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            
-            self.animationFinished = false
-            self.labelMonth.transform = CGAffineTransform(translationX: 0, y: -offset)
-            self.labelMonth.transform = CGAffineTransform(scaleX: 1, y: 0.1)
-            self.labelMonth.transform = CGAffineTransform(scaleX: 1, y: 0.1)
-            self.labelMonth.alpha = 0
-                
-                updatedMonthLabel.alpha = 1
-                updatedMonthLabel.transform = CGAffineTransform.identity
-                
-            }) { _ in
-                
-            self.animationFinished = true
-            self.labelMonth.frame = updatedMonthLabel.frame
-            self.labelMonth.text = updatedMonthLabel.text
-            self.labelMonth.transform = CGAffineTransform.identity
-            self.labelMonth.alpha = 1
-                updatedMonthLabel.removeFromSuperview()
-            }
-            
-            self.view.insertSubview(updatedMonthLabel, aboveSubview: self.labelMonth)
-        }
-    }
-   
-
-    func shouldAutoSelectDayOnMonthChange() -> Bool {
-       return false
-    }
-    func shouldAutoSelectDayOnWeekChange() -> Bool {
-        return true
-    }
-    func shouldShowWeekdaysOut() -> Bool {
-        return shouldShowDaysOut
-    }
-
-
-    
-    func togglePresentedDate(date: NSDate) {
-        guard selectedDate_ == calendarView.coordinator.selectedDayView?.date else {
-                return
-        }
-        
-    }
-    
-    func didSelectDayView(_ dayView: DayView, animationDidFinish: Bool) {
-        debugPrint()
-       
+    func calendar(_ calendar: FSCalendar, didSelect date: Date) {
+              debugPrint()
         let VC = sideMenuVC.menuViewController as! MenuViewController
         let menuItems = VC.menuItems
         menuItems?.updateLabelPosition((menuItems?.weekButton)!)
-        let dateInReg = DateInRegion(absoluteDate: dayView.date.convertedDate()!)
+        let dateInReg = DateInRegion(absoluteDate: date)
         self.selectedDate = dateInReg
         print("select\(self.selectedDate )")
         let dsVC = sideMenuVC.mainViewController?.childViewControllers.first as! MMSwiftTabBarController
@@ -144,5 +57,15 @@ class CalendarViewController: UIViewController,CVCalendarViewDelegate, CVCalenda
         dsVC.updateRealmDay(segue:"mainSegue")
 
     }
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.layoutIfNeeded()
+
+    }
+
+    
+
 }
 
