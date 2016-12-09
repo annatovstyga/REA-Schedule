@@ -18,7 +18,7 @@ public final class CVCalendarMenuView: UIView {
     public var dayOfWeekTextColor: UIColor? = .darkGray
     public var dayofWeekBackgroundColor: UIColor? = .clear
     public var dayOfWeekTextUppercase: Bool? = true
-    public var dayOfWeekFont: UIFont? = UIFont(name: "Avenir", size: 10)
+    public var dayOfWeekFont: UIFont? = UIFont(name: "Helvetica Neue", size: 10)
     public var weekdaySymbolType: WeekdaySymbolType? = .short
 
     @IBOutlet public weak var menuViewDelegate: AnyObject? {
@@ -75,6 +75,7 @@ public final class CVCalendarMenuView: UIView {
     public func createDaySymbols() {
         // Change symbols with their places if needed.
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru")
         var weekdays: NSArray
 
         switch weekdaySymbolType! {

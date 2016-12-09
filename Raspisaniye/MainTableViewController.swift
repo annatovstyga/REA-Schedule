@@ -44,6 +44,8 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
+       
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,10 +79,14 @@ class MainTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! CustomTableViewCell
 
+  
+    tableView.separatorColor = UIColor(red: 232/255, green: 232/255, blue: 232/255, alpha: 1.0)
+            
             cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
-
+            cell.titleCell.adjustsFontSizeToFitWidth = true
             if sortedLessons?[indexPath.item].discipline != nil {
                 cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
+                
 
                 } else {
                 cell.titleCell?.text = ""

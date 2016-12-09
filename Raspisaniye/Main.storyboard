@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
-    <device id="retina4_0" orientation="portrait">
+
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XIP-Z3-xvl">
+    <device id="retina4_7" orientation="portrait">
+
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -381,8 +383,8 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjW-Pf-JXm">
-                                        <rect key="frame" x="0.0" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Пн">
                                             <color key="titleColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -391,8 +393,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhe-sn-TKh">
-                                        <rect key="frame" x="100" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="100" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Вт">
                                             <color key="titleColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -400,9 +402,21 @@
                                             <action selector="TueClick:" destination="bPA-nv-JkJ" eventType="touchUpInside" id="OMh-X4-oTz"/>
                                         </connections>
                                     </button>
+
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDo-mC-B8j">
+                                        <rect key="frame" x="200" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                        <state key="normal" title="Ср">
+                                            <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="WedClick:" destination="bPA-nv-JkJ" eventType="touchUpInside" id="0J9-Lv-d8d"/>
+                                        </connections>
+                                    </button>
+
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAz-2s-g5K">
-                                        <rect key="frame" x="400" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="400" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Пт">
                                             <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -411,8 +425,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z9-QE-YBw">
-                                        <rect key="frame" x="300" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="300" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Чт">
                                             <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -421,8 +435,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQs-Se-R3T">
-                                        <rect key="frame" x="500" y="2" width="100" height="29"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <rect key="frame" x="500" y="6" width="100" height="25"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Сб">
                                             <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -524,8 +538,11 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неделя " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zyN-8s-SD7">
-                                        <rect key="frame" x="58" y="44.5" width="494" height="17"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+
+                                        <rect key="frame" x="58" y="45.5" width="494" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+
+
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -662,7 +679,7 @@
             </objects>
             <point key="canvasLocation" x="-1408.125" y="230.28169014084509"/>
         </scene>
-        <!--Calendar Appearance Delegate-->
+        <!--Data Source-->
         <scene sceneID="5BZ-7D-eTx">
             <objects>
                 <viewController storyboardIdentifier="CalendarViewControllerID" id="vR1-mL-ezb" customClass="CalendarViewController" customModule="Raspisaniye" customModuleProvider="target" sceneMemberID="viewController">
@@ -674,49 +691,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPp-eq-GqK">
-                                <rect key="frame" x="139" y="0.0" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDI-jk-Ace" customClass="CVCalendarView" customModule="CVCalendar">
-                                <rect key="frame" x="0.0" y="84" width="320" height="261"/>
+
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tuk-Fh-60k" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="134" width="375" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+
+
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.081153124549999997" green="0.55629049590000001" blue="0.8097956731" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todaySelectionColor">
+                                        <color key="value" red="0.081153124549999997" green="0.55629049590000001" blue="0.8097956731" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" red="0.081153124549999997" green="0.55629049590000001" blue="0.8097956731" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="calendarAppearanceDelegate" destination="vR1-mL-ezb" id="q8b-DU-vRN"/>
-                                    <outlet property="calendarDelegate" destination="vR1-mL-ezb" id="YIW-JJ-q2Q"/>
+                                    <outlet property="dataSource" destination="vR1-mL-ezb" id="i2M-yZ-ZR0"/>
+                                    <outlet property="delegate" destination="vR1-mL-ezb" id="2SN-Ux-kXF"/>
                                 </connections>
                             </view>
+
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1G-bR-8ft" customClass="CVCalendarMenuView" customModule="CVCalendar">
                                 <rect key="frame" x="0.0" y="31.5" width="320" height="44.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="l1G-bR-8ft" secondAttribute="bottom" constant="8" symbolic="YES" id="2kx-EE-J9h"/>
-                            <constraint firstItem="yPp-eq-GqK" firstAttribute="top" secondItem="UE1-JN-qq4" secondAttribute="top" id="4cf-Vm-nYW"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="UE1-JN-qq4" secondAttribute="leading" id="AnO-tr-zGW"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="centerX" secondItem="yPp-eq-GqK" secondAttribute="centerX" id="Gwh-Pb-fcl"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="trailing" secondItem="yDI-jk-Ace" secondAttribute="trailing" id="IBU-Qf-nHt"/>
-                            <constraint firstAttribute="trailing" secondItem="l1G-bR-8ft" secondAttribute="trailing" id="Z5I-zG-Uhz"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="leading" secondItem="yDI-jk-Ace" secondAttribute="leading" id="bYW-D4-hhO"/>
-                            <constraint firstItem="yDI-jk-Ace" firstAttribute="top" secondItem="UE1-JN-qq4" secondAttribute="top" constant="84" id="iFl-WR-eJG"/>
-                            <constraint firstItem="l1G-bR-8ft" firstAttribute="top" secondItem="yPp-eq-GqK" secondAttribute="bottom" constant="11" id="qPu-Yl-3po"/>
-                            <constraint firstItem="dni-zD-Y2d" firstAttribute="top" secondItem="yDI-jk-Ace" secondAttribute="bottom" constant="223" id="rVb-S9-1l5"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="calendarView" destination="yDI-jk-Ace" id="Yhi-Zf-Kxh"/>
-                        <outlet property="labelMonth" destination="yPp-eq-GqK" id="WS4-Gh-Vla"/>
-                        <outlet property="menuView" destination="l1G-bR-8ft" id="NoZ-gj-wu4"/>
                         <segue destination="bPA-nv-JkJ" kind="show" identifier="trySegue" id="auB-oj-82V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSw-Il-Alt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-350" y="1101"/>
+            <point key="canvasLocation" x="-351.19999999999999" y="1100.5997001499252"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="B19-6U-vOY">
@@ -859,13 +872,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Основы объектно-ориентированного программирования" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="none" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-3v-L1v">
-                                            <rect key="frame" x="23" y="63.5" width="282" height="19.5"/>
+
+                                            <rect key="frame" x="23" y="54.5" width="337" height="38.5"/>
+
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Семинар | 12-16 недели | Ежак С.С." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-ZV-VQW">
-                                            <rect key="frame" x="23" y="101.5" width="297" height="14"/>
+
+                                            <rect key="frame" x="23" y="102" width="352" height="14"/>
+
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="6vz-Tj-6tv"/>
                                             </constraints>
@@ -949,12 +966,12 @@
                                             <exclude reference="8Ow-b8-S9A"/>
                                             <exclude reference="d9v-Wv-kQO"/>
                                             <exclude reference="6hU-Rj-1Pc"/>
-                                            <exclude reference="ygU-bd-HLN"/>
                                             <exclude reference="6Fg-pl-0cb"/>
                                             <exclude reference="XlT-I2-p6U"/>
                                             <exclude reference="gdw-fI-R35"/>
                                             <exclude reference="onw-tb-R0q"/>
                                             <exclude reference="wab-sg-3aZ"/>
+                                            <exclude reference="ygU-bd-HLN"/>
                                             <exclude reference="qfF-RC-Cg0"/>
                                             <exclude reference="N0S-SC-X0u"/>
                                             <exclude reference="6ze-0N-gsT"/>
@@ -966,11 +983,11 @@
                                             <include reference="8Ow-b8-S9A"/>
                                             <include reference="d9v-Wv-kQO"/>
                                             <include reference="6hU-Rj-1Pc"/>
-                                            <include reference="ygU-bd-HLN"/>
                                             <include reference="6Fg-pl-0cb"/>
                                             <exclude reference="XlT-I2-p6U"/>
                                             <include reference="gdw-fI-R35"/>
                                             <exclude reference="wab-sg-3aZ"/>
+                                            <include reference="ygU-bd-HLN"/>
                                             <exclude reference="qfF-RC-Cg0"/>
                                             <include reference="N0S-SC-X0u"/>
                                             <include reference="6ze-0N-gsT"/>
@@ -998,7 +1015,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет изменений в расписании" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-Ss-ZMb">
-                                            <rect key="frame" x="78" y="72" width="172.5" height="15.5"/>
+
+                                            <rect key="frame" x="105" y="72" width="173" height="16"/>
+
+                                            
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1584,7 +1604,7 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Sye-4k-cqK"/>
-        <segue reference="ro2-3d-P1B"/>
         <segue reference="wsd-Qu-EgG"/>
+        <segue reference="auB-oj-82V"/>
     </inferredMetricsTieBreakers>
 </document>

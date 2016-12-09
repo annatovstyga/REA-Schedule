@@ -21,6 +21,7 @@ public final class CVCalendarDayView: UIView {
     public var dotMarkers = [CVAuxiliaryView?]()
 
     public var isOut = false
+    
     public var isCurrentDay = false
     public var isDisabled: Bool { return !self.isUserInteractionEnabled }
 
@@ -236,7 +237,7 @@ extension CVCalendarDayView {
                 let appearance = self.calendarView.appearance
                 let height = CGFloat(0.5)
                 let layer = CALayer()
-                layer.borderColor = (appearance?.delegate?.topMarkerColor?() ?? .gray).cgColor
+                layer.borderColor = UIColor(red: 232/255, green: 232/255, blue: 232/255, alpha: 1.0).cgColor
                 layer.borderWidth = height
                 layer.frame = CGRect(x: 0, y: 1, width: self.frame.width, height: height)
 
@@ -539,6 +540,8 @@ extension CVCalendarDayView {
                 color = appearance.dayLabelPresentWeekdayTextColor
             } else {
                 color = appearance.dayLabelWeekdayInTextColor
+                
+
             }
 
             var font: UIFont?

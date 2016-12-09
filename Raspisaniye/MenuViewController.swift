@@ -42,6 +42,7 @@ class MenuViewController: UIViewController ,UITextFieldDelegate {
         super.viewDidLoad()
         textField.delegate = self
         textField.autocorrectionType = .no
+      
         menuItems?.addLabel()
         group_name.text = defaults.value(forKey: "subjectName") as? String
     }
@@ -167,6 +168,8 @@ extension MenuViewController: AutocompleteDelegate {
                 })
             })
 
+            self.textField.text = ""
+            
         }else{
             showWarning()
         }

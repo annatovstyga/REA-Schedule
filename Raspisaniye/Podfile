@@ -9,6 +9,7 @@ pod 'Alamofire', '~> 4.0'
 pod 'SwiftyJSON'
 pod 'SwiftSpinner'
 pod 'CVCalendar’, '~> 1.4.0'
+pod ‘FSCalendar’
 pod 'SwiftDate'
 pod 'CCAutocomplete', :git => 'https://github.com/cjcoax/Autocomplete'
 
