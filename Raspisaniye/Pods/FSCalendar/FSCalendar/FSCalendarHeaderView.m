@@ -136,6 +136,7 @@
     cell.titleLabel.font = _appearance.preferredHeaderTitleFont;
     cell.titleLabel.textColor = _appearance.headerTitleColor;
     _calendar.formatter.dateFormat = _appearance.headerDateFormat;
+
     BOOL usesUpperCase = (_appearance.caseOptions & 15) == FSCalendarCaseOptionsHeaderUsesUpperCase;
     NSString *text = nil;
     switch (self.calendar.scope) {
@@ -144,16 +145,67 @@
                 // 多出的两项需要制空
                 if ((indexPath.item == 0 || indexPath.item == [collectionView numberOfItemsInSection:0] - 1)) {
                     text = nil;
+
                 } else {
                     NSDate *date = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitMonth value:indexPath.item-1 toDate:self.calendar.minimumDate options:0];
                     text = [_calendar.formatter stringFromDate:date];
+                    if ([text  hasPrefix:@"ноя"]) {
+                        text  = @"Ноябрь";
+                    }    else
+                        if ([text  hasPrefix:@"дек"]) {
+                            text = @"Декабрь";
+                        } else
+                            if ([text  hasPrefix:@"янв"]) {
+                                text = @"Январь";
+                            }
+                            else
+                                if ([text  hasPrefix:@"фев"]) {
+                                    text = @"Февраль";
+                                }
+                                else
+                                    if ([text  hasPrefix:@"мар"]) {
+                                        text = @"Март";
+                                    }
+                                    else
+                                        if ([text  hasPrefix:@"апр"]) {
+                                            text = @"Апрель";
+                                        }
+                                        else
+                                            if ([text  hasPrefix:@"мая"]) {
+                                                text = @"Май";
+                                            }
+                                            else
+                                                if ([text  hasPrefix:@"июн"]) {
+                                                    text = @"Июнь";
+                                                }
+                                                else
+                                                    if ([text  hasPrefix:@"июл"]) {
+                                                        text = @"Июль";
+                                                    }
+                                                    else
+                                                        if ([text  hasPrefix:@"авг"]) {
+                                                            text = @"Август";
+                                                        }
+                                                        else
+                                                            if ([text  hasPrefix:@"сен"]) {
+                                                                text = @"Сентябрь";
+                                                            }
+                                                            else
+                                                                if ([text  hasPrefix:@"окт"]) {
+                                                                    text = @"Октябрь";
+                                                                }
+
+
                 }
             } else {
                 NSDate *date = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitMonth value:indexPath.item toDate:self.calendar.minimumDate options:0];
                 text = [_calendar.formatter stringFromDate:date];
+
             }
             break;
+            
         }
+
         case FSCalendarScopeWeek: {
             if ((indexPath.item == 0 || indexPath.item == [collectionView numberOfItemsInSection:0] - 1)) {
                 text = nil;

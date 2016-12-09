@@ -83,9 +83,10 @@ class MainTableViewController: UITableViewController {
     tableView.separatorColor = UIColor(red: 232/255, green: 232/255, blue: 232/255, alpha: 1.0)
             
             cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
-            
+            cell.titleCell.adjustsFontSizeToFitWidth = true
             if sortedLessons?[indexPath.item].discipline != nil {
                 cell.titleCell?.text = sortedLessons?[indexPath.item].discipline
+                
                 
                 } else {
                 cell.titleCell?.text = ""

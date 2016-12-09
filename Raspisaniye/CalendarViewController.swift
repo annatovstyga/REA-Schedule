@@ -14,6 +14,7 @@ import SwiftDate
 class CalendarViewController: UIViewController,FSCalendarDataSource,FSCalendarDelegate{
     
 @IBOutlet weak var calendar: FSCalendar!
+
     var selectedDate = DateInRegion()
     
     override func loadView() {
@@ -22,20 +23,30 @@ class CalendarViewController: UIViewController,FSCalendarDataSource,FSCalendarDe
         view.backgroundColor = UIColor.groupTableViewBackground
         self.view = view
         
-        let calendar = FSCalendar(frame: CGRect(x: 0, y: -30, width: self.view.bounds.width, height: 300))
+        let calendar = FSCalendar(frame: CGRect(x: 0, y: -30, width: self.view.bounds.width, height: 400))
+      
         calendar.dataSource = self
         calendar.delegate = self
         calendar.backgroundColor = UIColor.white
         calendar.scopeGesture.isEnabled = true
         self.view.addSubview(calendar)
+
         calendar.firstWeekday = 2;
-        
         calendar.locale = Locale(identifier: "ru")
+        calendar.appearance.weekdayFont = UIFont(name: "Helvetica Neue", size: 11)
+        
+
         calendar.appearance.headerTitleColor = UIColor.black
-        calendar.appearance.weekdayTextColor = UIColor.black
-        calendar.appearance.weekdayFont = UIFont(name: "Helvetica Neue", size: 10)
+        calendar.appearance.todayColor = UIColor.lightGray
+        calendar.appearance.weekdayTextColor = UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0)
+       
+//        calendar.appearance.weekdayFont = UIFont(name: "Helvetica Neue", size: 5)
+      
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
-    }
+
+       
+   }
+    
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date) {
               debugPrint()
@@ -58,7 +69,7 @@ class CalendarViewController: UIViewController,FSCalendarDataSource,FSCalendarDe
 
     }
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()

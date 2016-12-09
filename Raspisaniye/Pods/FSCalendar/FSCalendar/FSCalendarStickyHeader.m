@@ -121,11 +121,14 @@
 - (void)setMonth:(NSDate *)month
 {
     _month = month;
+    
     _calendar.formatter.dateFormat = _appearance.headerDateFormat;
     BOOL usesUpperCase = (_appearance.caseOptions & 15) == FSCalendarCaseOptionsHeaderUsesUpperCase;
     NSString *text = [_calendar.formatter stringFromDate:_month];
     text = usesUpperCase ? text.uppercaseString : text;
+
     self.titleLabel.text = text;
+
 }
 
 - (void)reloadData

@@ -120,6 +120,11 @@
     if (self.contentView.hidden) return;
     
     _titleLabel.text = self.title ?: @([self.calendar.gregorian component:NSCalendarUnitDay fromDate:_date]).stringValue;
+    if ([ _titleLabel.text isEqualToString:@"декабря"]){
+         _titleLabel.text = @"Januari";
+    }
+
+
     if (_subtitle) {
         _subtitleLabel.text = _subtitle;
         if (_subtitleLabel.hidden) {
