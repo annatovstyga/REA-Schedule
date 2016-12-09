@@ -17,11 +17,14 @@ class CalendarViewController: UIViewController,FSCalendarDataSource,FSCalendarDe
 
     var selectedDate = DateInRegion()
     
+
     override func loadView() {
         
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor.groupTableViewBackground
         self.view = view
+
+  
         
         let calendar = FSCalendar(frame: CGRect(x: 0, y: -30, width: self.view.bounds.width, height: 400))
       
@@ -34,8 +37,7 @@ class CalendarViewController: UIViewController,FSCalendarDataSource,FSCalendarDe
         calendar.firstWeekday = 2;
         calendar.locale = Locale(identifier: "ru")
         calendar.appearance.weekdayFont = UIFont(name: "Helvetica Neue", size: 11)
-        
-
+    
         calendar.appearance.headerTitleColor = UIColor.black
         calendar.appearance.todayColor = UIColor.lightGray
         calendar.appearance.weekdayTextColor = UIColor(red: 100/255, green: 100/255, blue:100/255, alpha: 1.0)
