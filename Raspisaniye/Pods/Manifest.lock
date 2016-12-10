@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
   - CCAutocomplete (0.0.4)
-  - CVCalendar (1.4.0)
   - FSCalendar (2.5.0)
   - SwiftDate (4.0.7)
   - SwiftSpinner (1.0.2)
@@ -10,7 +9,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - CCAutocomplete (from `https://github.com/cjcoax/Autocomplete`)
-  - CVCalendar (~> 1.4.0)
   - FSCalendar
   - SwiftDate
   - SwiftSpinner
@@ -28,12 +26,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   CCAutocomplete: 7e54cab43d10eb9e5385d5b3409e9dee0b7af714
-  CVCalendar: ec1a06a508f99d8e5067258754f811a8a1433a3f
   FSCalendar: eacc1e0086e8784b395731595033d84ccc13a217
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   SwiftSpinner: 1c80ff6ea1c47e2faa1dfce0fcd5e6b39a47fd51
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: c2e83bbd0a41b2c8a077595fc4ca80f87c26c162
+PODFILE CHECKSUM: 6b2194d152d1c84e89d225ad95c2ddc706b60d68
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.1.1
